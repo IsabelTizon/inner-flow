@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
-import { useState } from "react";
+import useToggle from "../../hooks/useToggle";
 
 export default function Navbar() {
-	const [menuOpen, setMenuOpen] = useState(false);
-
+	const [isOpen, toggle] = useToggle();
 	return (
 		<nav className={styles.navbar}>
 			<div>
@@ -19,16 +18,13 @@ export default function Navbar() {
 				</Link>
 			</div>
 			{/* Burger */}
-			<button
-				className={styles.burger}
-				onClick={() => setMenuOpen((curr) => !curr)}
-			>
+			<button className={styles.burger} onClick={toggle}>
 				☰
 			</button>
 			{/* Menu */}
 			<ul
 				className={`${styles.navItems} ${
-					menuOpen ? styles.showMenu : ""
+					isOpen ? styles.showMenu : ""
 				}`}
 			>
 				<li className={styles.navItem}>
