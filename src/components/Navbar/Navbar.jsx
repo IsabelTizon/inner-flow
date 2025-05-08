@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
+import { useState } from "react";
 
 export default function Navbar() {
+	const [menuOpen, setMenuOpen] = useState(false);
+
 	return (
 		<nav className={styles.navbar}>
 			<div>
+				{/* Logo */}
 				<Link to="/">
 					<img
 						className={styles.logo}
@@ -14,7 +18,19 @@ export default function Navbar() {
 					/>
 				</Link>
 			</div>
-			<ul className={styles.navItems}>
+			{/* Burger */}
+			<button
+				className={styles.burger}
+				onClick={() => setMenuOpen((curr) => !curr)}
+			>
+				☰
+			</button>
+			{/* Menu */}
+			<ul
+				className={`${styles.navItems} ${
+					menuOpen ? styles.showMenu : ""
+				}`}
+			>
 				<li className={styles.navItem}>
 					<Link className={styles.navLink} to="/">
 						Yoga
