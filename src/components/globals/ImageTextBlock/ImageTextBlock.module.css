@@ -9,6 +9,9 @@
 h2 {
 	font-size: 2.5rem;
 }
+h3 {
+	font-size: 1.6rem;
+}
 .titleContainer {
 	display: flex;
 	justify-content: center;
@@ -28,8 +31,7 @@ h2 {
 	border-radius: 0.5rem;
 	object-fit: cover;
 }
-.textContainer {
-}
+
 .image {
 	width: 100%;
 	height: auto;

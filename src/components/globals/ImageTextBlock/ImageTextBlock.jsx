@@ -3,6 +3,7 @@ import styles from "./ImageTextBlock.module.css";
 export default function ImageTextBlock({
 	title,
 	image,
+	titleText,
 	text,
 	reverse = false,
 	children,
@@ -21,6 +22,7 @@ export default function ImageTextBlock({
 					<img src={image} alt={title} />
 				</div>
 				<div className={styles.textContainer}>
+					<h3>{titleText}</h3>
 					<p className={styles.text}>{text}</p>
 					{children}
 				</div>
