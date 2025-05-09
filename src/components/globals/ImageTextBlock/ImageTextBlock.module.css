@@ -1,0 +1,40 @@
+.section {
+	display: flex;
+	flex-direction: column;
+}
+
+.reverse {
+	flex-direction: column-reverse;
+}
+h2 {
+	font-size: 2.5rem;
+}
+.titleContainer {
+	display: flex;
+	justify-content: center;
+}
+.imageTextContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+}
+.imageContainer,
+.textContainer {
+	flex: 1;
+}
+.imageContainer img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	object-fit: cover;
+}
+.textContainer {
+}
+.image {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+}
+.text {
+	color: rgb(3, 3, 4);
+}
