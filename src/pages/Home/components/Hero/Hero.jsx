@@ -7,7 +7,6 @@ export default function Hero() {
 			<video
 				className={styles.video}
 				src={heroHome}
-				heroHome
 				loop
 				muted
 				playsInline
