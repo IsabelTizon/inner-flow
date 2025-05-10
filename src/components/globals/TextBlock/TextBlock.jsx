@@ -3,6 +3,7 @@ import styles from "./TextBlock.module.css";
 export default function TextBlock({
 	backgroundImage,
 	title,
+	titleStyle,
 	text,
 	children,
 }) {
@@ -16,7 +17,7 @@ export default function TextBlock({
 			}}
 		>
 			<div className={styles.titleContainer}>
-				<h2 className={styles.section}>{title}</h2>
+				<h2 style={titleStyle}>{title}</h2>
 			</div>
 			<div className={styles.textContainer}>
 				<p className={styles.text}>{text}</p>

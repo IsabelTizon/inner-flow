@@ -1,9 +1,20 @@
 .section {
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 100px;
 }
 
 .titleContainer {
 	display: flex;
+	justify-content: center;
+}
+.textContainer {
+	display: flex;
 	flex-direction: column;
+	align-items: center;
+	margin: 0 300px;
+}
+
+.text {
+	color: rgb(12, 12, 12);
 }
