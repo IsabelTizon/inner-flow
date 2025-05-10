@@ -1,5 +1,5 @@
 import ImageTextBlock from "../../../../components/globals/ImageTextBlock/ImageTextBlock";
-import about from "./assets/about.jpg";
+import about from "../assets/about.jpg";
 
 export default function About() {
 	return (

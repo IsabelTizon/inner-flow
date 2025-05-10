@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ImageTextBlock from "../../../../components/globals/ImageTextBlock/ImageTextBlock";
-import shopHome from "./assets/shopHome.jpg";
+import shopHome from "../assets/shopHome.jpg";
 
 export default function Shop() {
 	return (
