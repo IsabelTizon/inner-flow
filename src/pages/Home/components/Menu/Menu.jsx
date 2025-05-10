@@ -1,4 +1,4 @@
-import imgBlockMenu from "../assets/menu.jpg";
+import imgBlockMenu from "../../assets/menu.jpg";
 import { Link } from "react-router-dom";
 import TextBlock from "../../../../components/globals/textBlock/textBlock";
 

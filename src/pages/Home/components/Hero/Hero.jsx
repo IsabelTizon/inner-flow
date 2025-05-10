@@ -1,5 +1,5 @@
 import styles from "./Hero.module.css";
-import heroHome from "../assets/heroHome.mp4";
+import heroHome from "../../assets/heroHome.mp4";
 
 export default function Hero() {
 	return (
