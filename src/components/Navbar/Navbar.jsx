@@ -5,6 +5,26 @@ import useToggle from "../../hooks/useToggle";
 
 export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
+	const [dropdownOpen, toggleDropdown] = useToggle();
+
+	const handleLinkClick = () => {
+		console.log(
+			"Link clicked, current dropdown state:",
+			dropdownOpen
+		);
+		if (dropdownOpen) {
+			toggleDropdown();
+		}
+	};
+
+	const handleClick = () => {
+		console.log(
+			"Yoga clicked, current dropdown state:",
+			dropdownOpen
+		);
+		toggleDropdown();
+	};
+
 	return (
 		<nav className={styles.navbar}>
 			<div>
@@ -27,10 +47,29 @@ export default function Navbar() {
 					isOpen ? styles.showMenu : ""
 				}`}
 			>
-				<li className={styles.navItem}>
-					<Link className={styles.navLink} to="/">
-						Yoga
-					</Link>
+				<li className={styles.navItemWithDropdown}>
+					<span
+						className={styles.navLink}
+						onClick={handleClick}
+					>
+						Yoga ▾
+					</span>
+					{dropdownOpen && (
+						<div className={styles.dropdownMenu}>
+							<Link to="/poses" onClick={handleLinkClick}>
+								Poses
+							</Link>
+							<Link
+								to="/sequences"
+								onClick={handleLinkClick}
+							>
+								Sequences
+							</Link>
+							<Link to="/classes" onClick={handleLinkClick}>
+								Classes
+							</Link>
+						</div>
+					)}
 				</li>
 				<li className={styles.navItem}>
 					<Link className={styles.navLink} to="/">
