@@ -6,7 +6,10 @@ import useToggle from "../../hooks/useToggle";
 export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
 	const [dropdownOpen, toggleDropdown] = useToggle();
-
+	//handleLinkClick function executes when the user clicks "Yoga".
+	//toggleDropdown() changes the state of dropdownOpen:
+	//If it's open (true), it closes it (false).
+	//If it's closed (false), it opens it (true).
 	const handleLinkClick = () => {
 		console.log(
 			"Link clicked, current dropdown state:",
@@ -16,7 +19,9 @@ export default function Navbar() {
 			toggleDropdown();
 		}
 	};
-
+	//handleClick function is executed when the user clicks on one of the dropdown links (for example, "Poses")
+	//The idea is to close the dropdown after clicking on a menu link.
+	//Only call toggleDropdown() if the dropdown is open (dropdownOpen === true), to avoid opening it accidentally.
 	const handleClick = () => {
 		console.log(
 			"Yoga clicked, current dropdown state:",
