@@ -2,32 +2,20 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 import useToggle from "../../hooks/useToggle";
+import useDropdown from "../../hooks/useDropdown";
 
 export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
-	const [dropdownOpen, toggleDropdown] = useToggle();
-	//handleLinkClick function executes when the user clicks "Yoga".
-	//toggleDropdown() changes the state of dropdownOpen:
-	//If it's open (true), it closes it (false).
-	//If it's closed (false), it opens it (true).
-	const handleLinkClick = () => {
-		console.log(
-			"Link clicked, current dropdown state:",
-			dropdownOpen
-		);
-		if (dropdownOpen) {
-			toggleDropdown();
-		}
-	};
-	//handleClick function is executed when the user clicks on one of the dropdown links (for example, "Poses")
-	//The idea is to close the dropdown after clicking on a menu link.
-	//Only call toggleDropdown() if the dropdown is open (dropdownOpen === true), to avoid opening it accidentally.
+	const yogaDropdown = useDropdown(); // aquí lo usas
+
 	const handleClick = () => {
-		console.log(
-			"Yoga clicked, current dropdown state:",
-			dropdownOpen
-		);
-		toggleDropdown();
+		yogaDropdown.toggle();
+	};
+
+	const handleLinkClick = () => {
+		if (yogaDropdown.isOpen) {
+			yogaDropdown.close();
+		}
 	};
 
 	return (
@@ -59,7 +47,7 @@ export default function Navbar() {
 					>
 						Yoga ▾
 					</span>
-					{dropdownOpen && (
+					{yogaDropdown.isOpen && (
 						<div className={styles.dropdownMenu}>
 							<Link to="/poses" onClick={handleLinkClick}>
 								Poses
