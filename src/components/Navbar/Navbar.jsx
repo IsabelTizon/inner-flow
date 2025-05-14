@@ -8,16 +8,6 @@ export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
 	const yogaDropdown = useDropdown(); // aquí lo usas
 
-	const handleClick = () => {
-		yogaDropdown.toggle();
-	};
-
-	const handleLinkClick = () => {
-		if (yogaDropdown.isOpen) {
-			yogaDropdown.close();
-		}
-	};
-
 	return (
 		<nav className={styles.navbar}>
 			<div>
@@ -43,22 +33,28 @@ export default function Navbar() {
 				<li className={styles.navItemWithDropdown}>
 					<span
 						className={styles.navLink}
-						onClick={handleClick}
+						onClick={yogaDropdown.toggle}
 					>
 						Yoga ▾
 					</span>
 					{yogaDropdown.isOpen && (
 						<div className={styles.dropdownMenu}>
-							<Link to="/poses" onClick={handleLinkClick}>
+							<Link
+								to="/poses"
+								onClick={yogaDropdown.close}
+							>
 								Poses
 							</Link>
 							<Link
 								to="/sequences"
-								onClick={handleLinkClick}
+								onClick={yogaDropdown.close}
 							>
 								Sequences
 							</Link>
-							<Link to="/classes" onClick={handleLinkClick}>
+							<Link
+								to="/classes"
+								onClick={yogaDropdown.close}
+							>
 								Classes
 							</Link>
 						</div>
