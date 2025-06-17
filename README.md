@@ -11,6 +11,9 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+✅ "Run the development server."
+npm run dev
+
 🛠️ TECHNOLOGIES USED
 ⚛️ React.js v19
 🎨 Modle CSS
@@ -21,4 +24,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
 🚀 PROJETS
 ├── inner-flow/ ← React app
-└── inner-flow-backend/ ← NestJS backend
+└── inner-flow-nestjs/ ← NestJS backend
+/Escritorio
+├── inner-flow-nestjs ← NestJS backend
+├── inner-flow/ ← React app
+└── inner-flow-api ← Bruno API
