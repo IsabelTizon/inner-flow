@@ -7,6 +7,7 @@ import Home from "../pages/home/Home";
 import Poses from "../pages/yoga/Poses";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import Register from "../pages/users/Register";
 
 const AppRouter = () => {
 	return (
@@ -21,7 +22,7 @@ const AppRouter = () => {
 				<Route path="/shop" element={<Poses />} />
 				<Route path="/contact" element={<Poses />} />
 				<Route path="/shopping-cart" element={<Poses />} />
-				<Route path="/register" element={<Poses />} />
+				<Route path="/register" element={<Register />} />
 				<Route path="/login" element={<Poses />} />
 			</Routes>
 			<Footer />
