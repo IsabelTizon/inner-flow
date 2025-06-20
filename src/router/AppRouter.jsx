@@ -7,7 +7,8 @@ import Home from "../pages/home/Home";
 import Poses from "../pages/yoga/Poses";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Register from "../pages/users/Register";
+import Register from "../pages/users/register";
+import Login from "../pages/users/Login";
 
 const AppRouter = () => {
 	return (
@@ -23,7 +24,7 @@ const AppRouter = () => {
 				<Route path="/contact" element={<Poses />} />
 				<Route path="/shopping-cart" element={<Poses />} />
 				<Route path="/register" element={<Register />} />
-				<Route path="/login" element={<Poses />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
