@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./Btn.module.css";
+import buttonsStyles from "./Buttons.module.css";
 
 export default function Btn({
 	text,
@@ -14,7 +14,7 @@ export default function Btn({
 		...(textColor && { color: textColor }),
 	};
 
-	const classNames = `${styles.button}`;
+	const classNames = `${buttonsStyles.btn}`;
 
 	if (to) {
 		return (
