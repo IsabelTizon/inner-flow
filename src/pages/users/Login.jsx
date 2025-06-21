@@ -1,5 +1,6 @@
 import LoginBox from "./components/LoginBox";
 import SVGBox from "./components/SVGBox";
+import logo from "../../assets/logo.png";
 
 export default function Login() {
 	const LoginSVG = () => (
@@ -41,7 +42,7 @@ export default function Login() {
 		<div>
 			<div>
 				<SVGBox
-					img="../assets/logo.png"
+					img={logo}
 					title="Welcome back!!"
 					svg={LoginSVG}
 				/>
