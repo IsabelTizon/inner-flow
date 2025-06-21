@@ -44,7 +44,7 @@ export default function Register() {
 		<div>
 			<div>
 				<SVGBox
-					img={logo}
+					logo={logo}
 					title="Be part of Inner Flow family and create and save you own yoga sequences"
 					svg={registerSVG}
 				/>
