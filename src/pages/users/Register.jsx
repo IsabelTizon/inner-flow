@@ -1,38 +1,57 @@
-import Btn from "../../components/globals/Buttons/Btn";
+import RegisterBox from "./components/RegisterBox";
+import SVGBox from "./components/SVGBox";
+
+import logo from "../../assets/logo.png";
 
 export default function Register() {
+	const registerSVG = () => (
+		<svg
+			width="120"
+			height="120"
+			viewBox="0 0 120 120"
+			fill="none"
+		>
+			<path
+				d="M60 100 Q80 80 60 60 Q40 80 60 100"
+				stroke="#fff"
+				strokeWidth="3"
+				fill="none"
+			/>
+			<circle
+				cx="60"
+				cy="55"
+				r="8"
+				stroke="#fff"
+				strokeWidth="3"
+				fill="none"
+			/>
+			<path
+				d="M60 63 Q65 70 70 75"
+				stroke="#fff"
+				strokeWidth="3"
+				fill="none"
+			/>
+			<path
+				d="M60 63 Q55 70 50 75"
+				stroke="#fff"
+				strokeWidth="3"
+				fill="none"
+			/>
+		</svg>
+	);
+
 	return (
 		<div>
 			<div>
-				<Btn />
+				<SVGBox
+					img={logo}
+					title="Be part of Inner Flow family and create and save you own yoga sequences"
+					svg={registerSVG}
+				/>
 			</div>
-			<form>
-				<label>Full Name</label>
-				<input
-					type="text"
-					placeholder="Enter your full name"
-				/>
-				<label>Password</label>
-				<input
-					type="password"
-					placeholder="Enter your password"
-				/>
-				<label>E-mail</label>
-				<input
-					type="email"
-					placeholder="Enter your e-mail address"
-				/>
-				<div className="terms">
-					<input type="checkbox" />
-					<span>
-						By signing up you agree{" "}
-						<a href="#">Terms & Conditions</a>
-					</span>
-				</div>
-				<div>
-					<Btn />
-				</div>
-			</form>
+			<div>
+				<RegisterBox />
+			</div>
 		</div>
 	);
 }
