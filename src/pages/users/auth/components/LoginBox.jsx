@@ -1,5 +1,5 @@
 // COMPONENTS
-import Btn from "../../../components/globals/Buttons/Btn";
+import Btn from "../../../../components/globals/Buttons/Btn";
 
 // STYLES
 

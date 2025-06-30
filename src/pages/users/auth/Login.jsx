@@ -1,10 +1,9 @@
-import RegisterBox from "./components/RegisterBox";
+import LoginBox from "./components/LoginBox";
 import SVGBox from "./components/SVGBox";
+import logo from "../../../assets/logo.png";
 
-import logo from "../../assets/logo.png";
-
-export default function Register() {
-	const registerSVG = () => (
+export default function Login() {
+	const LoginSVG = () => (
 		<svg
 			width="120"
 			height="120"
@@ -39,18 +38,17 @@ export default function Register() {
 			/>
 		</svg>
 	);
-
 	return (
 		<div>
 			<div>
 				<SVGBox
-					logo={logo}
-					title="Be part of Inner Flow family and create and save you own yoga sequences"
-					svg={registerSVG}
+					img={logo}
+					title="Welcome back!!"
+					svg={LoginSVG}
 				/>
 			</div>
 			<div>
-				<RegisterBox />
+				<LoginBox />
 			</div>
 		</div>
 	);

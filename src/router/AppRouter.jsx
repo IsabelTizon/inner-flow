@@ -7,8 +7,8 @@ import Home from "../pages/home/Home";
 import Poses from "../pages/yoga/Poses";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Register from "../pages/users/register";
-import Login from "../pages/users/Login";
+import Register from "../pages/users/auth/Register";
+import Login from "../pages/users/auth/Login";
 
 const AppRouter = () => {
 	return (
