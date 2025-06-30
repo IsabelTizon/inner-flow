@@ -1,6 +1,7 @@
 import LoginBox from "./components/LoginBox";
 import SVGBox from "./components/SVGBox";
 import logo from "../../../assets/logo.png";
+import styles from "./auth.module.css";
 
 export default function Login() {
 	const LoginSVG = () => (
@@ -39,15 +40,15 @@ export default function Login() {
 		</svg>
 	);
 	return (
-		<div>
-			<div>
+		<div className={styles.authLayout}>
+			<div className={styles.SVGLayout}>
 				<SVGBox
-					img={logo}
+					logo={logo}
 					title="Welcome back!!"
 					svg={LoginSVG}
 				/>
 			</div>
-			<div>
+			<div className={styles.formLayout}>
 				<LoginBox />
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 import RegisterBox from "./components/RegisterBox";
 import SVGBox from "./components/SVGBox";
+import styles from "./auth.module.css";
 
 import logo from "../../../assets/logo.png";
 
@@ -41,15 +42,15 @@ export default function Register() {
 	);
 
 	return (
-		<div>
-			<div>
+		<div className={styles.authLayout}>
+			<div className={styles.SVGLayout}>
 				<SVGBox
 					logo={logo}
 					title="Be part of Inner Flow family and create and save you own yoga sequences"
 					svg={registerSVG}
 				/>
 			</div>
-			<div>
+			<div className={styles.formLayout}>
 				<RegisterBox />
 			</div>
 		</div>

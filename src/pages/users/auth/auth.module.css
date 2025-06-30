@@ -1,0 +1,43 @@
+.authLayout {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
+.SVGLayout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+.formLayout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+
+.logoAuth {
+	width: 120px;
+	height: auto;
+	margin-bottom: 1.5rem;
+}
+
+.svgTitleAuth {
+	font-size: 1.2rem;
+	color: white;
+	margin-bottom: 2rem;
+	max-width: 300px;
+}
+
+.svgAuth {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
