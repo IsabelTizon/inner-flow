@@ -1,4 +1,4 @@
-import Btn from "../../../components/globals/Buttons/Btn";
+import Btn from "../../../../components/globals/Buttons/Btn";
 
 export default function RegisterBox() {
 	return (
