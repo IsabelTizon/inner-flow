@@ -12,6 +12,7 @@ export default function Login() {
 					logo={logo}
 					title="Welcome back!!"
 					greetingImg={greetingImg}
+					className={styles.greetingBox}
 				/>
 			</div>
 			<div className={styles.formLayout}>

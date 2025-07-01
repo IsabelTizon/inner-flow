@@ -11,7 +11,13 @@ export default function Register() {
 			<div className={styles.greetingLayout}>
 				<SVGBox
 					logo={logo}
-					title="Be part of Inner Flow family!!! Create and save you own yoga sequences"
+					title={
+						<>
+							Be part of Inner Flow family!!!
+							<br />
+							Create and save your own yoga sequences
+						</>
+					}
 					greetingImg={greetingImg}
 					className={styles.greetingBox}
 				/>
