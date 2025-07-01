@@ -18,7 +18,7 @@ export default function SGVBox({
 						className={styles.logoAuth}
 					/>
 				)}
-				<h2 className={styles.svgTitleAuth}>{title}</h2>
+				<h2 className={styles.greetingTitle}>{title}</h2>
 				<div>
 					<img
 						src={greetingImg}
