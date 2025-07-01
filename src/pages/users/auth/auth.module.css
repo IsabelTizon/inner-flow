@@ -6,12 +6,22 @@
 	height: 100vh;
 	width: 100%;
 }
-.SVGLayout {
+.greetingLayout {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 50%;
+	height: 100%;
+	background-color: rgb(251, 229, 229);
+}
+.greetingBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
 	height: 100%;
 }
 .formLayout {
@@ -24,20 +34,20 @@
 }
 
 .logoAuth {
-	width: 120px;
+	width: 60px;
 	height: auto;
-	margin-bottom: 1.5rem;
+	margin: 2rem auto;
 }
 
 .svgTitleAuth {
 	font-size: 1.2rem;
-	color: white;
-	margin-bottom: 2rem;
-	max-width: 300px;
+
+	color: rgb(60, 60, 60);
+	margin: 2rem auto;
+	max-width: 70%;
 }
 
-.svgAuth {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.greetingImg {
+	width: 50%;
+	height: auto;
 }

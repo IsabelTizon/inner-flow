@@ -1,12 +1,13 @@
 import styles from "../auth.module.css";
 export default function SGVBox({
 	logo,
+	className,
 	title,
-	svg,
+	greetingImg,
 	children,
 }) {
 	return (
-		<section className="svg-box">
+		<section className={className}>
 			<div>
 				{logo && (
 					<img
@@ -18,7 +19,15 @@ export default function SGVBox({
 					/>
 				)}
 				<h2 className={styles.svgTitleAuth}>{title}</h2>
-				<div className={styles.svgAuth}>{svg && svg()}</div>
+				<div>
+					<img
+						src={greetingImg}
+						alt="greetingImg"
+						width={120}
+						height={120}
+						className={styles.greetingImg}
+					/>
+				</div>
 			</div>
 			<div>{children}</div>
 		</section>
