@@ -1,5 +1,5 @@
 import RegisterBox from "./components/RegisterBox";
-import SVGBox from "./components/SVGBox";
+import SVGBox from "./components/greetingBox";
 import styles from "./auth.module.css";
 
 import logo from "../../../assets/logo.png";
