@@ -1,3 +1,4 @@
+/* Globals */
 .authLayout {
 	display: flex;
 	flex-direction: row;
@@ -6,16 +7,7 @@
 	height: 100vh;
 	width: 100%;
 }
-.greetingLayout {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 50%;
-	height: 100%;
-	background-color: rgb(251, 229, 229);
-}
-.greetingBox {
+.containerAuth {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -24,13 +16,15 @@
 	width: 100%;
 	height: 100%;
 }
-.formLayout {
+/* GREETING LAYOUT - LEFT BOX */
+.greetingLayout {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 50%;
 	height: 100%;
+	background-color: rgb(251, 229, 229);
 }
 
 .logoAuth {
@@ -50,4 +44,13 @@
 .greetingImg {
 	width: 50%;
 	height: auto;
+}
+/* FORM LAYOUT - RIGHT BOX */
+.formLayout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
 }

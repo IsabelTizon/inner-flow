@@ -19,7 +19,7 @@ export default function Register() {
 						</>
 					}
 					greetingImg={greetingImg}
-					className={styles.greetingBox}
+					className={styles.containerAuth}
 				/>
 			</div>
 			<div className={styles.formLayout}>

@@ -12,7 +12,7 @@ export default function Login() {
 					logo={logo}
 					title="Welcome back!!"
 					greetingImg={greetingImg}
-					className={styles.greetingBox}
+					className={styles.containerAuth}
 				/>
 			</div>
 			<div className={styles.formLayout}>

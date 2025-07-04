@@ -2,10 +2,11 @@
 import Btn from "../../../../components/globals/Buttons/Btn";
 
 // STYLES
+import styles from "../auth.module.css";
 
 export default function Login() {
 	return (
-		<div>
+		<div className={styles.containerAuth}>
 			<div>
 				<Btn />
 			</div>
