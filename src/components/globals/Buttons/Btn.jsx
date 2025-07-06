@@ -8,13 +8,16 @@ export default function Btn({
 	bgColor,
 	textColor,
 	type,
+	variant,
 }) {
 	const style = {
 		...(bgColor && { backgroundColor: bgColor }),
 		...(textColor && { color: textColor }),
 	};
 
-	const classNames = `${buttonsStyles.btn}`;
+	const classNames = `${buttonsStyles.btn} ${
+		variant ? buttonsStyles[variant] : ""
+	}`;
 
 	if (to) {
 		return (
