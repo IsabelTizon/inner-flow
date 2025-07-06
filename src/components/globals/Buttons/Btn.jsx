@@ -19,6 +19,9 @@ export default function Btn({
 		variant ? buttonsStyles[variant] : ""
 	}`;
 
+	console.log("variant:", variant);
+	console.log("classNames:", classNames);
+
 	if (to) {
 		return (
 			<Link to={to} className={classNames} style={style}>
