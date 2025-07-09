@@ -13,7 +13,7 @@ export function useLogIn() {
 
 		try {
 			const response = await fetch(
-				"http://localhost:3000/auth/login",
+				"http://localhost:3000/users/auth/login",
 				{
 					method: "POST",
 					headers: {
