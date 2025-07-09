@@ -11,6 +11,8 @@ export function useLogIn() {
 		setLoading(true);
 		setError(null);
 
+		console.log("Login input:", email, password);
+
 		try {
 			const response = await fetch(
 				"http://localhost:3000/users/auth/login",
@@ -32,7 +34,7 @@ export function useLogIn() {
 
 			// Éxito
 			alert("Usuario logueado con éxito");
-			navigate("/home");
+			navigate("/");
 		} catch (err) {
 			setError(err.message);
 		} finally {
