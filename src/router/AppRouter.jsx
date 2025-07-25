@@ -9,6 +9,10 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Register from "../pages/users/auth/Register";
 import Login from "../pages/users/auth/Login";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import CreatePose from "../pages/admin/poses/CreatePose";
+// import PoseList from "../pages/admin/poses/PoseList";
+// import EditPose from "../pages/admin/poses/EditPose";
 
 const AppRouter = () => {
 	return (
@@ -25,6 +29,16 @@ const AppRouter = () => {
 				<Route path="/shopping-cart" element={<Poses />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/login" element={<Login />} />
+				<Route path="/admin" element={<AdminDashboard />} />
+				<Route
+					path="/admin/poses/create"
+					element={<CreatePose />}
+				/>
+				{/* <Route path="/admin/poses" element={<PoseList />} />
+				<Route
+					path="/admin/poses/edit/:id"
+					element={<EditPose />}
+				/> */}
 			</Routes>
 			<Footer />
 		</BrowserRouter>
