@@ -24,7 +24,6 @@ export default function AdminDashboard() {
 				<CardLink to="/admin/poses">
 					View All Poses
 				</CardLink>
-				{/* Más CardLink para cursos, shop, etc. */}
 			</div>
 		</div>
 	);

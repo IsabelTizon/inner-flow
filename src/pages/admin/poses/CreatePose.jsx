@@ -6,22 +6,32 @@ export default function CreatePose() {
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState("");
 	const [message, setMessage] = useState("");
+	const [useAIDescription, setUseAIDescription] =
+		useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			const token = localStorage.getItem("token"); // Obtener token del login
+
+			const requestData = {
+				name,
+				image,
+			};
+
+			if (!useAIDescription && description.trim()) {
+				requestData.description = description;
+			}
+
 			const res = await fetch(
 				"http://localhost:3000/poses",
 				{
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify({
-						name,
-						description,
-						image,
-					}),
+					body: JSON.stringify(requestData),
 				}
 			);
 			if (res.ok) {
@@ -29,6 +39,7 @@ export default function CreatePose() {
 				setName("");
 				setDescription("");
 				setImage("");
+				setUseAIDescription(false);
 			} else {
 				setMessage("Error creating pose.");
 			}
@@ -50,15 +61,30 @@ export default function CreatePose() {
 					required
 				/>
 			</label>
+
 			<label className={styles.label}>
-				Description:
-				<textarea
-					className={styles.textarea}
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-					required
+				<input
+					type="checkbox"
+					checked={useAIDescription}
+					onChange={(e) =>
+						setUseAIDescription(e.target.checked)
+					}
 				/>
+				Generate description with AI
 			</label>
+
+			{!useAIDescription && (
+				<label className={styles.label}>
+					Description:
+					<textarea
+						className={styles.textarea}
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
+						placeholder="Leave empty to generate with AI"
+					/>
+				</label>
+			)}
+
 			<label className={styles.label}>
 				Image URL:
 				<input

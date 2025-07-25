@@ -35,6 +35,7 @@
 	font-size: 1rem;
 	background: #f8fafc;
 	transition: border-color 0.2s;
+	color: #444;
 }
 
 .input:focus,
