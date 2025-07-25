@@ -16,6 +16,8 @@ export default function Navbar() {
 	const yogaDropdown = useDropdown();
 	const userDropdown = useDropdown();
 
+	const isLoggedIn = true; //
+	const isAdmin = true;
 	return (
 		<nav className={styles.navbar}>
 			<div>
@@ -123,6 +125,14 @@ export default function Navbar() {
 						</div>
 					)}
 				</li>
+				{/* Admin panel (solo para admin) */}
+				{isLoggedIn && isAdmin && (
+					<li className={styles.navItem}>
+						<Link className={styles.navLink} to="/admin">
+							Admin
+						</Link>
+					</li>
+				)}
 			</ul>
 		</nav>
 	);
