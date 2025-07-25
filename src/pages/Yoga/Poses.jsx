@@ -1,21 +1,17 @@
 import PoseCard from "./components/PoseCard";
-import catPose from "./assets/cat-pose.jpg";
+import { useEffect, useState } from "react";
 
 export default function Poses() {
-	const poses = [
-		{
-			id: 1,
-			name: "Downward Dog",
-			image: catPose,
-			description: "Stretches legs and spine.",
-		},
-		{
-			id: 2,
-			name: "Tree Pose",
-			image: catPose,
-			description: "Improves balance and focus.",
-		},
-	];
+	const [poses, setPoses] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:3000/poses")
+			.then((res) => res.json())
+			.then((data) => setPoses(data))
+			.catch((err) =>
+				console.error("Error fetching poses:", err)
+			);
+	}, []);
 
 	return (
 		<div
