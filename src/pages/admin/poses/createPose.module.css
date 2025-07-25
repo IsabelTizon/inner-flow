@@ -1,0 +1,85 @@
+.form {
+	max-width: 400px;
+	margin: 40px auto;
+	padding: 32px 24px;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.title {
+	text-align: center;
+	font-size: 2rem;
+	color: rgba(163, 66, 39, 0.98);
+	margin-bottom: 12px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.label {
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+	color: #444;
+	gap: 8px;
+}
+
+.input,
+.textarea {
+	padding: 10px 12px;
+	border: 1.5px solid rgba(163, 66, 39, 0.25);
+	border-radius: 8px;
+	font-size: 1rem;
+	background: #f8fafc;
+	transition: border-color 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+	border-color: rgba(163, 66, 39, 0.98);
+	outline: none;
+}
+
+.textarea {
+	min-height: 80px;
+	resize: vertical;
+}
+
+.button {
+	background: linear-gradient(
+		90deg,
+		rgba(163, 66, 39, 0.98) 0%,
+		#af8989 100%
+	);
+	color: rgba(254, 249, 247, 0.98);
+	border: none;
+	border-radius: 8px;
+	padding: 12px 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 8px;
+	transition: background 0.2s, color 0.2s;
+	box-shadow: 0 2px 8px rgba(163, 66, 39, 0.08);
+}
+
+.button:hover {
+	background: linear-gradient(
+		90deg,
+		#af8989 0%,
+		rgba(163, 66, 39, 0.98) 100%
+	);
+	color: #fff;
+}
+
+.message {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 1rem;
+	color: rgba(163, 66, 39, 0.98);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
