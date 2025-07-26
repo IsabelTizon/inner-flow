@@ -73,7 +73,7 @@ export default function Navbar() {
 				</li>
 				{/* Daily Menu */}
 				<li className={styles.navItem}>
-					<Link className={styles.navLink} to="/">
+					<Link className={styles.navLink} to="/dailyMenu">
 						Daily Menu
 					</Link>
 				</li>
