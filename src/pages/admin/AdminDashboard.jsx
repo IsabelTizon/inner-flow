@@ -22,7 +22,7 @@ export default function AdminDashboard() {
 					Create Pose
 				</CardLink>
 				<CardLink to="/admin/poses">
-					View All Poses
+					Edit Old Poses
 				</CardLink>
 			</div>
 		</div>
