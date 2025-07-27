@@ -13,7 +13,8 @@ import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreatePose from "../pages/admin/poses/CreatePose";
 // import PoseList from "../pages/admin/poses/PoseList";
 // import EditPose from "../pages/admin/poses/EditPose";
-import DailyMenu from "../pages/dailyMenu/dailyMenu";
+import DailyMenu from "../pages/dailyMenu/DailyMenu";
+import Contact from "../pages/contact/Contact";
 
 const AppRouter = () => {
 	return (
@@ -26,7 +27,7 @@ const AppRouter = () => {
 				<Route path="/classes" element={<Poses />} />
 				<Route path="/dailyMenu" element={<DailyMenu />} />
 				<Route path="/shop" element={<Poses />} />
-				<Route path="/contact" element={<Poses />} />
+				<Route path="/contact" element={<Contact />} />
 				<Route path="/shopping-cart" element={<Poses />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/login" element={<Login />} />

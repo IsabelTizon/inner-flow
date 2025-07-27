@@ -85,7 +85,7 @@ export default function Navbar() {
 				</li>
 				{/* Contact */}
 				<li className={styles.navItem}>
-					<Link className={styles.navLink} to="/">
+					<Link className={styles.navLink} to="/contact">
 						Contact
 					</Link>
 				</li>
