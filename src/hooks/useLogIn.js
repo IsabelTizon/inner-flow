@@ -1,17 +1,18 @@
 // src/hooks/useRegister.js
+// States
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "./useAuth";
 
 export function useLogIn() {
 	const navigate = useNavigate();
+	const { refreshAuth } = useAuth();
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 
 	const handleLogIn = async ({ email, password }) => {
 		setLoading(true);
 		setError(null);
-
-		console.log("Login input:", email, password);
 
 		try {
 			const response = await fetch(
@@ -25,18 +26,38 @@ export function useLogIn() {
 				}
 			);
 
-			if (!response.ok) {
-				const errorData = await response.json();
-				throw new Error(
-					errorData.message || "Error en el log in"
-				);
-			}
+			if (response.ok) {
+				const data = await response.json();
+				console.log("📥 Login response:", data);
 
-			// Éxito
-			alert("Usuario logueado con éxito");
-			navigate("/");
+				// Guardar datos
+				localStorage.setItem("token", data.token);
+				localStorage.setItem(
+					"userData",
+					JSON.stringify(data.user)
+				);
+
+				// Refrescar auth
+				await refreshAuth();
+
+				console.log("🎯 User role:", data.user.role); // Debug
+
+				// ✅ Redirect correcto (sin duplicación)
+				if (data.user.role === "ADMIN") {
+					// ← minúscula
+					navigate("/admin");
+				} else {
+					navigate("/");
+				}
+
+				console.log("✅ Login successful");
+			} else {
+				const errorData = await response.json();
+				setError(errorData.message || "Login failed");
+			}
 		} catch (err) {
-			setError(err.message);
+			console.error("🚨 Login error:", err);
+			setError(err.message || "Network error");
 		} finally {
 			setLoading(false);
 		}
