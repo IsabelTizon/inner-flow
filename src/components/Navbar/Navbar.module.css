@@ -104,10 +104,66 @@
 }
 
 .dropdownMenu a:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(205, 11, 11, 0.1);
 	color: #ffd6c0;
 }
+.logoutButton {
+	/* Fondo beige */
+	background-color: #f5f5dc;
 
+	/* Color de letra (usa el color de tu navbar) */
+	color: rgba(163, 66, 39, 0.98);
+
+	/* Estilo del botón */
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 500;
+
+	/* Ancho completo en dropdown */
+	width: 5%;
+	text-align: left;
+
+	/* Preparar para transiciones */
+	transition: all 0.3s ease;
+}
+
+/* Estados del botón - SOLO UNA REGLA HOVER */
+.logoutButton:hover {
+	/* Fondo más oscuro */
+	background-color: #e6dbb7;
+
+	/* Color de letra más oscuro */
+	color: #222;
+
+	/* Animación de pulso */
+	animation: buttonPulse 0.6s ease-in-out;
+}
+@keyframes buttonPulse {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* Estados adicionales del botón */
+.logoutButton:active {
+	background-color: #d4c5a0;
+	transform: scale(0.98);
+}
+
+.logoutButton:focus {
+	outline: 2px solid #007bff;
+	outline-offset: 2px;
+}
 @media (max-width: 768px) {
 	.navItems {
 		display: none;
