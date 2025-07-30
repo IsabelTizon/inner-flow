@@ -1,4 +1,4 @@
-// Components
+// Router
 import { Link } from "react-router-dom";
 // Styles
 import styles from "./Navbar.module.css";
@@ -7,6 +7,7 @@ import logo from "../../assets/logo.png";
 // hooks
 import useToggle from "../../hooks/useToggle";
 import useDropdown from "../../hooks/useDropdown";
+import { useAuth } from "../../hooks/useAuth";
 // Icons
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
@@ -16,8 +17,15 @@ export default function Navbar() {
 	const yogaDropdown = useDropdown();
 	const userDropdown = useDropdown();
 
-	const isLoggedIn = true; //
-	const isAdmin = true;
+	// Auth hook to manage user state
+	// Object Destructuring
+	const { isLoggedIn, isAdmin, user, logout, loading } =
+		useAuth();
+
+	if (loading) {
+		return <nav className={styles.navbar}>Loading...</nav>;
+	}
+
 	return (
 		<nav className={styles.navbar}>
 			<div>
@@ -101,31 +109,52 @@ export default function Navbar() {
 						className={styles.navLink}
 						onClick={userDropdown.toggle}
 						role="button"
-						aria-haspopup="true"
-						aria-expanded={userDropdown.isOpen}
-						title="Accede a tu cuenta"
+						aria-haspopup="true" // Indicates that this element has a dropdown menu
+						aria-expanded={userDropdown.isOpen} // Indicates whether the dropdown is open or closed
+						title="Access your account" // Provides a tooltip for the icon
 					>
 						<FaUser />
 					</span>
 
 					{userDropdown.isOpen && (
 						<div className={styles.dropdownMenu}>
-							<Link
-								to="/login"
-								onClick={userDropdown.close}
-							>
-								Login
-							</Link>
-							<Link
-								to="/register"
-								onClick={userDropdown.close}
-							>
-								Register
-							</Link>
+							{!isLoggedIn ? (
+								<>
+									<Link
+										to="/login"
+										onClick={userDropdown.close} // Redirects to login page and closes the dropdown
+									>
+										Login
+									</Link>
+									<Link
+										to="/register"
+										onClick={userDropdown.close} // Redirects to register page and closes the dropdown
+									>
+										Register
+									</Link>
+								</>
+							) : (
+								<>
+									<span>
+										{user?.name
+											? `Welcome, ${user.name}!`
+											: "Welcome, User!"}
+									</span>
+									<button
+										className={`${styles.navLink} ${styles.logoutButton}`}
+										onClick={() => {
+											logout();
+											userDropdown.close();
+										}}
+									>
+										Logout
+									</button>
+								</>
+							)}
 						</div>
 					)}
 				</li>
-				{/* Admin panel (solo para admin) */}
+				{/* Admin panel (just for admins) */}
 				{isLoggedIn && isAdmin && (
 					<li className={styles.navItem}>
 						<Link className={styles.navLink} to="/admin">
