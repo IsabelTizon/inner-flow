@@ -39,6 +39,7 @@
 .textarea {
 	resize: vertical;
 	min-height: 120px;
+	/* field-sizing: content; */ /* Changes the text area size while you are typing, but it is not supported yet in all browsers */
 }
 
 .submitButton {
