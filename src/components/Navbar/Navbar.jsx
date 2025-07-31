@@ -1,5 +1,5 @@
 // Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // Styles
 import styles from "./Navbar.module.css";
 // Assets
@@ -7,7 +7,7 @@ import logo from "../../assets/logo.png";
 // hooks
 import useToggle from "../../hooks/useToggle";
 import useDropdown from "../../hooks/useDropdown";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../context/useAuth"; // Custom hook to access authentication state and methods
 // Icons
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
@@ -16,11 +16,12 @@ export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
 	const yogaDropdown = useDropdown();
 	const userDropdown = useDropdown();
+	const navigate = useNavigate();
 
 	// Auth hook to manage user state
 	// Object Destructuring
 	const { isLoggedIn, isAdmin, user, logout, loading } =
-		useAuth();
+		useAuth(); // Accessing authentication state and methods.
 
 	if (loading) {
 		return <nav className={styles.navbar}>Loading...</nav>;
@@ -145,6 +146,7 @@ export default function Navbar() {
 										onClick={() => {
 											logout();
 											userDropdown.close();
+											navigate("/");
 										}}
 									>
 										Logout
