@@ -2,7 +2,7 @@
 // States
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useAuth } from "./useAuth";
+import { useAuth } from "../context/useAuth";
 
 export function useLogIn() {
 	const navigate = useNavigate();
