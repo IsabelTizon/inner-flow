@@ -11,7 +11,7 @@ export default function PoseCard({
 	return (
 		<div className={styles.poseCard}>
 			<img
-				src={image}
+				src={`http://localhost:3000/img/poses/${image}`}
 				alt={name}
 				className={styles.imgPoseCard}
 			/>

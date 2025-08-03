@@ -12,11 +12,11 @@ export default function CreatePose() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const token = localStorage.getItem("token"); // Obtener token del login
+			const token = localStorage.getItem("token");
 
 			const requestData = {
 				name,
-				image,
+				image: image,
 			};
 
 			if (!useAIDescription && description.trim()) {
