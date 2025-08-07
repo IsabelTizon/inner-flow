@@ -1,5 +1,5 @@
 import useToggle from "../../../hooks/useToggle.js";
-import styles from "../Poses.module.css";
+import styles from "./poseCard.module.css";
 import EyeBtn from "../../../components/globals/Buttons/EyeBtn.jsx";
 
 export default function PoseCard({
