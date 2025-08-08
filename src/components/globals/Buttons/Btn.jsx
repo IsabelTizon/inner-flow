@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import buttonsStyles from "./Buttons.module.css";
+import buttonsStyles from "./btn.module.css";
 
 export default function Btn({
 	text,

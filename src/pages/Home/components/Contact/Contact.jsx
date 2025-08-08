@@ -1,6 +1,7 @@
 import contact from "../../assets/contact.jpg";
 import { Link } from "react-router-dom";
 import TextBlock from "../../../../components/globals/textBlock/textBlock";
+import Btn from "../../../../components/globals/Buttons/Btn";
 
 export default function Contact() {
 	return (
@@ -15,7 +16,7 @@ export default function Contact() {
 				}}
 			>
 				<Link to="/contact">
-					<button>Go to Contact</button>
+					<Btn text="Go to Contact" variant="primary" />
 				</Link>
 			</TextBlock>
 		</>

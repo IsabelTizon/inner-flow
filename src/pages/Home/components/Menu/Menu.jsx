@@ -1,6 +1,7 @@
 import imgBlockMenu from "../../assets/menu.jpg";
 import { Link } from "react-router-dom";
 import TextBlock from "../../../../components/globals/textBlock/textBlock";
+import Btn from "../../../../components/globals/Buttons/Btn";
 
 export default function Menu() {
 	return (
@@ -15,7 +16,7 @@ export default function Menu() {
 				}}
 			>
 				<Link to="/menu">
-					<button>Go to Menu</button>
+					<Btn text="Go to menu" variant="primary" />
 				</Link>
 			</TextBlock>
 		</>

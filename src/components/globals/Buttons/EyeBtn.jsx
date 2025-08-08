@@ -1,4 +1,4 @@
-import buttonsStyles from "./Buttons.module.css";
+import buttonsStyles from "./btn.module.css";
 
 export default function EyeBtn({ onClick }) {
 	return (
