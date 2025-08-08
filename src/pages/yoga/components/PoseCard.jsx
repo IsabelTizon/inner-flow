@@ -1,7 +1,9 @@
 import useToggle from "../../../hooks/useToggle.js";
 import styles from "./poseCard.module.css";
-import EyeBtn from "../../../components/globals/Buttons/EyeBtn.jsx";
+
 import Btn from "../../../components/globals/Buttons/Btn.jsx";
+// hooks
+import { useAuth } from "../../../context/useAuth.js"; // Custom hook to access authentication state and methods
 
 export default function PoseCard({
 	name,
@@ -9,6 +11,7 @@ export default function PoseCard({
 	description,
 }) {
 	const [isOpen, toggle] = useToggle(false);
+	const { isLoggedIn } = useAuth();
 	return (
 		<div className={styles.poseCard}>
 			<img
@@ -17,7 +20,17 @@ export default function PoseCard({
 				className={styles.imgPoseCard}
 			/>
 			<h3 className={styles.titlePoseCard}>{name}</h3>
-			<EyeBtn onClick={toggle} />
+			<Btn text="👁" variant="primary" onClick={toggle} />
+
+			{isLoggedIn && (
+				<Btn
+					text="Add to my sequences"
+					variant="secondary"
+					onClick={() => {
+						// Handle view details action
+					}}
+				/>
+			)}
 
 			{/* POP UP */}
 			{isOpen && (
@@ -35,14 +48,12 @@ export default function PoseCard({
 						<p>{description}</p>
 						<Btn
 							text="Close"
-							variant="secondary"
+							variant="tertiary"
 							onClick={(e) => {
 								e.stopPropagation();
 								toggle();
 							}}
-						>
-							Close
-						</Btn>
+						/>
 					</div>
 				</div>
 			)}
