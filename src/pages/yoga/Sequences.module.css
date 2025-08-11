@@ -1,0 +1,245 @@
+/* Container */
+.container {
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Header */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.title {
+	margin: 0;
+	color: #2d3748;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+/* States */
+.loading {
+	text-align: center;
+	padding: 60px 20px;
+	color: #666;
+	font-size: 1.2rem;
+}
+
+.notLoggedIn {
+	text-align: center;
+	padding: 60px 20px;
+	background: #f7fafc;
+	border-radius: 12px;
+	border: 2px dashed #cbd5e0;
+}
+
+.notLoggedIn h2 {
+	margin: 0 0 12px 0;
+	color: #4a5568;
+}
+
+.notLoggedIn p {
+	margin: 0;
+	color: #718096;
+}
+
+.emptyState {
+	text-align: center;
+	padding: 60px 20px;
+	background: linear-gradient(
+		135deg,
+		#667eea 0%,
+		#764ba2 100%
+	);
+	color: white;
+	border-radius: 16px;
+	box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.emptyState h2 {
+	margin: 0 0 16px 0;
+	font-size: 1.8rem;
+}
+
+.emptyState p {
+	margin: 0 0 24px 0;
+	opacity: 0.9;
+	font-size: 1.1rem;
+}
+
+/* Sequences List */
+.sequencesList {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+/* Sequence Card */
+.sequenceCard {
+	background: white;
+	border-radius: 16px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	border: 1px solid #e2e8f0;
+	overflow: hidden;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sequenceCard:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Sequence Header */
+.sequenceHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 24px;
+	gap: 20px;
+}
+
+.sequenceInfo {
+	flex: 1;
+}
+
+.sequenceName {
+	margin: 0 0 8px 0;
+	color: #2d3748;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.sequenceDescription {
+	margin: 0 0 12px 0;
+	color: #718096;
+	line-height: 1.5;
+}
+
+.poseCount {
+	display: inline-block;
+	background: #667eea;
+	color: white;
+	padding: 4px 12px;
+	border-radius: 20px;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+/* Sequence Actions */
+.sequenceActions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+/* Poses Grid */
+.posesGrid {
+	padding: 0 24px 24px 24px;
+	border-top: 1px solid #e2e8f0;
+	background: #f8fafc;
+}
+
+.posesGrid {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(280px, 1fr)
+	);
+	gap: 20px;
+	padding-top: 24px;
+}
+
+.poseContainer {
+	position: relative;
+}
+
+.removePoseBtn {
+	width: 100%;
+	margin-top: 8px;
+}
+
+/* Empty Sequence */
+.emptySequence {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 40px 20px;
+	color: #718096;
+	font-style: italic;
+}
+
+.emptySequence p {
+	margin: 0 0 8px 0;
+}
+
+.emptySequence p:last-child {
+	margin: 0;
+	font-weight: 500;
+	color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.container {
+		padding: 16px;
+	}
+
+	.header {
+		flex-direction: column;
+		align-items: stretch;
+		text-align: center;
+	}
+
+	.title {
+		font-size: 1.75rem;
+	}
+
+	.sequenceHeader {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 16px;
+	}
+
+	.sequenceActions {
+		justify-content: center;
+	}
+
+	.posesGrid {
+		grid-template-columns: 1fr;
+		padding: 20px 16px 20px 16px;
+	}
+
+	.sequenceCard {
+		border-radius: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		padding: 12px;
+	}
+
+	.title {
+		font-size: 1.5rem;
+	}
+
+	.sequenceHeader {
+		padding: 20px;
+	}
+
+	.sequenceName {
+		font-size: 1.25rem;
+	}
+
+	.emptyState {
+		padding: 40px 16px;
+	}
+
+	.emptyState h2 {
+		font-size: 1.5rem;
+	}
+}
