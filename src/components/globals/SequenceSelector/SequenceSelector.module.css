@@ -1,0 +1,137 @@
+/* Overlay */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+/* Modal */
+.modal {
+	background: white;
+	border-radius: 12px;
+	padding: 24px;
+	max-width: 500px;
+	width: 90%;
+	max-height: 90vh;
+	overflow-y: auto;
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Title */
+.title {
+	margin: 0 0 20px 0;
+	color: #2d3748;
+	font-size: 1.25rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+/* Content */
+.content {
+	margin-bottom: 20px;
+}
+
+/* Label */
+.label {
+	display: block;
+	margin-bottom: 16px;
+	color: #4a5568;
+	font-weight: 500;
+}
+
+/* Select */
+.select {
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 1rem;
+	margin-top: 8px;
+	background-color: white;
+	cursor: pointer;
+	transition: border-color 0.2s ease;
+}
+
+.select:focus {
+	outline: none;
+	border-color: #667eea;
+	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.select:hover {
+	border-color: #cbd5e0;
+}
+
+/* Button Group */
+.buttonGroup {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.buttonGroup > * {
+	flex: 1;
+	min-width: 140px;
+}
+
+/* No Sequences */
+.noSequences {
+	text-align: center;
+	color: #718096;
+	margin-bottom: 20px;
+	font-style: italic;
+}
+
+/* Message */
+.message {
+	padding: 12px;
+	border-radius: 8px;
+	text-align: center;
+	margin: 16px 0;
+	font-weight: 500;
+}
+
+.message.success {
+	background-color: #f0fff4;
+	color: #22543d;
+	border: 1px solid #9ae6b4;
+}
+
+.message.error {
+	background-color: #fed7d7;
+	color: #742a2a;
+	border: 1px solid #feb2b2;
+}
+
+/* Close Button */
+.closeBtn {
+	width: 100%;
+	margin-top: 16px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+	.modal {
+		padding: 20px;
+		margin: 10px;
+	}
+
+	.buttonGroup {
+		flex-direction: column;
+	}
+
+	.buttonGroup > * {
+		flex: none;
+		min-width: auto;
+	}
+}
