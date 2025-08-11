@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Poses from "../pages/yoga/Poses";
+import Sequences from "../pages/yoga/Sequences";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Register from "../pages/users/auth/Register";
@@ -23,7 +24,7 @@ const AppRouter = () => {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/poses" element={<Poses />} />
-				<Route path="/sequences" element={<Poses />} />
+				<Route path="/sequences" element={<Sequences />} />
 				<Route path="/classes" element={<Poses />} />
 				<Route path="/dailyMenu" element={<DailyMenu />} />
 				<Route path="/shop" element={<Poses />} />
