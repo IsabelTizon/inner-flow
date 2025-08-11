@@ -1,16 +1,21 @@
-import useToggle from "../../../hooks/useToggle.js";
+// STYLES
 import styles from "./poseCard.module.css";
-
+// GLOBAL COMPONENTS
 import Btn from "../../../components/globals/Buttons/Btn.jsx";
-// hooks
-import { useAuth } from "../../../context/useAuth.js"; // Custom hook to access authentication state and methods
+import SequenceSelector from "../../../components/globals/SequenceSelector/SequenceSelector.jsx";
+// HOOKS
+import { useAuth } from "../../../context/useAuth.js"; // Context to access authentication state and methods
+import useToggle from "../../../hooks/useToggle.js";
 
 export default function PoseCard({
+	id,
 	name,
 	image,
 	description,
 }) {
 	const [isOpen, toggle] = useToggle(false);
+	const [showSequenceSelector, setShowSequenceSelector] =
+		useToggle(false);
 	const { isLoggedIn } = useAuth();
 	return (
 		<div className={styles.poseCard}>
@@ -22,13 +27,12 @@ export default function PoseCard({
 			<h3 className={styles.titlePoseCard}>{name}</h3>
 			<Btn text="👁" variant="primary" onClick={toggle} />
 
+			{/* BUTTON: if the user is logged button will appear to add to add the pose to the user sequences account */}
 			{isLoggedIn && (
 				<Btn
 					text="Add to my sequences"
 					variant="secondary"
-					onClick={() => {
-						// Handle view details action
-					}}
+					onClick={setShowSequenceSelector}
 				/>
 			)}
 
@@ -56,6 +60,20 @@ export default function PoseCard({
 						/>
 					</div>
 				</div>
+			)}
+
+			{/* Sequence Selector Modal */}
+			{showSequenceSelector && (
+				<SequenceSelector
+					poseId={id}
+					poseName={name}
+					onClose={setShowSequenceSelector}
+					onSuccess={() => {
+						console.log(
+							`Pose ${name} added to sequence successfully!`
+						);
+					}}
+				/>
 			)}
 		</div>
 	);
