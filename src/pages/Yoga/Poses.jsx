@@ -1,5 +1,7 @@
+// COMPONENTS
 import PoseCard from "./components/PoseCard";
 import PoseFilter from "./components/PoseFilter";
+// STATES
 import { useEffect, useState } from "react";
 
 export default function Poses() {
@@ -8,11 +10,12 @@ export default function Poses() {
 	const [isSearching, setIsSearching] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-	// Cargar todas las poses al inicio
+	// STATE useEffect to download all poses in the rendering
 	useEffect(() => {
 		loadAllPoses();
 	}, []);
 
+	// STATE to load all poses
 	const loadAllPoses = async () => {
 		setLoading(true);
 		try {
@@ -29,13 +32,13 @@ export default function Poses() {
 		}
 	};
 
-	// Función para buscar poses por nombre
+	// Searching poses by name
 	const handleFilter = async (searchTerm) => {
 		setLoading(true);
 		setIsSearching(true);
 
 		try {
-			// ✅ Hacer fetch a endpoint de búsqueda
+			// fetch endpoint by name
 			const response = await fetch(
 				`http://localhost:3000/poses/search?name=${encodeURIComponent(
 					searchTerm
@@ -45,7 +48,7 @@ export default function Poses() {
 			setFilteredPoses(data);
 		} catch (err) {
 			console.error("Error searching poses:", err);
-			// Fallback: filtrar localmente si el endpoint falla
+			// filter poses if the endpoint fails
 			const filtered = poses.filter((pose) =>
 				pose.name
 					.toLowerCase()
@@ -57,7 +60,7 @@ export default function Poses() {
 		}
 	};
 
-	// Función para limpiar filtros
+	// Clear filters
 	const handleClearFilter = () => {
 		setFilteredPoses(poses);
 		setIsSearching(false);
@@ -65,14 +68,14 @@ export default function Poses() {
 
 	return (
 		<div style={{ padding: "20px" }}>
-			{/* ✅ Componente de filtro */}
+			{/* Filter component */}
 			<PoseFilter
 				onFilter={handleFilter}
 				onClear={handleClearFilter}
-				isSearching={loading} // ✅ ¡AÑADE ESTA LÍNEA!
+				isSearching={loading}
 			/>
 
-			{/* Indicador de búsqueda */}
+			{/* Search indicator */}
 			{isSearching && (
 				<div
 					style={{
@@ -96,7 +99,7 @@ export default function Poses() {
 				</div>
 			)}
 
-			{/* Grid de poses */}
+			{/* Poses Grid */}
 			<div
 				style={{
 					display: "grid",
@@ -106,11 +109,11 @@ export default function Poses() {
 				}}
 			>
 				{filteredPoses.map((pose) => (
-					<PoseCard key={pose.id} {...pose} />
+					<PoseCard key={pose.id} id={pose.id} {...pose} />
 				))}
 			</div>
 
-			{/* Mensaje cuando no hay resultados */}
+			{/* Message when no results */}
 			{!loading && filteredPoses.length === 0 && (
 				<div
 					style={{
