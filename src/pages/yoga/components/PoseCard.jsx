@@ -1,11 +1,13 @@
 // STYLES
 import styles from "./poseCard.module.css";
+
 // GLOBAL COMPONENTS
 import Btn from "../../../components/globals/Buttons/Btn.jsx";
 import SequenceSelector from "../../../components/globals/SequenceSelector/SequenceSelector.jsx";
+
 // HOOKS
 import { useAuth } from "../../../context/useAuth.js"; // Context to access authentication state and methods
-import useToggle from "../../../hooks/useToggle.js";
+import useToggle from "../../../hooks/useToggle.js"; //
 
 export default function PoseCard({
 	id,
@@ -13,21 +15,30 @@ export default function PoseCard({
 	image,
 	description,
 }) {
-	const [isOpen, toggle] = useToggle(false);
+	const [isOpen, toggle] = useToggle(false); // Toggle state for the popup
+
 	const [showSequenceSelector, setShowSequenceSelector] =
-		useToggle(false);
-	const { isLoggedIn } = useAuth();
+		useToggle(false); // Toggle state for the sequence selector modal
+
+	const { isLoggedIn } = useAuth(); // Context to access authentication state
+
+	// CARD
 	return (
 		<div className={styles.poseCard}>
+			{/* CARD IMAGE */}
 			<img
 				src={`http://localhost:3000/img/poses/${image}`}
 				alt={name}
 				className={styles.imgPoseCard}
 			/>
+			{/* CARD TITLE */}
 			<h3 className={styles.titlePoseCard}>{name}</h3>
+
+			{/* BUTTON VIEW CARD: Show popup */}
 			<Btn text="👁" variant="primary" onClick={toggle} />
 
-			{/* BUTTON: if the user is logged button will appear to add to add the pose to the user sequences account */}
+			{/* BUTTON ADD TO MY SEQUENCES */}
+			{/* if the user is logged button will appear to add to add the pose to the user sequences account*/}
 			{isLoggedIn && (
 				<Btn
 					text="Add to my sequences"
@@ -36,20 +47,24 @@ export default function PoseCard({
 				/>
 			)}
 
-			{/* POP UP */}
+			{/* POP UP after pressing "view pose card button" */}
 			{isOpen && (
 				<div
 					className={styles.popupOverlay}
-					onClick={toggle}
+					onClick={toggle} // Close popup when clicking outside
 				>
 					<div className={styles.popup}>
+						{/* image pop up pose card */}
 						<img
 							src={`http://localhost:3000/img/poses/${image}`}
 							alt={name}
 							className={styles.imgPoseCardPopup}
 						/>
+						{/* title pop up pose card */}
 						<h3 className={styles.popupTitle}>{name}</h3>
+						{/* description pop up pose card */}
 						<p>{description}</p>
+						{/* button to close pop up pose card */}
 						<Btn
 							text="Close"
 							variant="tertiary"
@@ -62,8 +77,9 @@ export default function PoseCard({
 				</div>
 			)}
 
-			{/* Sequence Selector Modal */}
+			{/* POP UP after pressing "add to my sequences button" */}
 			{showSequenceSelector && (
+				// SequenceSelector component as a popup
 				<SequenceSelector
 					poseId={id}
 					poseName={name}

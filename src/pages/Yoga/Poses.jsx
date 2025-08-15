@@ -5,17 +5,17 @@ import PoseFilter from "./components/PoseFilter";
 import { useEffect, useState } from "react";
 
 export default function Poses() {
-	const [poses, setPoses] = useState([]);
-	const [filteredPoses, setFilteredPoses] = useState([]);
-	const [isSearching, setIsSearching] = useState(false);
-	const [loading, setLoading] = useState(false);
+	const [poses, setPoses] = useState([]); // All yoga poses
+	const [filteredPoses, setFilteredPoses] = useState([]); // Filtered yoga poses
+	const [isSearching, setIsSearching] = useState(false); // Searching state
+	const [loading, setLoading] = useState(false); // Loading state
 
 	// STATE useEffect to download all poses in the rendering
 	useEffect(() => {
 		loadAllPoses();
 	}, []);
 
-	// STATE to load all poses
+	// STATE to FETCH all poses
 	const loadAllPoses = async () => {
 		setLoading(true);
 		try {
@@ -32,7 +32,7 @@ export default function Poses() {
 		}
 	};
 
-	// Searching poses by name
+	// SEARCHING poses by name
 	const handleFilter = async (searchTerm) => {
 		setLoading(true);
 		setIsSearching(true);
@@ -60,7 +60,7 @@ export default function Poses() {
 		}
 	};
 
-	// Clear filters
+	// CLEAR SEARCHING filters
 	const handleClearFilter = () => {
 		setFilteredPoses(poses);
 		setIsSearching(false);
@@ -68,14 +68,14 @@ export default function Poses() {
 
 	return (
 		<div style={{ padding: "20px" }}>
-			{/* Filter component */}
+			{/* SEARCHER component */}
 			<PoseFilter
 				onFilter={handleFilter}
 				onClear={handleClearFilter}
 				isSearching={loading}
 			/>
 
-			{/* Search indicator */}
+			{/* Search indicator: message indicating how many poses were found */}
 			{isSearching && (
 				<div
 					style={{
@@ -90,7 +90,7 @@ export default function Poses() {
 				</div>
 			)}
 
-			{/* Loading indicator */}
+			{/* LOADING indicator */}
 			{loading && (
 				<div
 					style={{ textAlign: "center", padding: "20px" }}
@@ -99,7 +99,7 @@ export default function Poses() {
 				</div>
 			)}
 
-			{/* Poses Grid */}
+			{/* Poses GRID */}
 			<div
 				style={{
 					display: "grid",
@@ -113,7 +113,7 @@ export default function Poses() {
 				))}
 			</div>
 
-			{/* Message when no results */}
+			{/* MESSAGE when no poses are found */}
 			{!loading && filteredPoses.length === 0 && (
 				<div
 					style={{

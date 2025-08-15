@@ -5,6 +5,7 @@ import styles from "./SequenceSelector.module.css";
 // COMPONENTS
 import Btn from "../Buttons/Btn.jsx";
 
+// 4 components: SequenceSelector, fetchUserSequences, CreateNewSequenceBtn,
 export default function SequenceSelector({
 	poseId,
 	poseName,
@@ -143,19 +144,18 @@ export default function SequenceSelector({
 
 			<div className={styles.overlay} onClick={onClose}>
 				{/* Modal to close when clicking outside */}
-
 				<div
 					className={styles.modal}
 					onClick={(e) => e.stopPropagation()}
 				>
 					{/* Prevent closing when clicking inside */}
-
 					<h3 className={styles.title}>
 						Add "{poseName}" to Sequence
 					</h3>
-
+					{/* If sequences exist, show a dropdown */}
 					{sequences.length > 0 ? (
 						<div className={styles.content}>
+							{/* Dropdown to select a sequence */}
 							<label className={styles.label}>
 								Select a sequence:
 								<select
@@ -217,7 +217,6 @@ export default function SequenceSelector({
 							/>
 						</div>
 					)}
-
 					{message && (
 						<p
 							className={`${styles.message} ${
@@ -229,7 +228,6 @@ export default function SequenceSelector({
 							{message}
 						</p>
 					)}
-
 					<Btn
 						text="Close"
 						variant="tertiary"
