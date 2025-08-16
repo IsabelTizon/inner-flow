@@ -299,18 +299,12 @@ export default function Sequences() {
 												className={styles.poseContainer}
 											>
 												{/* POSE CARD COMPONENT */}
-												<PoseCard id={pose.id} {...pose} />
-												{/* REMOVE from sequence BUTTON COMPONENT */}
-												<Btn
-													text="Remove from sequence"
-													variant="tertiary"
-													onClick={() =>
-														removePoseFromSequence(
-															sequence.id,
-															pose.id
-														)
-													}
-													className={styles.removePoseBtn}
+												<PoseCard
+													id={pose.id}
+													{...pose}
+													context="sequences"
+													sequenceId={sequence.id}
+													onRemove={removePoseFromSequence}
 												/>
 											</div>
 										))
