@@ -14,6 +14,9 @@ export default function PoseCard({
 	name,
 	image,
 	description,
+	context, // "poses" o "sequences"
+	sequenceId, // context="sequences"
+	onRemove, // context="sequences"
 }) {
 	const [isOpen, toggle] = useToggle(false); // Toggle state for the popup
 
@@ -37,13 +40,23 @@ export default function PoseCard({
 			{/* BUTTON VIEW CARD: Show popup */}
 			<Btn text="👁" variant="primary" onClick={toggle} />
 
-			{/* BUTTON ADD TO MY SEQUENCES */}
-			{/* if the user is logged button will appear to add to add the pose to the user sequences account*/}
-			{isLoggedIn && (
+			{/* BUTTONS:  "ADD TO MY SEQUENCES" and "REMOVE FROM SEQUENCE" depending on context */}
+			{context === "poses" && isLoggedIn && (
+				// "Add to my Sequences Button", just in Poses page
 				<Btn
 					text="Add to my sequences"
 					variant="secondary"
 					onClick={setShowSequenceSelector}
+				/>
+			)}
+
+			{context === "sequences" && (
+				// "Remove from Sequence Button", just in Sequences page
+				<Btn
+					text="Remove"
+					variant="tertiary"
+					onClick={() => onRemove(sequenceId, id)}
+					className={styles.removePoseBtn}
 				/>
 			)}
 
