@@ -109,7 +109,12 @@ export default function Poses() {
 				}}
 			>
 				{filteredPoses.map((pose) => (
-					<PoseCard key={pose.id} id={pose.id} {...pose} />
+					<PoseCard
+						key={pose.id}
+						id={pose.id}
+						{...pose}
+						context="poses"
+					/>
 				))}
 			</div>
 
