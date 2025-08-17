@@ -23,15 +23,30 @@ export default function ContactForm() {
 		setIsSubmitting(true);
 
 		try {
-			// Aquí irían las llamadas a tu API
-			// await sendContactForm(formData);
-			setSubmitMessage("Message sent successfully!");
-			setFormData({
-				name: "",
-				surname: "",
-				email: "",
-				message: "",
-			});
+			const response = await fetch(
+				"http://localhost:3001/contact",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						...formData,
+						to: "tizonarranz@gmail.com",
+					}),
+				}
+			);
+			if (response.ok) {
+				setSubmitMessage("Message sent successfully!");
+				setFormData({
+					name: "",
+					surname: "",
+					email: "",
+					message: "",
+				});
+			} else {
+				throw new Error("Failed to send message");
+			}
 		} catch {
 			setSubmitMessage(
 				"Error sending message. Please try again."
