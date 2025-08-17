@@ -26,6 +26,7 @@
 	border: 2px solid rgba(163, 66, 39, 0.25);
 	border-radius: 8px;
 	font-size: 1rem;
+	color: rgba(10, 2, 0, 0.98);
 	background: #f8fafc;
 	transition: border-color 0.2s;
 }
