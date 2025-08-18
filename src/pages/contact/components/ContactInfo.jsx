@@ -16,6 +16,7 @@ export default function ContactInfo() {
 				<div className={styles.detail}>
 					<h3>Email</h3>
 					<p>info@innerflow.com</p>
+					<p>tizoncorreos@gmail.com</p>
 				</div>
 			</div>
 		</div>
