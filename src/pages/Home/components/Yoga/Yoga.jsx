@@ -26,17 +26,17 @@ export default function Yoga() {
 				<ClickCard
 					title="Poses"
 					image={yogaPoses}
-					to="yogaPoses"
-				/>
-				<ClickCard
-					title="Create Sequences"
-					image={createSequences}
-					to="createSequences"
+					to="poses"
 				/>
 				<ClickCard
 					title="My Sequences"
+					image={createSequences}
+					to="sequences"
+				/>
+				<ClickCard
+					title="Community Sequences"
 					image={mySequences}
-					to="mySequences"
+					to="communitySequences"
 				/>
 			</div>
 		</section>
