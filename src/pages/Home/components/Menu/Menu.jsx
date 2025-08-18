@@ -15,7 +15,7 @@ export default function Menu() {
 					fontSize: "2rem",
 				}}
 			>
-				<Link to="/menu">
+				<Link to="/dailyMenu">
 					<Btn text="Go to menu" variant="primary" />
 				</Link>
 			</TextBlock>
