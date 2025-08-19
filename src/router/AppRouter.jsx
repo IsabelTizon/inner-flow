@@ -16,6 +16,9 @@ import CreatePose from "../pages/admin/poses/CreatePose";
 // import EditPose from "../pages/admin/poses/EditPose";
 import DailyMenu from "../pages/dailyMenu/DailyMenu";
 import Contact from "../pages/contact/Contact";
+import Terms from "../pages/legal/Terms";
+import Privacy from "../pages/legal/Privacy";
+import Cookies from "../pages/legal/Cookies";
 
 const AppRouter = () => {
 	return (
@@ -33,6 +36,9 @@ const AppRouter = () => {
 				<Route path="/register" element={<Register />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/admin" element={<AdminDashboard />} />
+				<Route path="/terms" element={<Terms />} />
+				<Route path="/privacy" element={<Privacy />} />
+				<Route path="/cookies" element={<Cookies />} />
 				<Route
 					path="/admin/poses/create"
 					element={<CreatePose />}
