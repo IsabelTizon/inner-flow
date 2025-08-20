@@ -1,6 +1,7 @@
 .section {
 	display: flex;
 	flex-direction: column;
+	padding: 2rem 1rem;
 }
 
 .reverse {
@@ -15,11 +16,14 @@ h3 {
 .titleContainer {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 2rem;
 }
 .imageTextContainer {
 	display: flex;
 	flex-direction: row;
 	gap: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 .imageContainer,
 .textContainer {
@@ -39,4 +43,56 @@ h3 {
 }
 .text {
 	color: rgb(3, 3, 4);
+	line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.section {
+		padding: 1.5rem 1rem;
+	}
+
+	.imageTextContainer {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	h3 {
+		font-size: 1.4rem;
+	}
+
+	.textContainer {
+		text-align: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.section {
+		padding: 1rem 0.5rem;
+	}
+
+	.titleContainer {
+		margin-bottom: 1.5rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	h3 {
+		font-size: 1.2rem;
+	}
+
+	.imageTextContainer {
+		gap: 1rem;
+	}
+
+	.text {
+		font-size: 0.9rem;
+	}
 }
