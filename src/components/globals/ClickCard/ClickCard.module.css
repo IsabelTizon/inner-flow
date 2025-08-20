@@ -1,10 +1,18 @@
 .container {
 	position: relative;
-	width: 350px;
+	width: 100%;
+	max-width: 350px;
 	height: auto;
 	overflow: hidden;
 	border-radius: 12px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	text-decoration: none;
+}
+
+.container:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .image {
@@ -24,10 +32,51 @@
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.4);
+	transition: background-color 0.3s ease;
+}
+
+.container:hover .overlay {
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 .titleCard {
 	color: white;
 	font-size: 1.5rem;
 	text-shadow: 0 0 10px black;
+	text-align: center;
+	padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.container {
+		max-width: 300px;
+	}
+
+	.titleCard {
+		font-size: 1.3rem;
+		padding: 0.8rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		max-width: 280px;
+		border-radius: 8px;
+	}
+
+	.titleCard {
+		font-size: 1.2rem;
+		padding: 0.6rem;
+	}
+}
+
+@media (max-width: 360px) {
+	.container {
+		max-width: 250px;
+	}
+
+	.titleCard {
+		font-size: 1.1rem;
+	}
 }
