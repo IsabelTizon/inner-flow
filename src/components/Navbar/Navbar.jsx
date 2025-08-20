@@ -6,17 +6,26 @@ import styles from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 // hooks
 import useToggle from "../../hooks/useToggle";
-import useDropdown from "../../hooks/useDropdown";
+import useDropdownManager from "../../hooks/useDropdownManager";
 import { useAuth } from "../../context/useAuth"; // Custom hook to access authentication state and methods
 // Icons
 import { FaUser } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
+// import { FaShoppingCart } from "react-icons/fa";
 
 export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
-	const yogaDropdown = useDropdown();
-	const userDropdown = useDropdown();
+	const {
+		toggleDropdown,
+		closeAllDropdowns,
+		isDropdownOpen,
+	} = useDropdownManager();
 	const navigate = useNavigate();
+
+	// Define dropdown IDs
+	const DROPDOWN_IDS = {
+		YOGA: "yoga",
+		USER: "user",
+	};
 
 	// Auth hook to manage user state
 	// Object Destructuring
@@ -50,30 +59,32 @@ export default function Navbar() {
 				}`}
 			>
 				{/* Yoga dropdown */}
-				<li className={styles.navItemWithDropdown}>
+				<li
+					className={styles.navItemWithDropdown}
+					data-dropdown
+				>
 					<span
 						className={styles.navLink}
-						onClick={yogaDropdown.toggle}
+						onClick={() =>
+							toggleDropdown(DROPDOWN_IDS.YOGA)
+						}
 					>
 						Yoga ▾
 					</span>
-					{yogaDropdown.isOpen && (
+					{isDropdownOpen(DROPDOWN_IDS.YOGA) && (
 						<div className={styles.dropdownMenu}>
-							<Link
-								to="/poses"
-								onClick={yogaDropdown.close}
-							>
+							<Link to="/poses" onClick={closeAllDropdowns}>
 								Poses
 							</Link>
 							<Link
 								to="/sequences"
-								onClick={yogaDropdown.close}
+								onClick={closeAllDropdowns}
 							>
 								Sequences
 							</Link>
 							<Link
 								to="/classes"
-								onClick={yogaDropdown.close}
+								onClick={closeAllDropdowns}
 							>
 								Classes
 							</Link>
@@ -87,11 +98,11 @@ export default function Navbar() {
 					</Link>
 				</li>
 				{/* Shop */}
-				<li className={styles.navItem}>
+				{/* <li className={styles.navItem}>
 					<Link className={styles.navLink} to="/">
 						Shop
 					</Link>
-				</li>
+				</li> */}
 				{/* Contact */}
 				<li className={styles.navItem}>
 					<Link className={styles.navLink} to="/contact">
@@ -99,37 +110,44 @@ export default function Navbar() {
 					</Link>
 				</li>
 				{/* Shopping Cart */}
-				<li className={styles.navItem}>
+				{/* <li className={styles.navItem}>
 					<Link className={styles.navLink} to="/">
 						<FaShoppingCart />
 					</Link>
-				</li>
+				</li> */}
 				{/* user register/login */}
-				<li className={styles.navItemWithDropdown}>
+				<li
+					className={styles.navItemWithDropdown}
+					data-dropdown
+				>
 					<span
 						className={styles.navLink}
-						onClick={userDropdown.toggle}
+						onClick={() =>
+							toggleDropdown(DROPDOWN_IDS.USER)
+						}
 						role="button"
 						aria-haspopup="true" // Indicates that this element has a dropdown menu
-						aria-expanded={userDropdown.isOpen} // Indicates whether the dropdown is open or closed
+						aria-expanded={isDropdownOpen(
+							DROPDOWN_IDS.USER
+						)} // Indicates whether the dropdown is open or closed
 						title="Access your account" // Provides a tooltip for the icon
 					>
 						<FaUser />
 					</span>
 
-					{userDropdown.isOpen && (
+					{isDropdownOpen(DROPDOWN_IDS.USER) && (
 						<div className={styles.dropdownMenu}>
 							{!isLoggedIn ? (
 								<>
 									<Link
 										to="/login"
-										onClick={userDropdown.close} // Redirects to login page and closes the dropdown
+										onClick={closeAllDropdowns} // Redirects to login page and closes the dropdown
 									>
 										Login
 									</Link>
 									<Link
 										to="/register"
-										onClick={userDropdown.close} // Redirects to register page and closes the dropdown
+										onClick={closeAllDropdowns} // Redirects to register page and closes the dropdown
 									>
 										Register
 									</Link>
@@ -145,7 +163,7 @@ export default function Navbar() {
 										className={`${styles.navLink} ${styles.logoutButton}`}
 										onClick={() => {
 											logout();
-											userDropdown.close();
+											closeAllDropdowns();
 											navigate("/");
 										}}
 									>
