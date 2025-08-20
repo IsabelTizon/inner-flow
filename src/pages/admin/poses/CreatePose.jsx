@@ -24,7 +24,7 @@ export default function CreatePose() {
 			}
 
 			const res = await fetch(
-				"http://localhost:3000/poses",
+				"http://localhost:3001/poses",
 				{
 					method: "POST",
 					headers: {

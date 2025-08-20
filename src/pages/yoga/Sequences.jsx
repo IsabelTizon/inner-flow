@@ -30,7 +30,7 @@ export default function Sequences() {
 			const token = localStorage.getItem("token"); // JWT token to authorize user
 			const response = await fetch(
 				// await pauses the function till the request completes
-				"http://localhost:3000/sequences/my-sequences",
+				"http://localhost:3001/sequences/my-sequences",
 				{
 					headers: {
 						Authorization: `Bearer ${token}`, // send the token as Bearer
@@ -78,7 +78,7 @@ export default function Sequences() {
 
 			const response = await fetch(
 				// await pauses the function till the request completes
-				"http://localhost:3000/sequences",
+				"http://localhost:3001/sequences",
 				{
 					method: "POST",
 					headers: {
@@ -124,7 +124,7 @@ export default function Sequences() {
 
 			const response = await fetch(
 				// await pauses the function till the request completes
-				`http://localhost:3000/sequences/${sequenceId}`,
+				`http://localhost:3001/sequences/${sequenceId}`,
 				{
 					method: "DELETE",
 					headers: {
@@ -158,7 +158,7 @@ export default function Sequences() {
 			const response = await fetch(
 				// await pauses the function till the request completes
 				// Get the pose from the sequence
-				`http://localhost:3000/sequences/${sequenceId}/poses/${poseId}`,
+				`http://localhost:3001/sequences/${sequenceId}/poses/${poseId}`,
 				{
 					method: "DELETE",
 					headers: {

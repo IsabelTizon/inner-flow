@@ -20,7 +20,7 @@ export default function Poses() {
 		setLoading(true);
 		try {
 			const response = await fetch(
-				"http://localhost:3000/poses"
+				"http://localhost:3001/poses"
 			);
 			const data = await response.json();
 			setPoses(data);
@@ -40,7 +40,7 @@ export default function Poses() {
 		try {
 			// fetch endpoint by name
 			const response = await fetch(
-				`http://localhost:3000/poses/search?name=${encodeURIComponent(
+				`http://localhost:3001/poses/search?name=${encodeURIComponent(
 					searchTerm
 				)}`
 			);

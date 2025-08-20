@@ -28,7 +28,7 @@ export default function SequenceSelector({
 		try {
 			const token = localStorage.getItem("token");
 			const response = await fetch(
-				"http://localhost:3000/sequences/my-sequences",
+				"http://localhost:3001/sequences/my-sequences",
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ export default function SequenceSelector({
 		try {
 			const token = localStorage.getItem("token");
 			const response = await fetch(
-				`http://localhost:3000/sequences/${selectedSequenceId}/poses`,
+				`http://localhost:3001/sequences/${selectedSequenceId}/poses`,
 				{
 					method: "POST",
 					headers: {
@@ -106,7 +106,7 @@ export default function SequenceSelector({
 		try {
 			const token = localStorage.getItem("token");
 			const response = await fetch(
-				"http://localhost:3000/sequences",
+				"http://localhost:3001/sequences",
 				{
 					method: "POST",
 					headers: {

@@ -30,7 +30,7 @@ export default function PoseCard({
 		<div className={styles.poseCard}>
 			{/* CARD IMAGE */}
 			<img
-				src={`http://localhost:3000/img/poses/${image}`}
+				src={`http://localhost:3001/img/poses/${image}`}
 				alt={name}
 				className={styles.imgPoseCard}
 			/>
@@ -69,7 +69,7 @@ export default function PoseCard({
 					<div className={styles.popup}>
 						{/* image pop up pose card */}
 						<img
-							src={`http://localhost:3000/img/poses/${image}`}
+							src={`http://localhost:3001/img/poses/${image}`}
 							alt={name}
 							className={styles.imgPoseCardPopup}
 						/>
