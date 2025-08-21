@@ -49,9 +49,11 @@ export default function RegisterBox() {
 					type="checkbox"
 					className={styles.checkbox}
 				/>
-				<span>
+				<span className={styles.checkboxLabel}>
 					By signing up you agree{" "}
-					<a href="#">Terms & Conditions</a>
+					<a className={styles.checkboxTerms} href="/terms">
+						Terms & Conditions
+					</a>
 				</span>
 			</div>
 			<div>

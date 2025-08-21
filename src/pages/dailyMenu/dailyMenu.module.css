@@ -138,3 +138,59 @@
 	color: #666;
 	margin: 0.25rem 0;
 }
+
+/* ---------------- RESPONSIVE ---------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+	.title {
+		font-size: 2.5rem;
+	}
+	.subtitle {
+		font-size: 1rem;
+	}
+	.mealCard {
+		flex: 0 1 calc(50% - 1rem);
+	}
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	.hero {
+		height: 50vh;
+		padding: 1rem;
+	}
+	.title {
+		font-size: 2rem;
+	}
+	.subtitle {
+		font-size: 0.95rem;
+	}
+	.input {
+		width: 100%;
+		max-width: 300px;
+	}
+	.button {
+		width: 100%;
+		max-width: 300px;
+	}
+	.mealCard {
+		flex: 0 1 100%;
+	}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	.hero {
+		height: 40vh;
+	}
+	.title {
+		font-size: 1.6rem;
+	}
+	.subtitle {
+		font-size: 0.9rem;
+	}
+	.form {
+		flex-direction: column;
+	}
+}

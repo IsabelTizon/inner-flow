@@ -57,10 +57,13 @@
 .formWrapper {
 	display: flex;
 	flex-direction: column;
-	width: 90% auto;
+	width: 100%;
+	max-width: 400px;
+	padding: 2rem;
 }
 .label {
-	color: #ffffff;
+	color: rgba(163, 66, 39, 0.95);
+	font-weight: 500;
 	margin-bottom: 5px;
 	font-size: 18px;
 	text-transform: uppercase;
@@ -68,12 +71,30 @@
 
 .inputField {
 	border: none;
-	border-bottom: 2px solid #ffffff;
+	border-bottom: 2px solid #b5b5b5;
 	background-color: transparent;
-	padding: 10px 0;
-	margin-bottom: 20px;
-	color: #ffffff;
-	font-size: 14px;
+	padding: 12px 0;
+	margin-bottom: 24px;
+	color: #121111;
+	font-size: 16px;
+	width: 100%;
+	min-width: 300px;
+	transition: border-color 0.3s ease;
+	outline: none;
+}
+
+.inputField::placeholder {
+	color: #888888;
+	opacity: 1;
+	font-style: italic;
+}
+
+.inputField:focus {
+	border-bottom-color: #a34227f2;
+}
+
+.inputField:focus::placeholder {
+	color: #aaaaaa;
 }
 
 .checkboxWrapper {
@@ -97,7 +118,14 @@
 	position: relative;
 	transition: background-color 0.3s ease;
 }
-
+.checkboxLabel {
+	color: #121111;
+	padding-left: 10px;
+}
+.checkboxTerms {
+	color: rgba(163, 66, 39, 0.95);
+	text-decoration: underline;
+}
 .checkbox:checked {
 	background-color: rgba(163, 66, 39, 0.95);
 }
@@ -112,4 +140,92 @@
 	border: solid white;
 	border-width: 0 2px 2px 0;
 	transform: rotate(45deg);
+}
+
+/* 📱 Responsive - Tablet & Mobile */
+@media (max-width: 1024px) {
+	.authLayout {
+		flex-direction: column;
+		height: auto;
+		min-height: 100vh;
+	}
+
+	.greetingLayout,
+	.formLayout {
+		width: 100%;
+		height: auto;
+	}
+
+	.greetingLayout {
+		padding: 2rem 1rem;
+	}
+
+	.formLayout {
+		padding: 2rem 1rem;
+	}
+
+	.formWrapper {
+		max-width: 500px;
+		padding: 1.5rem;
+	}
+
+	.greetingImg {
+		width: 70%;
+	}
+}
+
+@media (max-width: 768px) {
+	.formWrapper {
+		max-width: 400px;
+		padding: 1rem;
+	}
+
+	.inputField {
+		min-width: 280px;
+		font-size: 16px; /* Prevent zoom on iOS */
+	}
+
+	.label {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 600px) {
+	.greetingTitle {
+		font-size: 1rem;
+		max-width: 90%;
+	}
+
+	.greetingImg {
+		width: 90%;
+	}
+
+	.formWrapper {
+		padding: 0.5rem;
+		max-width: 100%;
+	}
+
+	.inputField {
+		min-width: 250px;
+		padding: 10px 6px;
+	}
+}
+
+@media (max-width: 480px) {
+	.authLayout {
+		padding: 1rem 0.5rem;
+	}
+
+	.inputField {
+		min-width: 200px;
+		font-size: 16px;
+	}
+
+	.label {
+		font-size: 14px;
+	}
+
+	.checkboxWrapper {
+		font-size: 12px;
+	}
 }

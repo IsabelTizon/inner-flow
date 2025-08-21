@@ -1,6 +1,8 @@
 // COMPONENTS
 import PoseCard from "./components/PoseCard";
 import PoseFilter from "./components/PoseFilter";
+// STYLES
+import styles from "./Poses.module.css";
 // STATES
 import { useEffect, useState } from "react";
 
@@ -67,47 +69,27 @@ export default function Poses() {
 	};
 
 	return (
-		<div style={{ padding: "20px" }}>
-			{/* SEARCHER component */}
+		<div className={styles.posesContainer}>
 			<PoseFilter
 				onFilter={handleFilter}
 				onClear={handleClearFilter}
 				isSearching={loading}
 			/>
 
-			{/* Search indicator: message indicating how many poses were found */}
 			{isSearching && (
-				<div
-					style={{
-						textAlign: "center",
-						marginBottom: "20px",
-						color: "#666",
-						fontStyle: "italic",
-					}}
-				>
+				<div className={styles.posesMessage}>
 					Showing search results ({filteredPoses.length}{" "}
 					found)
 				</div>
 			)}
 
-			{/* LOADING indicator */}
 			{loading && (
-				<div
-					style={{ textAlign: "center", padding: "20px" }}
-				>
+				<div className={styles.posesLoading}>
 					Loading poses...
 				</div>
 			)}
 
-			{/* Poses GRID */}
-			<div
-				style={{
-					display: "grid",
-					gridTemplateColumns:
-						"repeat(auto-fill, minmax(300px, 1fr))",
-					gap: "20px",
-				}}
-			>
+			<div className={styles.posesFlex}>
 				{filteredPoses.map((pose) => (
 					<PoseCard
 						key={pose.id}
@@ -118,15 +100,8 @@ export default function Poses() {
 				))}
 			</div>
 
-			{/* MESSAGE when no poses are found */}
 			{!loading && filteredPoses.length === 0 && (
-				<div
-					style={{
-						textAlign: "center",
-						padding: "40px",
-						color: "#666",
-					}}
-				>
+				<div className={styles.posesEmpty}>
 					{isSearching
 						? "No poses found matching your search."
 						: "No poses available."}
