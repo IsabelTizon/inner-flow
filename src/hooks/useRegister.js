@@ -17,7 +17,7 @@ export function useRegister() {
 
 		try {
 			const response = await fetch(
-				"http://localhost:3000/users/auth/register",
+				"http:///users/auth/register",
 				{
 					method: "POST",
 					headers: {
