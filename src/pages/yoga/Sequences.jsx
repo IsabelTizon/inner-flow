@@ -5,7 +5,7 @@ import { useAuth } from "../../context/useAuth.js";
 // GLOBAL COMPONENTS
 import Btn from "../../components/globals/Buttons/Btn.jsx";
 // COMPONENTS
-import PoseCard from "./components/PoseCard.jsx";
+import PoseCard from "../../components/globals/Yoga/PoseCard.jsx";
 // STYLES
 import styles from "./Sequences.module.css";
 

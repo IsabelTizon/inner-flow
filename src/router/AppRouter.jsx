@@ -3,23 +3,30 @@ import {
 	Routes,
 	Route,
 } from "react-router-dom";
+// HOME
 import Home from "../pages/home/Home";
-import Poses from "../pages/yoga/Poses";
-import Sequences from "../pages/yoga/Sequences";
+// PAGES
+import DailyMenu from "../pages/dailyMenu/DailyMenu";
+import Contact from "../pages/contact/Contact";
+// GLOBAL
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Register from "../pages/users/auth/Register";
-import Login from "../pages/users/auth/Login";
+// YOGA
+import Poses from "../pages/yoga/Poses";
+import Sequences from "../pages/yoga/Sequences";
+import Community from "../pages/yoga/Community";
+// AUTH
+import Register from "../pages/auth/Register";
+import Login from "../pages/auth/Login";
+// ADMIN
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreatePose from "../pages/admin/poses/CreatePose";
 // import PoseList from "../pages/admin/poses/PoseList";
 // import EditPose from "../pages/admin/poses/EditPose";
-import DailyMenu from "../pages/dailyMenu/DailyMenu";
-import Contact from "../pages/contact/Contact";
+// LEGAL
 import Terms from "../pages/legal/Terms";
 import Privacy from "../pages/legal/Privacy";
 import Cookies from "../pages/legal/Cookies";
-import Community from "../pages/yoga/Community";
 
 const AppRouter = () => {
 	return (

@@ -1,8 +1,8 @@
 import styles from "./Yoga.module.css";
 import ClickCard from "../../../../components/globals/ClickCard/ClickCard";
-import yogaPoses from "../../../../components/assets/yogaPoses.jpg";
-import createSequences from "../../../../components/assets/createSequences.png";
-import mySequences from "../../../../components/assets/mySequences.jpg";
+import yogaPoses from "../../../../assets/yogaPoses.jpg";
+import createSequences from "../../../../assets/createSequences.png";
+import mySequences from "../../../../assets/mySequences.jpg";
 
 export default function Yoga() {
 	return (

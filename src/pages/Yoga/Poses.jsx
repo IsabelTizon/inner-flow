@@ -1,6 +1,6 @@
 // COMPONENTS
-import PoseCard from "./components/PoseCard";
-import PoseFilter from "./components/PoseFilter";
+import PoseCard from "../../components/globals/Yoga/PoseCard";
+import PoseFilter from "../../components/globals/Yoga/PoseFilter";
 // STYLES
 import styles from "./Poses.module.css";
 // STATES
