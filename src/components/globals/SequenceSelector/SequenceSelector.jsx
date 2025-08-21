@@ -165,7 +165,10 @@ export default function SequenceSelector({
 										setSelectedSequenceId(e.target.value)
 									}
 								>
-									<option value="">
+									<option
+										className={styles.selectValue}
+										value=""
+									>
 										Choose a sequence...
 									</option>
 									{sequences.map((sequence) => (
