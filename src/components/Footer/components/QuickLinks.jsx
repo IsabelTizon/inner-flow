@@ -49,7 +49,7 @@ export default function QuickLinks() {
 						<li className={styles.navItem}>
 							<Link
 								className={styles.navLink}
-								to="/contact"
+								to="/community"
 							>
 								Community Sequences
 							</Link>

@@ -19,6 +19,7 @@ import Contact from "../pages/contact/Contact";
 import Terms from "../pages/legal/Terms";
 import Privacy from "../pages/legal/Privacy";
 import Cookies from "../pages/legal/Cookies";
+import Community from "../pages/yoga/Community";
 
 const AppRouter = () => {
 	return (
@@ -28,11 +29,11 @@ const AppRouter = () => {
 				<Route path="/" element={<Home />} />
 				<Route path="/poses" element={<Poses />} />
 				<Route path="/sequences" element={<Sequences />} />
-				<Route path="/classes" element={<Poses />} />
+				<Route path="/community" element={<Community />} />
 				<Route path="/dailyMenu" element={<DailyMenu />} />
-				<Route path="/shop" element={<Poses />} />
+				{/* <Route path="/shop" element={<Poses />} /> */}
 				<Route path="/contact" element={<Contact />} />
-				<Route path="/shopping-cart" element={<Poses />} />
+				{/* <Route path="/shopping-cart" element={<Poses />} /> */}
 				<Route path="/register" element={<Register />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/admin" element={<AdminDashboard />} />

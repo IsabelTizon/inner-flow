@@ -83,10 +83,10 @@ export default function Navbar() {
 								Sequences
 							</Link>
 							<Link
-								to="/classes"
+								to="/community"
 								onClick={closeAllDropdowns}
 							>
-								Classes
+								Community Sequences
 							</Link>
 						</div>
 					)}
