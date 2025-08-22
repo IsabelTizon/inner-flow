@@ -1,0 +1,156 @@
+/* Poses page */
+
+/* yogacard */
+.poseCard {
+	width: 300px;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-decoration: none;
+	color: inherit;
+}
+.imgPoseCard {
+	border-radius: 10px;
+	margin-bottom: 15px;
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	object-position: center;
+}
+.titlePoseCard {
+	font-size: 1rem;
+	margin-bottom: 10px;
+	color: #333;
+}
+/* pop up yogacard */
+.popupOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+	padding: 20px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.popup {
+	background-color: rgba(163, 66, 39, 0.95);
+	border-radius: 16px;
+	box-shadow: 0 10px 20px rgba(163, 66, 39, 0.95);
+	width: 60%;
+	max-width: 600px;
+	max-height: 80vh;
+	overflow-y: auto;
+	position: relative;
+	padding: 40px;
+	animation: popupSlideIn 0.3s ease-out;
+}
+
+.imgPoseCardPopup {
+	width: 100%;
+	height: auto;
+	object-position: center;
+	border-radius: 16px 16px 0 0;
+	margin-bottom: 0;
+}
+
+.popupTitle {
+	font-size: 1.5rem;
+	text-transform: capitalize;
+	font-weight: bold;
+	color: #ffd6c0;
+	margin: 0 0 16px 0;
+}
+
+.popupDescription {
+	color: #555;
+	line-height: 1.6;
+	font-size: 1rem;
+	margin: 0;
+}
+
+.closeButton {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: rgba(255, 255, 255, 0.95);
+	border: none;
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+	z-index: 10;
+	color: #333;
+}
+
+.closeButton:hover {
+	background: white;
+	transform: scale(1.1);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Animación de entrada */
+@keyframes popupSlideIn {
+	from {
+		opacity: 0;
+		transform: scale(0.9) translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.popupCard {
+		width: 85%; /* ✅ Más ancho en tablet */
+		max-height: 85vh;
+	}
+
+	.popupContent {
+		padding: 20px;
+	}
+
+	.imgPoseCardPopup {
+		height: 250px;
+	}
+
+	.popupTitle {
+		font-size: 1.3rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.popupCard {
+		width: 95%; /* ✅ Casi toda la pantalla en móvil */
+		margin: 10px;
+	}
+
+	.popupContent {
+		padding: 16px;
+	}
+
+	.imgPoseCardPopup {
+		height: 200px;
+	}
+
+	.closeButton {
+		width: 32px;
+		height: 32px;
+		font-size: 18px;
+	}
+}
