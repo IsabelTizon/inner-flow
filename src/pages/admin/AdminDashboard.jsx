@@ -21,7 +21,7 @@ export default function AdminDashboard() {
 				<CardLink to="/admin/poses/create">
 					Create Pose
 				</CardLink>
-				<CardLink to="/admin/poses">
+				<CardLink to="/admin/poses/editPose">
 					Edit Old Poses
 				</CardLink>
 			</div>
