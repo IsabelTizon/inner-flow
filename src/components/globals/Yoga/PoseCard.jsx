@@ -14,9 +14,11 @@ export default function PoseCard({
 	name,
 	image,
 	description,
-	context, // "poses" o "sequences"
+	context, // "poses" or "sequences" or "editPose"
 	sequenceId, // context="sequences"
 	onRemove, // context="sequences"
+	onEdit, // context="editPose"
+	onEditDelete,
 }) {
 	const [isOpen, toggle] = useToggle(false); // Toggle state for the popup
 
@@ -60,6 +62,24 @@ export default function PoseCard({
 				/>
 			)}
 
+			{context === "editPose" && isLoggedIn && onEdit && (
+				// Edit Pose Btn
+				<Btn
+					text="Edit"
+					variant="secondary"
+					onClick={() => onEdit(id)}
+				/>
+			)}
+			{context === "editPose" &&
+				isLoggedIn &&
+				onEditDelete && (
+					// Delete Pose Btn
+					<Btn
+						text="Delete"
+						variant="tertiary"
+						onClick={() => onEditDelete(id)}
+					/>
+				)}
 			{/* POP UP after pressing "view pose card button" */}
 			{isOpen && (
 				<div
