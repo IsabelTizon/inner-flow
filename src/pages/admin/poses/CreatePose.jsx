@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./createPose.module.css";
+import styles from "./adminPoseForm.module.css";
 
 export default function CreatePose() {
 	const [name, setName] = useState("");
