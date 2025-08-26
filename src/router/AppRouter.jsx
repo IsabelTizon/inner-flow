@@ -23,6 +23,7 @@ import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreatePose from "../pages/admin/poses/CreatePose";
 // import PoseList from "../pages/admin/poses/PoseList";
 import EditPose from "../pages/admin/poses/EditPose";
+import EditPoseForm from "../pages/admin/poses/EditPoseForm";
 // LEGAL
 import Terms from "../pages/legal/Terms";
 import Privacy from "../pages/legal/Privacy";
@@ -35,6 +36,18 @@ const AppRouter = () => {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/poses" element={<Poses />} />
+				<Route
+					path="/admin/poses/create"
+					element={<CreatePose />}
+				/>
+				<Route
+					path="/admin/poses/editPose"
+					element={<EditPose />}
+				/>
+				<Route
+					path="/admin/poses/editPose/editPoseForm/:id"
+					element={<EditPoseForm />}
+				/>
 				<Route path="/sequences" element={<Sequences />} />
 				<Route path="/community" element={<Community />} />
 				<Route path="/dailyMenu" element={<DailyMenu />} />
@@ -47,14 +60,7 @@ const AppRouter = () => {
 				<Route path="/terms" element={<Terms />} />
 				<Route path="/privacy" element={<Privacy />} />
 				<Route path="/cookies" element={<Cookies />} />
-				<Route
-					path="/admin/poses/create"
-					element={<CreatePose />}
-				/>
-				<Route
-					path="/admin/poses/editPose"
-					element={<EditPose />}
-				/>
+
 				{/* <Route path="/admin/poses" element={<PoseList />} />
 				<Route
 					path="/admin/poses/edit/:id"
