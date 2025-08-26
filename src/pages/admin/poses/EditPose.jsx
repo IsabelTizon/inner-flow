@@ -5,6 +5,7 @@ import PoseFilter from "../../../components/globals/Yoga/PoseFilter";
 import styles from "../../yoga/Poses.module.css";
 // STATES
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function EditPose() {
 	const [poses, setPoses] = useState([]); // All yoga poses
@@ -12,6 +13,7 @@ export default function EditPose() {
 	const [isSearching, setIsSearching] = useState(false); // Searching state
 	const [loading, setLoading] = useState(false); // Loading state
 	const [message, setMessage] = useState("");
+	const navigate = useNavigate();
 
 	// STATE useEffect to download all poses in the rendering
 	useEffect(() => {
@@ -72,8 +74,9 @@ export default function EditPose() {
 	// Handle edit pose
 	const handleEditPose = async (poseId) => {
 		console.log("Edit pose with ID:", poseId);
-
-		alert(`Edit pose with ID: ${poseId}`);
+		navigate(
+			`/admin/poses/editPose/editPoseForm/${poseId}`
+		);
 	};
 
 	// Handle delete pose
