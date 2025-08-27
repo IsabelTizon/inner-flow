@@ -146,6 +146,40 @@ export default function Sequences() {
 			alert("Connection error");
 		}
 	};
+	// TOGGLE SEQUENCE VISIBILITY FUNCTION (SHARE/UNSHARE)
+	const toggleSequenceVisibility = async (sequenceId) => {
+		try {
+			const token = localStorage.getItem("token"); // Get the JWT token to authorize user
+
+			const response = await fetch(
+				`http://localhost:3001/sequences/${sequenceId}/toggle-visibility`,
+				{
+					method: "PATCH",
+					headers: {
+						Authorization: `Bearer ${token}`, // send the token as Bearer
+					},
+				}
+			);
+
+			if (response.ok) {
+				const updatedSequence = await response.json();
+				// Update the sequence in the state with the new visibility status
+				setSequences(
+					sequences.map((seq) =>
+						seq.id === sequenceId ? updatedSequence : seq
+					)
+				);
+			} else {
+				alert("Error toggling sequence visibility");
+			}
+		} catch (error) {
+			console.error(
+				"Error toggling sequence visibility:",
+				error
+			);
+			alert("Connection error");
+		}
+	};
 
 	// REMOVE POSE FROM SEQUENCE FUNCTION
 	const removePoseFromSequence = async (
@@ -283,6 +317,18 @@ export default function Sequences() {
 												sequence.id,
 												sequence.name
 											)
+										}
+									/>
+									{/* SHARE/UNSHARE BUTTON COMPONENT */}
+									<Btn
+										text={
+											sequence.isPublic
+												? "Unshare"
+												: "Share"
+										}
+										variant="tertiary"
+										onClick={() =>
+											toggleSequenceVisibility(sequence.id)
 										}
 									/>
 								</div>
