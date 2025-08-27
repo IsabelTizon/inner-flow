@@ -141,7 +141,6 @@ export default function SequenceSelector({
 	return (
 		<>
 			{/* MODAL */}
-
 			<div className={styles.overlay} onClick={onClose}>
 				{/* Modal to close when clicking outside */}
 				<div
