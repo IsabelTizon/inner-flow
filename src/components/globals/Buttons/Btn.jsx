@@ -15,12 +15,7 @@ export default function Btn({
 		...(textColor && { color: textColor }),
 	};
 
-	const classNames = `${buttonsStyles.btn} ${
-		variant ? buttonsStyles[variant] : ""
-	}`;
-
-	console.log("variant:", variant);
-	console.log("classNames:", classNames);
+	const classNames = variant ? buttonsStyles[variant] : "";
 
 	if (to) {
 		return (
