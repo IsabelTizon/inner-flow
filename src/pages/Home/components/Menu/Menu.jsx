@@ -8,7 +8,7 @@ export default function Menu() {
 		<>
 			<TextBlock
 				title="Create your healthy daily Menu"
-				text="simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining esse"
+				text="Nourish your body with our personalized daily menu planner. Create balanced, nutritious meals tailored to your dietary preferences and health goals. Our intelligent menu system helps you plan wholesome breakfasts, lunches, and dinners that support your wellness journey. Discover new recipes, track your nutrition, and maintain a healthy relationship with food through mindful meal planning."
 				backgroundImage={imgBlockMenu}
 				titleStyle={{
 					color: "#A34227F2",

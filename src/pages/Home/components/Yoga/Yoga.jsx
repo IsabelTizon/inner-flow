@@ -12,14 +12,12 @@ export default function Yoga() {
 			</div>
 			<div className={styles.textContainer}>
 				<p className={styles.text}>
-					simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's
-					standard dummy text ever since the 1500s, when an
-					unknown printer took a galley of type and
-					scrambled it to make a type specimen book. It has
-					survived not only five centuries, but also the
-					leap into electronic typesetting, remaining
-					essentially
+					Discover the transformative power of yoga with our
+					comprehensive platform. Explore hundreds of poses
+					with detailed instructions, create personalized
+					sequences that match your practice level, and
+					connect with our community to share and discover
+					inspiring sequences from fellow practitioners.
 				</p>
 			</div>
 			<div className={styles.cardsContainer}>
@@ -36,7 +34,7 @@ export default function Yoga() {
 				<ClickCard
 					title="Community Sequences"
 					image={mySequences}
-					to="communitySequences"
+					to="community"
 				/>
 			</div>
 		</section>
