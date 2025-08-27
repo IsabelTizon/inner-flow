@@ -24,20 +24,8 @@ export default function QuickLinks() {
 					</li>
 
 					<li className={styles.navItem}>
-						<Link
-							className={styles.navLink}
-							to="/yoga/poses"
-						>
+						<Link className={styles.navLink} to="/poses">
 							Yoga Poses
-						</Link>
-					</li>
-
-					<li className={styles.navItem}>
-						<Link
-							className={styles.navLink}
-							to="/yoga/sequences"
-						>
-							Sequences
 						</Link>
 					</li>
 
