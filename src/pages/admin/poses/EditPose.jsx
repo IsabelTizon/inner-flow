@@ -157,8 +157,8 @@ export default function EditPose() {
 						id={pose.id}
 						{...pose}
 						context="editPose"
-						onEdit={handleEditPose}
-						onEditDelete={handleEditDelete}
+						onAdminEdit={handleEditPose}
+						onAdminDelete={handleEditDelete}
 					/>
 				))}
 			</div>
