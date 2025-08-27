@@ -130,6 +130,13 @@
 	font-weight: 500;
 }
 
+.creatorInfo {
+	font-size: 0.9rem;
+	color: #4a5568;
+	margin-top: 8px;
+	font-style: italic;
+}
+
 /* Sequence Actions */
 .sequenceActions {
 	display: flex;
