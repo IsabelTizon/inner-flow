@@ -14,11 +14,11 @@ export default function PoseCard({
 	name,
 	image,
 	description,
-	context, // "poses" or "sequences" or "editPose"
+	context, // "poses" or "sequences" or "editPose on onAdminEdit" or "editPose on onAdminDelete"
 	sequenceId, // context="sequences"
 	onRemove, // context="sequences"
-	onEdit, // context="editPose"
-	onEditDelete,
+	onAdminEdit, // context="admin dashboard"
+	onAdminDelete, // context="admin dashboard"
 }) {
 	const [isOpen, toggle] = useToggle(false); // Toggle state for the popup
 
@@ -30,6 +30,7 @@ export default function PoseCard({
 	// CARD
 	return (
 		<div className={styles.poseCard}>
+			{/*********** CARD ***********/}
 			{/* CARD IMAGE */}
 			<img
 				src={`http://localhost:3001/img/poses/${image}`}
@@ -39,12 +40,15 @@ export default function PoseCard({
 			{/* CARD TITLE */}
 			<h3 className={styles.titlePoseCard}>{name}</h3>
 
+			{/*********** BUTTONS ***********/}
 			{/* BUTTON VIEW CARD: Show popup */}
 			<Btn text="👁" variant="primary" onClick={toggle} />
 
-			{/* BUTTONS:  "ADD TO MY SEQUENCES" and "REMOVE FROM SEQUENCE" depending on context */}
+			{/*********** CONTEXT BUTTONS ***********/}
+			{/* CONTEXT BUTTONS =>  1) POSES: "ADD TO MY SEQUENCES", 2) SEQUENCES: "REMOVE FROM SEQUENCE", ADMIN: "UPDATE" / "DELETE POSE" */}
+			{/* IN POSES */}
 			{context === "poses" && isLoggedIn && (
-				// "Add to my Sequences Button", just in Poses page
+				// "Add to my Sequences Button"
 				<Btn
 					text="Add to my sequences"
 					variant="secondary"
@@ -52,35 +56,41 @@ export default function PoseCard({
 				/>
 			)}
 
+			{/* IN SEQUENCES */}
 			{context === "sequences" && (
-				// "Remove from Sequence Button", just in Sequences page
+				// "Remove Button"
 				<Btn
 					text="Remove"
 					variant="tertiary"
 					onClick={() => onRemove(sequenceId, id)}
-					className={styles.removePoseBtn}
 				/>
 			)}
 
-			{context === "editPose" && isLoggedIn && onEdit && (
-				// Edit Pose Btn
-				<Btn
-					text="Edit"
-					variant="secondary"
-					onClick={() => onEdit(id)}
-				/>
-			)}
+			{/* ADMIN DASHBOARD */}
 			{context === "editPose" &&
 				isLoggedIn &&
-				onEditDelete && (
+				onAdminEdit && (
+					// Edit Pose Btn
+					<Btn
+						text="Edit"
+						variant="secondary"
+						onClick={() => onAdminEdit(id)}
+					/>
+				)}
+			{/*  ADMIN DASHBOARD */}
+			{context === "editPose" &&
+				isLoggedIn &&
+				onAdminDelete && (
 					// Delete Pose Btn
 					<Btn
 						text="Delete"
 						variant="tertiary"
-						onClick={() => onEditDelete(id)}
+						onClick={() => onAdminDelete(id)}
 					/>
 				)}
-			{/* POP UP after pressing "view pose card button" */}
+
+			{/*********** POP UPS ***********/}
+			{/* POP UP IN POSES: after pressing "view pose" btn */}
 			{isOpen && (
 				<div
 					className={styles.popupOverlay}
@@ -96,7 +106,9 @@ export default function PoseCard({
 						{/* title pop up pose card */}
 						<h3 className={styles.popupTitle}>{name}</h3>
 						{/* description pop up pose card */}
-						<p>{description}</p>
+						<p className={styles.popupDescription}>
+							{description}
+						</p>
 						{/* button to close pop up pose card */}
 						<Btn
 							text="Close"
@@ -110,7 +122,7 @@ export default function PoseCard({
 				</div>
 			)}
 
-			{/* POP UP after pressing "add to my sequences button" */}
+			{/* POP UP IN SEQUENCES: after pressing "add to my sequences" btn */}
 			{showSequenceSelector && (
 				// SequenceSelector component as a popup
 				<SequenceSelector

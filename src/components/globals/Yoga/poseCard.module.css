@@ -66,43 +66,17 @@
 	text-transform: capitalize;
 	font-weight: bold;
 	color: #ffd6c0;
-	margin: 0 0 16px 0;
+	margin: 40px 0 16px 0;
 }
 
 .popupDescription {
-	color: #555;
+	color: #f0f0f0;
 	line-height: 1.6;
 	font-size: 1rem;
-	margin: 0;
+	margin-bottom: 20px;
 }
 
-.closeButton {
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	background: rgba(255, 255, 255, 0.95);
-	border: none;
-	border-radius: 50%;
-	width: 36px;
-	height: 36px;
-	cursor: pointer;
-	font-size: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-	transition: all 0.2s ease;
-	z-index: 10;
-	color: #333;
-}
-
-.closeButton:hover {
-	background: white;
-	transform: scale(1.1);
-	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* ✅ Animación de entrada */
+/* Animation */
 @keyframes popupSlideIn {
 	from {
 		opacity: 0;
@@ -117,7 +91,7 @@
 /* Responsive */
 @media (max-width: 768px) {
 	.popupCard {
-		width: 85%; /* ✅ Más ancho en tablet */
+		width: 85%;
 		max-height: 85vh;
 	}
 
@@ -136,7 +110,7 @@
 
 @media (max-width: 480px) {
 	.popupCard {
-		width: 95%; /* ✅ Casi toda la pantalla en móvil */
+		width: 95%;
 		margin: 10px;
 	}
 
