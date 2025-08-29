@@ -16,7 +16,7 @@ export default function Footer() {
 				</div>
 
 				<div className={styles.bottom}>
-					© {new Date().getFullYear()} inner-flow. All
+					© {new Date().getFullYear()} Inner Flow. All
 					rights reserved.
 				</div>
 			</footer>

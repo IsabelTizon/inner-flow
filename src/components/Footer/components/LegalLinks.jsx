@@ -5,7 +5,7 @@ import styles from "../footer.module.css";
 
 export default function LegalLinks() {
 	return (
-		<div className={styles.legalLinks}>
+		<div className={styles.section}>
 			<h3 className={styles.title}>LEGAL</h3>
 			<ul className={styles.list}>
 				<li>

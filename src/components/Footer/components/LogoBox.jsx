@@ -16,6 +16,7 @@ export default function LogoBox() {
 						width={80}
 					/>
 				</Link>
+
 				<h2 className={styles.logo}>Inner-flow</h2>
 				<p className={styles.description}>
 					Your space to practice yoga, explore healthy
