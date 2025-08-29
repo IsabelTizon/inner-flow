@@ -7,6 +7,7 @@ import {
 import Home from "../pages/home/Home";
 // PAGES
 import DailyMenu from "../pages/dailyMenu/DailyMenu";
+import RecipeMeal from "../pages/dailyMenu/recipeMeal";
 import Contact from "../pages/contact/Contact";
 // GLOBAL
 import Navbar from "../components/Navbar/Navbar";
@@ -51,6 +52,10 @@ const AppRouter = () => {
 				<Route path="/sequences" element={<Sequences />} />
 				<Route path="/community" element={<Community />} />
 				<Route path="/dailyMenu" element={<DailyMenu />} />
+				<Route
+					path="/dailyMenu/:name"
+					element={<RecipeMeal />}
+				/>
 				{/* <Route path="/shop" element={<Poses />} /> */}
 				<Route path="/contact" element={<Contact />} />
 				{/* <Route path="/shopping-cart" element={<Poses />} /> */}
