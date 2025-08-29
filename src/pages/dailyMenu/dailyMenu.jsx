@@ -1,45 +1,37 @@
-import { useState } from "react"; // React's useState hook for managing component state
+import { useState } from "react";
 import styles from "./dailyMenu.module.css";
+import MealCard from "./components/MealCard";
+import Btn from "../../components/globals/Buttons/Btn";
 
 export default function DailyMenu() {
-	const [mealData, setMealData] = useState(null); // State to store meal data from API response
-	const [calories, setCalories] = useState(2000); // State to store user's desired calorie input (default 2000)
-	const [loading, setLoading] = useState(false); // State to track loading status during API call
-	const [error, setError] = useState(""); // State to store error messages if API call fails
+	const [mealData, setMealData] = useState(null);
+	const [calories, setCalories] = useState(2000);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
 
-	// Async function to fetch meal data from Spoonacular API
 	const getMealData = async () => {
-		setLoading(true); // Set loading to true when starting API call
-		setError(""); // Clear any previous error messages
+		setLoading(true);
+		setError("");
 		try {
-			// Make API call to Spoonacular with user's calorie preference
 			const response = await fetch(
 				`https://api.spoonacular.com/mealplanner/generate?apiKey=${
-					import.meta.env.VITE_SPOONACULAR_API_KEY // Environment variable for API key
+					import.meta.env.VITE_SPOONACULAR_API_KEY
 				}&timeFrame=day&targetCalories=${calories}`
 			);
-			// Check if the response was successful
 			if (!response.ok) {
 				throw new Error("Error fetching meal data");
 			}
-			// Convert response to JSON format
 			const data = await response.json();
-			// Update state with received meal data
 			setMealData(data);
 		} catch {
-			// Set error message if API call fails
 			setError("Error al obtener el plan de comidas");
 		} finally {
-			// Always set loading to false when API call completes (success or fail)
 			setLoading(false);
 		}
 	};
 
-	// Handle form submission when user clicks "Get Meal Plan"
 	const handleSubmit = (e) => {
-		// Prevent default form submission behavior
 		e.preventDefault();
-		// Call function to fetch meal data
 		getMealData();
 	};
 
@@ -63,50 +55,33 @@ export default function DailyMenu() {
 							className={styles.input}
 							type="number"
 							value={calories}
-							// Update calories state when user types
 							onChange={(e) => setCalories(e.target.value)}
 							placeholder="Calories e.g. 2000"
 							min="1200"
 							max="4000"
 						/>
-						<button
-							className={styles.button}
+						<Btn
+							text="Get"
+							variant="secondary"
 							type="submit"
-							disabled={loading} // Disable during API call
+							// disabled={loading}
 						>
 							{loading ? "Loading..." : "Get Meal Plan"}
-						</button>
+						</Btn>
 					</form>
 
 					{error && <p className={styles.error}>{error}</p>}
 				</div>
 			</div>
 
-			{/* Conditional rendering: only show meals if data exists and has meals array */}
-			{mealData && mealData.meals && (
+			{mealData?.meals && (
 				<div className={styles.mealResults}>
 					<h3>
 						Your Daily Meal Plan ({calories} calories)
 					</h3>
 					<div className={styles.meals}>
-						{/* Map through each meal and create a card */}
-						{mealData.meals.map((meal, index) => (
-							<div key={index} className={styles.mealCard}>
-								{/* Meal image with fallback if image fails to load */}
-								<img
-									src={`https://spoonacular.com/recipeImages/${meal.id}-312x231.jpg`}
-									alt={meal.title}
-									onError={(e) => {
-										e.target.src =
-											"https://via.placeholder.com/312x231?text=No+Image";
-									}}
-								/>
-								<h4>{meal.title}</h4>
-								<p>
-									Ready in {meal.readyInMinutes} minutes
-								</p>
-								<p>Servings: {meal.servings}</p>
-							</div>
+						{mealData.meals.map((meal) => (
+							<MealCard key={meal.id} meal={meal} />
 						))}
 					</div>
 				</div>
