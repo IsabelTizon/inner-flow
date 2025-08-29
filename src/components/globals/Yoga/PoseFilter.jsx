@@ -55,7 +55,6 @@ export default function PoseFilter({
 						onKeyPress={handleKeyPress}
 					/>
 
-					{/* Icono de limpiar (X) */}
 					<button
 						type="button"
 						className={`${styles.clearIcon} ${

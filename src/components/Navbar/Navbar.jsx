@@ -2,6 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 // Styles
 import styles from "./Navbar.module.css";
+import Btn from "../globals/Buttons/Btn";
 // Assets
 import logo from "../../assets/logo.png";
 // hooks
@@ -154,21 +155,21 @@ export default function Navbar() {
 								</>
 							) : (
 								<>
-									<span>
+									<span className={styles.welcomeUser}>
 										{user?.name
 											? `Welcome, ${user.name}!`
 											: "Welcome, User!"}
 									</span>
-									<button
-										className={`${styles.navLink} ${styles.logoutButton}`}
+
+									<Btn
+										text="Logout"
+										variant="tertiary"
 										onClick={() => {
 											logout();
 											closeAllDropdowns();
 											navigate("/");
 										}}
-									>
-										Logout
-									</button>
+									></Btn>
 								</>
 							)}
 						</div>
