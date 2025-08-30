@@ -1,4 +1,7 @@
+// STYLES
 import styles from "./Hero.module.css";
+
+// ASSETS
 import heroHome from "../../assets/heroHome.mp4";
 
 export default function Hero() {
@@ -9,6 +12,7 @@ export default function Hero() {
 				src={heroHome}
 				loop
 				muted
+				autoPlay
 				playsInline
 			/>
 			<div className={styles.overlay}>

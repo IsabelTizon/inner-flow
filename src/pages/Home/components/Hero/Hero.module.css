@@ -43,7 +43,7 @@
 	font-size: 1.5rem;
 }
 
-/* Responsive Design */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 	.overlay {
 		padding: 1rem;
@@ -56,21 +56,5 @@
 
 	.subtitle {
 		font-size: 1.2rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.overlay {
-		padding: 0.8rem;
-		margin: 0 0.5rem;
-	}
-
-	.title {
-		font-size: 2rem;
-		margin-bottom: 0.8rem;
-	}
-
-	.subtitle {
-		font-size: 1rem;
 	}
 }
