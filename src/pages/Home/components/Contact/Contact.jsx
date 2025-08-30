@@ -1,6 +1,7 @@
 // GLOBAL COMPONENTS
 import TextBlock from "../../../../components/globals/textBlock/textBlock";
 import Btn from "../../../../components/globals/Buttons/Btn";
+
 // ASSETS
 import contact from "../../assets/contact.jpg";
 
@@ -13,7 +14,6 @@ export default function Contact() {
 				backgroundImage={contact}
 				titleStyle={{
 					color: "#A34227F2",
-					fontSize: "2rem",
 				}}
 			>
 				<Btn

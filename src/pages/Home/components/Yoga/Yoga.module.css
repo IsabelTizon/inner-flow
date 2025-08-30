@@ -14,7 +14,7 @@
 	padding-bottom: 4rem;
 }
 
-/* Responsive Design */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
 	.section {
 		padding: 3rem 1.5rem;
@@ -34,15 +34,5 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1.5rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.section {
-		padding: 2rem 0.5rem;
-	}
-
-	.cardsContainer {
-		gap: 1rem;
 	}
 }

@@ -3,8 +3,8 @@ import styles from "./TextBlock.module.css";
 
 export default function TextBlock({
 	backgroundImage,
-	title,
 	backgroundColor,
+	title,
 	titleStyle,
 	text,
 	children,
@@ -12,15 +12,11 @@ export default function TextBlock({
 	return (
 		<section
 			className={`${styles.section} ${
-				backgroundImage
-					? styles.withImage
-					: styles.withColor
+				backgroundImage ? styles.withImage : ""
 			}`}
 			style={{
 				...(backgroundImage && {
 					backgroundImage: `url(${backgroundImage})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
 				}),
 				...(backgroundColor && {
 					backgroundColor: backgroundColor,

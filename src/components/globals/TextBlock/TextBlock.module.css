@@ -3,19 +3,28 @@
 	flex-direction: column;
 	padding: 2rem 2rem;
 
-	background-attachment: fixed;
-	background-repeat: no-repeat;
+	background-attachment: fixed; /* make the background image fixed meanwhile scrolling */
+	background-repeat: no-repeat; /* prevent the background image from repeating */
 	position: relative;
 }
-
+/**/
+.section.withImage {
+	background-size: cover; /* make the background image cover the entire section */
+	background-position: center; /* center the background image */
+}
 .section.withImage::before {
-	content: "";
+	content: ""; /* no text and no picture, just a background overlay */
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(
+		255,
+		255,
+		255,
+		0.8
+	); /* if the section has a background image, the overlay will partially cover it, making the text on top more readable. */
 	z-index: 1;
 }
 
@@ -24,11 +33,10 @@
 	justify-content: center;
 	position: relative;
 	z-index: 2;
-	margin-bottom: 2rem;
 }
 
 .titleContainer h2 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	text-align: center;
 }
 
@@ -49,7 +57,7 @@
 	margin-bottom: 2rem;
 }
 
-/* Responsive Design */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
 	.textContainer {
 		max-width: 600px;
@@ -64,7 +72,7 @@
 	}
 
 	.titleContainer h2 {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	.textContainer {
@@ -73,28 +81,5 @@
 
 	.text {
 		font-size: 0.95rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.section {
-		padding: 2rem 1rem;
-	}
-
-	.titleContainer {
-		margin-bottom: 1.5rem;
-	}
-
-	.titleContainer h2 {
-		font-size: 1.8rem;
-	}
-
-	.textContainer {
-		margin: 0 0.5rem;
-	}
-
-	.text {
-		font-size: 0.9rem;
-		margin-bottom: 1.5rem;
 	}
 }

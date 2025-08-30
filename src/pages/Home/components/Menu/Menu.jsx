@@ -12,7 +12,6 @@ export default function Menu() {
 				backgroundImage={imgBlockMenu}
 				titleStyle={{
 					color: "#A34227F2",
-					fontSize: "2rem",
 				}}
 			>
 				<Btn

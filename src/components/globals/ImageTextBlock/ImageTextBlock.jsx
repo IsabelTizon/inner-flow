@@ -1,3 +1,4 @@
+// STYLES
 import styles from "./ImageTextBlock.module.css";
 
 export default function ImageTextBlock({

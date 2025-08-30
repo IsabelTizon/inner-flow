@@ -1,9 +1,14 @@
-import styles from "./Yoga.module.css";
+// GLOBAL COMPONENTS
+import TextBlock from "../../../../components/globals/textBlock/textBlock";
 import ClickCard from "../../../../components/globals/ClickCard/ClickCard";
+
+// STYLES
+import styles from "./Yoga.module.css";
+
+// ASSETS
 import yogaPoses from "../../../../assets/yogaPoses.jpg";
 import createSequences from "../../../../assets/createSequences.png";
 import mySequences from "../../../../assets/mySequences.jpg";
-import TextBlock from "../../../../components/globals/textBlock/textBlock";
 
 export default function Yoga() {
 	return (
@@ -19,7 +24,6 @@ export default function Yoga() {
 				backgroundColor="#e1cdb2"
 				titleStyle={{
 					color: "#A34227F2",
-					fontSize: "2rem",
 				}}
 			></TextBlock>
 			<div className={styles.cardsContainer}>
