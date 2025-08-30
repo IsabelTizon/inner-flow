@@ -1,7 +1,8 @@
-import contact from "../../assets/contact.jpg";
-import { Link } from "react-router-dom";
+// GLOBAL COMPONENTS
 import TextBlock from "../../../../components/globals/textBlock/textBlock";
 import Btn from "../../../../components/globals/Buttons/Btn";
+// ASSETS
+import contact from "../../assets/contact.jpg";
 
 export default function Contact() {
 	return (
@@ -15,9 +16,11 @@ export default function Contact() {
 					fontSize: "2rem",
 				}}
 			>
-				<Link to="/contact">
-					<Btn text="Go to Contact" variant="primary" />
-				</Link>
+				<Btn
+					text="Go to Contact"
+					variant="primary"
+					to="/contact"
+				/>
 			</TextBlock>
 		</>
 	);
