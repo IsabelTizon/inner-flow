@@ -22,7 +22,6 @@ import Login from "../pages/auth/Login";
 // ADMIN
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreatePose from "../pages/admin/poses/CreatePose";
-// import PoseList from "../pages/admin/poses/PoseList";
 import EditPose from "../pages/admin/poses/EditPose";
 import EditPoseForm from "../pages/admin/poses/EditPoseForm";
 // LEGAL
@@ -56,21 +55,13 @@ const AppRouter = () => {
 					path="/dailyMenu/:name"
 					element={<RecipeMeal />}
 				/>
-				{/* <Route path="/shop" element={<Poses />} /> */}
 				<Route path="/contact" element={<Contact />} />
-				{/* <Route path="/shopping-cart" element={<Poses />} /> */}
 				<Route path="/register" element={<Register />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/admin" element={<AdminDashboard />} />
 				<Route path="/terms" element={<Terms />} />
 				<Route path="/privacy" element={<Privacy />} />
 				<Route path="/cookies" element={<Cookies />} />
-
-				{/* <Route path="/admin/poses" element={<PoseList />} />
-				<Route
-					path="/admin/poses/edit/:id"
-					element={<EditPose />}
-				/> */}
 			</Routes>
 			<Footer />
 		</BrowserRouter>
