@@ -4,17 +4,27 @@ import styles from "./TextBlock.module.css";
 export default function TextBlock({
 	backgroundImage,
 	title,
+	backgroundColor,
 	titleStyle,
 	text,
 	children,
 }) {
 	return (
 		<section
-			className={styles.section}
+			className={`${styles.section} ${
+				backgroundImage
+					? styles.withImage
+					: styles.withColor
+			}`}
 			style={{
-				backgroundImage: `url(${backgroundImage})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
+				...(backgroundImage && {
+					backgroundImage: `url(${backgroundImage})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+				}),
+				...(backgroundColor && {
+					backgroundColor: backgroundColor,
+				}),
 			}}
 		>
 			<div className={styles.titleContainer}>
