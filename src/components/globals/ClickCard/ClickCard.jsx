@@ -1,4 +1,6 @@
+// GLOBAL COMPONENTS
 import styles from "./ClickCard.module.css";
+// LINK ROUTER
 import { Link } from "react-router-dom";
 
 export default function ClickCard({ title, image, to }) {

@@ -47,7 +47,7 @@
 	padding: 1rem;
 }
 
-/* Responsive Design */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 	.container {
 		max-width: 300px;
@@ -56,27 +56,5 @@
 	.titleCard {
 		font-size: 1.3rem;
 		padding: 0.8rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.container {
-		max-width: 280px;
-		border-radius: 8px;
-	}
-
-	.titleCard {
-		font-size: 1.2rem;
-		padding: 0.6rem;
-	}
-}
-
-@media (max-width: 360px) {
-	.container {
-		max-width: 250px;
-	}
-
-	.titleCard {
-		font-size: 1.1rem;
 	}
 }
