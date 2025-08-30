@@ -2,8 +2,8 @@
 import styles from "./ImageTextBlock.module.css";
 
 export default function ImageTextBlock({
-	title,
 	image,
+	title,
 	titleText,
 	text,
 	reverse = false,

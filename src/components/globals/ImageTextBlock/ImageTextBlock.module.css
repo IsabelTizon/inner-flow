@@ -46,7 +46,7 @@ h3 {
 	line-height: 1.6;
 }
 
-/* Responsive Design */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 	.section {
 		padding: 1.5rem 1rem;
@@ -68,31 +68,5 @@ h3 {
 
 	.textContainer {
 		text-align: center;
-	}
-}
-
-@media (max-width: 480px) {
-	.section {
-		padding: 1rem 0.5rem;
-	}
-
-	.titleContainer {
-		margin-bottom: 1.5rem;
-	}
-
-	h2 {
-		font-size: 1.8rem;
-	}
-
-	h3 {
-		font-size: 1.2rem;
-	}
-
-	.imageTextContainer {
-		gap: 1rem;
-	}
-
-	.text {
-		font-size: 0.9rem;
 	}
 }
