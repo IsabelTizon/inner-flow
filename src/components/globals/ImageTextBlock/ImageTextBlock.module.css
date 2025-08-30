@@ -4,8 +4,8 @@
 	padding: 2rem 1rem;
 }
 
-.reverse {
-	flex-direction: column-reverse;
+.imageTextContainer.reverse {
+	flex-direction: row-reverse;
 }
 h2 {
 	font-size: 2.5rem;
@@ -53,7 +53,7 @@ h3 {
 	}
 
 	.imageTextContainer {
-		flex-direction: column;
+		flex-direction: column !important;
 		gap: 1.5rem;
 	}
 

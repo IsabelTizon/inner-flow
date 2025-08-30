@@ -10,15 +10,15 @@ export default function ImageTextBlock({
 	children,
 }) {
 	return (
-		<section
-			className={`${styles.section} ${
-				reverse ? styles.reverse : ""
-			}`}
-		>
+		<section className={`${styles.section} `}>
 			<div className={styles.titleContainer}>
 				<h2>{title}</h2>
 			</div>
-			<div className={styles.imageTextContainer}>
+			<div
+				className={`${styles.imageTextContainer} ${
+					reverse ? styles.reverse : ""
+				}`}
+			>
 				<div className={styles.imageContainer}>
 					<img src={image} alt={title} />
 				</div>
