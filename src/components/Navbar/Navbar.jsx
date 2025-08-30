@@ -13,24 +13,19 @@ import { useAuth } from "../../context/useAuth"; // Custom hook to access authen
 import { FaUser } from "react-icons/fa";
 
 export default function Navbar() {
-	const [isOpen, toggle] = useToggle();
+	const [isOpen, toggle] = useToggle(); // isOpen State toggle to false or true
 	const {
 		toggleDropdown,
 		closeAllDropdowns,
 		isDropdownOpen,
-	} = useDropdownManager();
-	const navigate = useNavigate();
-
-	// Define dropdown IDs
+	} = useDropdownManager(); // Custom hook to manage dropdown states: 1)Dropdown trigger button opened/closed, 2) close all clicking outside dropdown, 3) checks whether a specific dropdown is currently open
+	const navigate = useNavigate(); // state to navigate to different routes
 	const DROPDOWN_IDS = {
 		YOGA: "yoga",
 		USER: "user",
-	};
-
-	// Auth hook to manage user state
-	// Object Destructuring
+	}; // Object to define dropdown IDs
 	const { isLoggedIn, isAdmin, user, logout, loading } =
-		useAuth(); // Accessing authentication state and methods.
+		useAuth(); // Accessing authentication states
 
 	if (loading) {
 		return <nav className={styles.navbar}>Loading...</nav>;
@@ -113,12 +108,10 @@ export default function Navbar() {
 						onClick={() =>
 							toggleDropdown(DROPDOWN_IDS.USER)
 						}
-						role="button"
-						aria-haspopup="true" // Indicates that this element has a dropdown menu
+						role="button" // Indicates behavior of the span element is a button
 						aria-expanded={isDropdownOpen(
 							DROPDOWN_IDS.USER
 						)} // Indicates whether the dropdown is open or closed
-						title="Access your account" // Provides a tooltip for the icon
 					>
 						<FaUser />
 					</span>
