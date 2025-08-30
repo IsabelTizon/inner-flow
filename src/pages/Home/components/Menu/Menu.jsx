@@ -1,5 +1,4 @@
 import imgBlockMenu from "../../assets/menu.jpg";
-import { Link } from "react-router-dom";
 import TextBlock from "../../../../components/globals/textBlock/textBlock";
 import Btn from "../../../../components/globals/Buttons/Btn";
 
@@ -15,9 +14,11 @@ export default function Menu() {
 					fontSize: "2rem",
 				}}
 			>
-				<Link to="/dailyMenu">
-					<Btn text="Go to menu" variant="primary" />
-				</Link>
+				<Btn
+					text="Go to menu"
+					variant="primary"
+					to="/dailyMenu"
+				/>
 			</TextBlock>
 		</>
 	);
