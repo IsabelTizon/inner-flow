@@ -11,7 +11,6 @@ import useDropdownManager from "../../hooks/useDropdownManager";
 import { useAuth } from "../../context/useAuth"; // Custom hook to access authentication state and methods
 // Icons
 import { FaUser } from "react-icons/fa";
-// import { FaShoppingCart } from "react-icons/fa";
 
 export default function Navbar() {
 	const [isOpen, toggle] = useToggle();
@@ -98,24 +97,12 @@ export default function Navbar() {
 						Daily Menu
 					</Link>
 				</li>
-				{/* Shop */}
-				{/* <li className={styles.navItem}>
-					<Link className={styles.navLink} to="/">
-						Shop
-					</Link>
-				</li> */}
 				{/* Contact */}
 				<li className={styles.navItem}>
 					<Link className={styles.navLink} to="/contact">
 						Contact
 					</Link>
 				</li>
-				{/* Shopping Cart */}
-				{/* <li className={styles.navItem}>
-					<Link className={styles.navLink} to="/">
-						<FaShoppingCart />
-					</Link>
-				</li> */}
 				{/* user register/login */}
 				<li
 					className={styles.navItemWithDropdown}
