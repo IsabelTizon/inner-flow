@@ -1,4 +1,4 @@
-// src/hooks/useDropdown.js
+// src/hooks/useDropdown.js updated to use React hooks// src/hooks/useDropdownManager.js
 // State
 // Import React hooks for state management and performance optimization
 import { useState, useCallback } from "react";

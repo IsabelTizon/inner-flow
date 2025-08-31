@@ -1,6 +1,6 @@
 // src/hooks/useLogIn.js
 // REACT HOOKS
-import { useNavigate } from "react-router-dom"; // for navigating
+import { useNavigate } from "react-router-dom"; // to navigate
 import { useState } from "react"; // for creating states
 
 // CONTEXT
