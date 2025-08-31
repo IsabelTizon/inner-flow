@@ -21,7 +21,7 @@ import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
 // ADMIN
 import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreatePose from "../pages/admin/poses/CreatePose";
+import CreatePoseForm from "../pages/admin/poses/CreatePoseForm";
 import EditPose from "../pages/admin/poses/EditPose";
 import EditPoseForm from "../pages/admin/poses/EditPoseForm";
 // LEGAL
@@ -38,7 +38,7 @@ const AppRouter = () => {
 				<Route path="/poses" element={<Poses />} />
 				<Route
 					path="/admin/poses/create"
-					element={<CreatePose />}
+					element={<CreatePoseForm />}
 				/>
 				<Route
 					path="/admin/poses/editPose"

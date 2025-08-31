@@ -4,7 +4,7 @@ import { useState } from "react";
 // STYLES
 import styles from "./adminPoseForm.module.css";
 
-export default function CreatePose() {
+export default function CreatePoseForm() {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState("");
