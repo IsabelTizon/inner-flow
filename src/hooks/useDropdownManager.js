@@ -1,6 +1,6 @@
 // src/hooks/useDropdownManager.js
 // Custom hook to manage multiple dropdowns ensuring only one is open at a time
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function useDropdownManager() {
 	const [activeDropdown, setActiveDropdown] =
@@ -38,29 +38,26 @@ export default function useDropdownManager() {
 	}, [activeDropdown]);
 
 	// Function to toggle a specific dropdown: "yoga" o "user"
-	const toggleDropdown = useCallback((dropdownId) => {
+	const toggleDropdown = (dropdownId) => {
 		setActiveDropdown((current) =>
 			current === dropdownId ? null : dropdownId
 		);
-	}, []); // no dependencies so the function reference does not change between renders.
+	};
 
 	// Function to close all dropdowns
-	const closeAllDropdowns = useCallback(() => {
+	const closeAllDropdowns = () => {
 		setActiveDropdown(null);
-	}, []); // no dependencies so the function reference does not change between renders.
+	};
 
 	// Function to check if a specific dropdown ("yoga" o "user") is open
-	const isDropdownOpen = useCallback(
-		(dropdownId) => {
-			return activeDropdown === dropdownId;
-		},
-		[activeDropdown]
-	);
+	const isDropdownOpen = (dropdownId) => {
+		return activeDropdown === dropdownId;
+	};
 
 	// Function to open a specific dropdown (closes others)
-	const openDropdown = useCallback((dropdownId) => {
+	const openDropdown = (dropdownId) => {
 		setActiveDropdown(dropdownId);
-	}, []); // no dependencies so the function reference does not change between renders.
+	};
 
 	return {
 		toggleDropdown,
