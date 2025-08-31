@@ -1,4 +1,7 @@
+// REACT HOOKS
 import { useState } from "react";
+
+// STYLES
 import styles from "./adminPoseForm.module.css";
 
 export default function CreatePose() {

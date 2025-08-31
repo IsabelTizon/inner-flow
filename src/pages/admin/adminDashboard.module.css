@@ -1,50 +1,14 @@
-/* ADMIN DASHBOARD STYLES */
 .dashboard {
-	padding: 2rem;
+	width: 80%;
+	margin: 0 auto;
+	padding: 1rem;
 }
 .cards {
 	display: flex;
-	gap: 2rem;
+	gap: 1rem;
 	flex-wrap: wrap;
 }
 .dashboardTitle h1 {
 	text-align: center;
 	color: rgba(163, 66, 39, 0.95);
-}
-/* CARD LINK COMPONENT STYLES */
-.cardLink {
-	text-decoration: none;
-	flex: 1 1 300px;
-}
-
-.card {
-	background: #fff;
-	border-radius: 12px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-width: 250px;
-	min-height: 150px;
-	transition: box-shadow 0.2s;
-	cursor: pointer;
-}
-
-.card:hover {
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-.cardTitle {
-	margin: 0;
-	font-size: 1.5rem;
-	text-align: center;
-	color: #333;
-}
-
-.cardContent {
-	margin-top: 1rem;
-	text-align: center;
-	color: #666;
 }

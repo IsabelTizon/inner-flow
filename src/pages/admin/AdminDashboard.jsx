@@ -1,16 +1,11 @@
-import { Link } from "react-router-dom";
+// STYLES
 import styles from "./AdminDashboard.module.css";
 
-function CardLink({ to, title, children }) {
-	return (
-		<Link to={to} className={styles.cardLink}>
-			<div className={styles.card}>
-				<h2 className={styles.cardTitle}>{title}</h2>
-				<div className={styles.cardContent}>{children}</div>
-			</div>
-		</Link>
-	);
-}
+// GLOBAL COMPONENTS
+import ClickCard from "../../components/globals/ClickCard/ClickCard";
+
+// ASSETS
+import yogaPoses from "../../assets/yogaPoses.jpg";
 
 export default function AdminDashboard() {
 	return (
@@ -18,14 +13,17 @@ export default function AdminDashboard() {
 			<div className={styles.dashboardTitle}>
 				<h1>Admin Dashboard</h1>
 			</div>
-			<h2>Poses</h2>
 			<div className={styles.cards}>
-				<CardLink to="/admin/poses/create">
-					Create Pose
-				</CardLink>
-				<CardLink to="/admin/poses/editPose">
-					Edit Old Poses
-				</CardLink>
+				<ClickCard
+					to="/admin/poses/create"
+					title="Create Pose"
+					image={yogaPoses}
+				></ClickCard>
+				<ClickCard
+					to="/admin/poses/editPose"
+					title="Edit Old Poses"
+					image={yogaPoses}
+				></ClickCard>
 			</div>
 		</div>
 	);

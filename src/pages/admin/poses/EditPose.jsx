@@ -1,9 +1,11 @@
 // COMPONENTS
 import PoseCard from "../../../components/globals/Yoga/PoseCard";
 import PoseFilter from "../../../components/globals/Yoga/PoseFilter";
+
 // STYLES
 import styles from "../../yoga/Poses.module.css";
-// STATES
+
+// REACT HOOKS
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
