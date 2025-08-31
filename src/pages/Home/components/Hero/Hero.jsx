@@ -12,7 +12,7 @@ export default function Hero() {
 				src={heroHome}
 				loop
 				muted
-				autoPlay
+				autoPlay // video
 				playsInline
 			/>
 			<div className={styles.overlay}>

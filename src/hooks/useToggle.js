@@ -1,6 +1,6 @@
 // src/hooks/useToggle.js
-// State
-import { useState } from "react";
+// REACT HOOKS
+import { useState } from "react"; // for creating states
 
 // initial: default value (false = closed)
 export default function useToggle(initial = false) {

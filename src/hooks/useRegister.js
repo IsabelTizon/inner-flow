@@ -1,11 +1,12 @@
 // src/hooks/useRegister.js
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+// REACT HOOKS
+import { useNavigate } from "react-router-dom"; // for navigating
+import { useState } from "react"; // for creating states
 
 export function useRegister() {
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(false); // Boolean indicating whether the registration request is in progress (initially false).
 
 	const handleRegister = async ({
 		name,
@@ -25,19 +26,20 @@ export function useRegister() {
 			});
 
 			if (!response.ok) {
+				// If the response is not ok (status code outside 200-299)
 				const errorData = await response.json();
 				throw new Error(
-					errorData.message || "Error en el registro"
+					errorData.message || "Error registering user"
 				);
 			}
 
-			// Éxito
-			alert("Usuario registrado con éxito");
+			// Success
+			alert("User registered successfully");
 			navigate("/login");
 		} catch (err) {
 			setError(err.message);
 		} finally {
-			setLoading(false);
+			setLoading(false); // It always runs at the end, whether successful or not, and that's where loading is disabled (setLoading(false)).
 		}
 	};
 

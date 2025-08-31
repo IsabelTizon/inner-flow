@@ -1,9 +1,15 @@
+//  HOOKS
 import { useState, useEffect, useCallback } from "react";
+// CONTEXT
 import { AuthContext } from "./AuthContextDef";
 
 const decodeToken = (token) => {
+	//A JWT is a text string that is widely used in authentication. It has the following format: xxxxx.yyyyy.zzzzz
+	//xxxxx → header (information about the algorithm and token type, in Base64)
+	//yyyyy → payload (user data: ID, email, role, etc., in Base64)
+	//zzzzz → signature (to validate that the token has not been tampered with)
 	try {
-		const base64Url = token.split(".")[1];
+		const base64Url = token.split(".")[1]; // Divide the token by the dots (.) and take the second part (yyyyy = payload).
 		const base64 = base64Url
 			.replace(/-/g, "+")
 			.replace(/_/g, "/");
@@ -16,9 +22,9 @@ const decodeToken = (token) => {
 						("00" + c.charCodeAt(0).toString(16)).slice(-2)
 					);
 				})
-				.join("")
+				.join("") // Convert from Base64 to plain text (but still with characters: e.g., “{\”id\“:\”12345\“,\”role\“:\”admin\“}”).
 		);
-		return JSON.parse(jsonPayload);
+		return JSON.parse(jsonPayload); // it converts the JSON string into a JavaScript object
 	} catch (error) {
 		console.error("Error decoding token:", error);
 		return null;
@@ -26,16 +32,19 @@ const decodeToken = (token) => {
 };
 
 export function AuthProvider({ children }) {
-	const [user, setUser] = useState(null);
+	// AuthProvider recives Children prop to wrap the app in index.jsx/App.jsx and thus provide state to the entire app.
+	const [user, setUser] = useState(null); // user data
 	const [loading, setLoading] = useState(true);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+	// Function to check authentication status
 	const checkAuthStatus = useCallback(async () => {
 		try {
 			const token = localStorage.getItem("token");
 			const userData = localStorage.getItem("userData");
 
 			if (!token) {
+				// If there is not token clear the states
 				setLoading(false);
 				setUser(null);
 				setIsLoggedIn(false);
@@ -56,6 +65,7 @@ export function AuthProvider({ children }) {
 				setUser(finalUser);
 				setIsLoggedIn(true);
 			} else {
+				// If the token is invalid clear the localStorage and the states
 				localStorage.removeItem("token");
 				localStorage.removeItem("userData");
 				setUser(null);
@@ -81,6 +91,7 @@ export function AuthProvider({ children }) {
 		await checkAuthStatus();
 	};
 
+	// Delete the token and localStorage data and reset the statuses → this logs the user out.
 	const logout = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("userData");
