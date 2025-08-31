@@ -1,8 +1,14 @@
+// src/pages/auth/Login.jsx
+// COMPONENTS
 import LoginBox from "./components/LoginBox";
 import SVGBox from "./components/greetingBox";
+
+// ASSETS
 import logo from "../../assets/logo.png";
-import styles from "./auth.module.css";
 import greetingImg from "../../assets/greeting2.jpg";
+
+// STYLES
+import styles from "./auth.module.css";
 
 export default function Login() {
 	return (

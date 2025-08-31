@@ -1,9 +1,14 @@
+// src/pages/auth/register.jsx
+// COMPONENTS
 import RegisterBox from "./components/RegisterBox";
 import SVGBox from "./components/greetingBox";
-import styles from "./auth.module.css";
 
+// ASSETS
 import logo from "../../assets/logo.png";
 import greetingImg from "../../assets/greeting1.jpg";
+
+// STYLES
+import styles from "./auth.module.css";
 
 export default function Register() {
 	return (

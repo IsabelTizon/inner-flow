@@ -1,6 +1,13 @@
+// HOOKS
 import { useState } from "react";
-import Btn from "../../../components/globals/Buttons/Btn.jsx";
+
+// CUSTOM HOOKS
 import { useLogIn } from "../../../hooks/useLogIn";
+
+// GLOBAL COMPONENTS
+import Btn from "../../../components/globals/Buttons/Btn.jsx";
+
+// STYLES
 import styles from "../auth.module.css";
 
 export default function Login() {
