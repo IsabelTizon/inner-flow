@@ -18,6 +18,9 @@ h3 {
 	justify-content: center;
 	margin-bottom: 2rem;
 }
+.titleContainer h2 {
+	text-align: center;
+}
 .imageTextContainer {
 	display: flex;
 	flex-direction: row;

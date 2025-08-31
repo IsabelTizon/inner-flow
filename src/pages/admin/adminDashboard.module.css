@@ -1,13 +1,17 @@
+/* ADMIN DASHBOARD STYLES */
 .dashboard {
 	padding: 2rem;
 }
-
 .cards {
 	display: flex;
 	gap: 2rem;
 	flex-wrap: wrap;
 }
-
+.dashboardTitle h1 {
+	text-align: center;
+	color: rgba(163, 66, 39, 0.95);
+}
+/* CARD LINK COMPONENT STYLES */
 .cardLink {
 	text-decoration: none;
 	flex: 1 1 300px;

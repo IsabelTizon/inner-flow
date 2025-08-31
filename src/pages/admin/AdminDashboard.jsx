@@ -15,7 +15,9 @@ function CardLink({ to, title, children }) {
 export default function AdminDashboard() {
 	return (
 		<div className={styles.dashboard}>
-			<h1>Dashboard</h1>
+			<div className={styles.dashboardTitle}>
+				<h1>Admin Dashboard</h1>
+			</div>
 			<h2>Poses</h2>
 			<div className={styles.cards}>
 				<CardLink to="/admin/poses/create">
