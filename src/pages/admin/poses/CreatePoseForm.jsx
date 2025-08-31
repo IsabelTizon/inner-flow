@@ -4,13 +4,16 @@ import { useState } from "react";
 // STYLES
 import styles from "./adminPoseForm.module.css";
 
+// GLOBAL COMPONENTS
+import Btn from "../../../components/globals/Buttons/Btn.jsx";
+
 export default function CreatePoseForm() {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
-	const [image, setImage] = useState("");
-	const [message, setMessage] = useState("");
 	const [useAIDescription, setUseAIDescription] =
 		useState(false);
+	const [image, setImage] = useState("");
+	const [message, setMessage] = useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -97,9 +100,11 @@ export default function CreatePoseForm() {
 					onChange={(e) => setImage(e.target.value)}
 				/>
 			</label>
-			<button className={styles.button} type="submit">
-				Create Pose
-			</button>
+			<Btn
+				type="submit"
+				text="Create Pose"
+				variant="primary"
+			/>
 			{message && (
 				<p className={styles.message}>{message}</p>
 			)}

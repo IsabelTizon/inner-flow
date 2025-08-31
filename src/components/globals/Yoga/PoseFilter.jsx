@@ -12,7 +12,6 @@ export default function PoseFilter({
 		const value = e.target.value;
 		setSearchTerm(value);
 
-		// Búsqueda en tiempo real (opcional)
 		if (value.trim()) {
 			onFilter(value.trim());
 		} else {
@@ -42,10 +41,8 @@ export default function PoseFilter({
 						isSearching ? styles.searching : ""
 					}`}
 				>
-					{/* Icono de lupa */}
 					<span className={styles.searchIcon}>🔍</span>
 
-					{/* Input de búsqueda */}
 					<input
 						type="text"
 						className={styles.searchInput}

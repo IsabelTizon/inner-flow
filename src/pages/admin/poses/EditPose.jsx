@@ -56,12 +56,13 @@ export default function EditPose() {
 		} catch (err) {
 			console.error("Error searching poses:", err);
 			// filter poses if the endpoint fails
-			const filtered = poses.filter((pose) =>
-				pose.name
-					.toLowerCase()
-					.includes(searchTerm.toLowerCase())
+			const filtered = poses.filter(
+				(pose) =>
+					pose.name
+						.toLowerCase()
+						.includes(searchTerm.toLowerCase()) // searchTerm: convert the search term to lowercase. Includes ej "downward dog".includes("dog") → true
 			);
-			setFilteredPoses(filtered);
+			setFilteredPoses(filtered); // Save the filtered postures in the state.
 		} finally {
 			setLoading(false);
 		}
@@ -73,7 +74,7 @@ export default function EditPose() {
 		setIsSearching(false);
 	};
 
-	// Handle edit pose
+	// Handle edit pose navigate to editPoseForm
 	const handleEditPose = async (poseId) => {
 		console.log("Edit pose with ID:", poseId);
 		navigate(
@@ -133,6 +134,7 @@ export default function EditPose() {
 
 	return (
 		<div className={styles.posesContainer}>
+			{/* Search filter */}
 			<PoseFilter
 				onFilter={handleFilter}
 				onClear={handleClearFilter}
@@ -152,6 +154,7 @@ export default function EditPose() {
 				</div>
 			)}
 
+			{/** Pose cards mapping*/}
 			<div className={styles.posesFlex}>
 				{filteredPoses.map((pose) => (
 					<PoseCard
@@ -165,6 +168,7 @@ export default function EditPose() {
 				))}
 			</div>
 
+			{/** Loading message because no poses are available */}
 			{!loading && filteredPoses.length === 0 && (
 				<div className={styles.posesEmpty}>
 					{isSearching

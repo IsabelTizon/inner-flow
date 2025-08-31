@@ -1,6 +1,12 @@
+// REACT HOOKS
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
+// STYLES
 import styles from "./adminPoseForm.module.css";
+
+// GLOBAL COMPONENTS
+import Btn from "../../../components/globals/Buttons/Btn.jsx";
 
 export default function EditPoseForm() {
 	const { id } = useParams();
@@ -8,9 +14,9 @@ export default function EditPoseForm() {
 
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
-	const [image, setImage] = useState("");
 	const [useAIDescription, setUseAIDescription] =
 		useState(false);
+	const [image, setImage] = useState("");
 	const [message, setMessage] = useState("");
 	const [loading, setLoading] = useState(true);
 
@@ -128,9 +134,12 @@ export default function EditPoseForm() {
 					onChange={(e) => setImage(e.target.value)}
 				/>
 			</label>
-			<button className={styles.button} type="submit">
-				Update Pose
-			</button>
+
+			<Btn
+				type="submit"
+				text="Update Pose"
+				variant="primary"
+			/>
 			{message && (
 				<p className={styles.message}>{message}</p>
 			)}
