@@ -11,14 +11,14 @@ import Btn from "../../../components/globals/Buttons/Btn.jsx";
 import styles from "../auth.module.css";
 
 export default function RegisterBox() {
-	const { handleRegister, error, loading } = useRegister();
+	const { handleRegister, error, loading } = useRegister(); // Custom hook for login, send the data to the backend
 
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [name, setName] = useState(""); // store name
+	const [email, setEmail] = useState(""); // store email
+	const [password, setPassword] = useState(""); // store password
 
 	const onSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault(); // prevent page reload to handle custom validation and submission
 		handleRegister({ name, email, password });
 	};
 

@@ -1,7 +1,7 @@
 // STYLES
 import styles from "../auth.module.css";
 
-export default function SGVBox({
+export default function GreetingBox({
 	logo,
 	className,
 	title,

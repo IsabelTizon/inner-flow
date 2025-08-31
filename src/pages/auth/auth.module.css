@@ -1,4 +1,4 @@
-/* Globals */
+/* GLOBAL CSS FOR LOGIN AND REGISTER */
 .authLayout {
 	display: flex;
 	flex-direction: row;
@@ -7,6 +7,7 @@
 	height: 100vh;
 	width: 100%;
 }
+/* LOGIN, LOGIN BOX AND REGISTER BOX*/
 .containerAuth {
 	display: flex;
 	flex-direction: column;
@@ -16,7 +17,7 @@
 	height: 100%;
 }
 
-/* GREETING LAYOUT - LEFT BOX */
+/* GREETING BOX LAYOUT - LEFT BOX */
 .greetingLayout {
 	display: flex;
 	flex-direction: column;
@@ -32,6 +33,7 @@
 	width: 60px;
 	height: auto;
 	margin: 2rem auto;
+	border-radius: 5px;
 }
 
 .greetingTitle {
@@ -45,9 +47,10 @@
 .greetingImg {
 	width: 50%;
 	height: auto;
+	border-radius: 5px;
 }
 
-/* FORM LAYOUT - RIGHT BOX */
+/* FORM LAYOUT - RIGHT BOX (GREETING BOX AND REGISTER BOX)*/
 .formLayout {
 	display: flex;
 	flex-direction: column;
@@ -57,6 +60,7 @@
 	height: 100%;
 }
 
+/* LOGIN BOX AND REGISTER BOX*/
 .formWrapper {
 	display: flex;
 	flex-direction: column;
@@ -98,9 +102,10 @@
 }
 
 .inputField:focus::placeholder {
-	color: #aaaaaa;
+	color: #aaaaaa; /* Lighten placeholder text on focus */
 }
 
+/* REGISTER BOX */
 .checkboxWrapper {
 	display: flex;
 	align-items: center;
@@ -146,7 +151,7 @@
 	transform: rotate(45deg);
 }
 
-/* 📱 Responsive - Tablet & Mobile */
+/* Responsive - Tablet & Mobile */
 @media (max-width: 1024px) {
 	.authLayout {
 		flex-direction: column;
@@ -186,7 +191,7 @@
 
 	.inputField {
 		min-width: 280px;
-		font-size: 16px; /* Prevent zoom on iOS */
+		font-size: 16px;
 	}
 
 	.label {
@@ -212,24 +217,5 @@
 	.inputField {
 		min-width: 250px;
 		padding: 10px 6px;
-	}
-}
-
-@media (max-width: 480px) {
-	.authLayout {
-		padding: 1rem 0.5rem;
-	}
-
-	.inputField {
-		min-width: 200px;
-		font-size: 16px;
-	}
-
-	.label {
-		font-size: 14px;
-	}
-
-	.checkboxWrapper {
-		font-size: 12px;
 	}
 }

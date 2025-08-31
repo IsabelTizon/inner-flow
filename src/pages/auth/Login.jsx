@@ -1,7 +1,7 @@
 // src/pages/auth/Login.jsx
 // COMPONENTS
 import LoginBox from "./components/LoginBox";
-import SVGBox from "./components/greetingBox";
+import GreetingBox from "./components/GreetingBox";
 
 // ASSETS
 import logo from "../../assets/logo.png";
@@ -14,7 +14,7 @@ export default function Login() {
 	return (
 		<div className={styles.authLayout}>
 			<div className={styles.greetingLayout}>
-				<SVGBox
+				<GreetingBox
 					logo={logo}
 					title="Welcome back!!"
 					greetingImg={greetingImg}

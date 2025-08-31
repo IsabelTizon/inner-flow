@@ -11,13 +11,13 @@ import Btn from "../../../components/globals/Buttons/Btn.jsx";
 import styles from "../auth.module.css";
 
 export default function Login() {
-	const { handleLogIn, error, loading } = useLogIn();
+	const { handleLogIn, error, loading } = useLogIn(); // Custom hook for login, send the data to the backend
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState(""); // store email
+	const [password, setPassword] = useState(""); // store password
 
 	const onSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault(); // prevent page reload to handle custom validation and submission
 		console.log("Login input:", email, password);
 		handleLogIn({ email, password });
 	};

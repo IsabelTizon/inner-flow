@@ -8,7 +8,7 @@ import { useAuth } from "../context/useAuth";
 
 export function useLogIn() {
 	const navigate = useNavigate();
-	const { refreshAuth } = useAuth();
+	const { refreshAuth } = useAuth(); // Custom hook to access AuthContext
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false); // Boolean indicating whether the login request is in progress (initially false).
 
@@ -32,19 +32,18 @@ export function useLogIn() {
 				const data = await response.json();
 				console.log("Login response:", data);
 
-				// Store user data in the LocalStorage
+				// Store the token and user data in localStorage to maintain the session.
 				localStorage.setItem("token", data.token);
 				localStorage.setItem(
 					"userData",
 					JSON.stringify(data.user)
 				);
 
-				// Refrescar auth
+				// Refresh auth
 				await refreshAuth();
+				console.log("User role:", data.user.role); // Debug
 
-				console.log("🎯 User role:", data.user.role); // Debug
-
-				// ✅ Redirect correcto (sin duplicación)
+				//
 				if (data.user.role === "ADMIN") {
 					navigate("/admin");
 				} else {

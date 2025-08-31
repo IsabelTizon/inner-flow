@@ -1,7 +1,7 @@
 // src/pages/auth/register.jsx
 // COMPONENTS
 import RegisterBox from "./components/RegisterBox";
-import SVGBox from "./components/greetingBox";
+import GreetingBox from "./components/GreetingBox";
 
 // ASSETS
 import logo from "../../assets/logo.png";
@@ -14,7 +14,7 @@ export default function Register() {
 	return (
 		<div className={styles.authLayout}>
 			<div className={styles.greetingLayout}>
-				<SVGBox
+				<GreetingBox
 					logo={logo}
 					title={
 						<>
