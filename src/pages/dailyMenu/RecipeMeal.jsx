@@ -1,7 +1,13 @@
-//Hooks
+// REACT HOOKS
 import { useEffect, useState } from "react";
+
+// REACT ROUTER BY ID
 import { useParams } from "react-router-dom";
+
+// STYLES
 import styles from "./recipeMeal.module.css";
+
+// GLOBAL COMPONETS
 import Btn from "../../components/globals/Buttons/Btn";
 
 export default function RecipeMeal() {
@@ -18,15 +24,15 @@ export default function RecipeMeal() {
 			setLoading(true);
 			setError("");
 			try {
-				const response = await fetch(
+				const res = await fetch(
 					`https://api.spoonacular.com/recipes/${name}/information?apiKey=${
 						import.meta.env.VITE_SPOONACULAR_API_KEY
 					}`
 				);
-				if (!response.ok) {
+				if (!res.ok) {
 					throw new Error("Failed to fetch recipe details");
 				}
-				const detailData = await response.json();
+				const detailData = await res.json();
 				setDetails(detailData);
 			} catch (err) {
 				setError("Error loading recipe details");
@@ -37,7 +43,7 @@ export default function RecipeMeal() {
 		};
 
 		fetchDetails();
-	}, [name]);
+	}, [name]); //Call the fetchDetails function every time name changes.
 
 	if (loading) {
 		return (
@@ -97,12 +103,12 @@ export default function RecipeMeal() {
 						/>
 					</div>
 
-					{/* Recipe Instructions tab */}
+					{/* Recipe Preparation tab */}
 					{activeTab === "Recipe" && (
 						<div>
 							<div>
 								<h5 className={styles.instructionsTitle}>
-									Instructions:
+									Preparation
 								</h5>
 								<div
 									className={styles.recipe}

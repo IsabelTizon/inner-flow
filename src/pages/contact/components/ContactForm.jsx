@@ -1,4 +1,7 @@
+// REACT HOOKS
 import { useState } from "react";
+
+// STYLES
 import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
@@ -23,7 +26,7 @@ export default function ContactForm() {
 		setIsSubmitting(true);
 
 		try {
-			const response = await fetch(
+			const res = await fetch(
 				"http://localhost:3001/contact",
 				{
 					method: "POST",
@@ -36,7 +39,7 @@ export default function ContactForm() {
 					}),
 				}
 			);
-			if (response.ok) {
+			if (res.ok) {
 				setSubmitMessage("Message sent successfully!");
 				setFormData({
 					name: "",
@@ -60,6 +63,7 @@ export default function ContactForm() {
 		<div className={styles.formSection}>
 			<h2 className={styles.title}>Send us a Message</h2>
 			<form className={styles.form} onSubmit={handleSubmit}>
+				{/* First Name and Last Name Group */}
 				<div className={styles.nameGroup}>
 					<input
 						className={styles.input}
@@ -80,6 +84,7 @@ export default function ContactForm() {
 						required
 					/>
 				</div>
+				{/* Email */}
 				<input
 					className={styles.input}
 					type="email"
@@ -89,6 +94,7 @@ export default function ContactForm() {
 					onChange={handleChange}
 					required
 				/>
+				{/* Textarea*/}
 				<textarea
 					className={styles.textarea}
 					name="message"
@@ -98,6 +104,7 @@ export default function ContactForm() {
 					onChange={handleChange}
 					required
 				></textarea>
+				{/* Submit Button */}
 				<button
 					className={styles.submitButton}
 					type="submit"
@@ -105,6 +112,7 @@ export default function ContactForm() {
 				>
 					{isSubmitting ? "Sending..." : "Send Message"}
 				</button>
+				{/* Feedback Message */}
 				{submitMessage && (
 					<p className={styles.message}>{submitMessage}</p>
 				)}

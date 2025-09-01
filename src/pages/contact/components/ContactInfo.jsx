@@ -1,3 +1,4 @@
+// STYLES
 import styles from "./ContactInfo.module.css";
 
 export default function ContactInfo() {

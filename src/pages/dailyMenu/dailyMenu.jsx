@@ -1,6 +1,13 @@
+// REACT HOOKS
 import { useState } from "react";
+
+// STYLES
 import styles from "./dailyMenu.module.css";
+
+// COMPONENTS
 import MealCard from "./components/MealCard";
+
+// GLOBAL COMPONETS
 import Btn from "../../components/globals/Buttons/Btn";
 
 export default function DailyMenu() {
@@ -13,15 +20,15 @@ export default function DailyMenu() {
 		setLoading(true);
 		setError("");
 		try {
-			const response = await fetch(
+			const res = await fetch(
 				`https://api.spoonacular.com/mealplanner/generate?apiKey=${
 					import.meta.env.VITE_SPOONACULAR_API_KEY
 				}&timeFrame=day&targetCalories=${calories}`
 			);
-			if (!response.ok) {
+			if (!res.ok) {
 				throw new Error("Error fetching meal data");
 			}
-			const data = await response.json();
+			const data = await res.json();
 			setMealData(data);
 		} catch {
 			setError("Error al obtener el plan de comidas");
@@ -46,7 +53,7 @@ export default function DailyMenu() {
 						Choose your daily plan based on the calories you
 						want to consume
 					</h4>
-
+					{/* input form */}
 					<form
 						className={styles.form}
 						onSubmit={handleSubmit}
@@ -64,7 +71,7 @@ export default function DailyMenu() {
 							text="Get"
 							variant="secondary"
 							type="submit"
-							// disabled={loading}
+							disabled={loading}
 						>
 							{loading ? "Loading..." : "Get Meal Plan"}
 						</Btn>
@@ -74,6 +81,7 @@ export default function DailyMenu() {
 				</div>
 			</div>
 
+			{/* Meal Results: 3 recipes */}
 			{mealData?.meals && (
 				<div className={styles.mealResults}>
 					<h3>

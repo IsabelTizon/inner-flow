@@ -31,16 +31,12 @@
 	margin: 0.25rem 0;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
-
-/* Tablets */
+/*  RESPONSIVE  */
 @media (max-width: 1024px) {
 	.mealCard {
 		flex: 0 1 calc(50% - 1rem);
 	}
 }
-
-/* Mobile */
 @media (max-width: 768px) {
 	.mealCard {
 		flex: 0 1 100%;

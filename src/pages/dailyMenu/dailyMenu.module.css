@@ -2,6 +2,7 @@
 	min-height: 100vh;
 }
 
+/* HERO */
 .hero {
 	background-image: linear-gradient(
 			rgba(0, 0, 0, 0.4),
@@ -86,9 +87,8 @@
 	flex-wrap: wrap;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* RESPONSIVE */
 
-/* Tablets */
 @media (max-width: 1024px) {
 	.title {
 		font-size: 2.5rem;
@@ -97,8 +97,6 @@
 		font-size: 1rem;
 	}
 }
-
-/* Mobile */
 @media (max-width: 768px) {
 	.hero {
 		height: 50vh;
@@ -113,25 +111,5 @@
 	.input {
 		width: 100%;
 		max-width: 300px;
-	}
-	.button {
-		width: 100%;
-		max-width: 300px;
-	}
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-	.hero {
-		height: 40vh;
-	}
-	.title {
-		font-size: 1.6rem;
-	}
-	.subtitle {
-		font-size: 0.9rem;
-	}
-	.form {
-		flex-direction: column;
 	}
 }

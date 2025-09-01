@@ -1,6 +1,9 @@
+// COMPONENTS
 import Hero from "./components/Hero";
 import ContactInfo from "./components/ContactInfo";
 import ContactForm from "./components/ContactForm";
+
+// STYLES
 import styles from "./Contact.module.css";
 
 export default function Contact() {

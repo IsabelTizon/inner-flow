@@ -1,4 +1,7 @@
+// REACT ROUTER: Navigate
 import { useNavigate } from "react-router-dom";
+
+// STYLES
 import styles from "./mealCard.module.css";
 
 export default function MealCard({ meal }) {
