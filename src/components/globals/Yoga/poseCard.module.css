@@ -90,41 +90,12 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-	.popupCard {
-		width: 85%;
-		max-height: 85vh;
-	}
-
-	.popupContent {
+	.popup {
+		width: 100%;
 		padding: 20px;
-	}
-
-	.imgPoseCardPopup {
-		height: 250px;
 	}
 
 	.popupTitle {
 		font-size: 1.3rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.popupCard {
-		width: 95%;
-		margin: 10px;
-	}
-
-	.popupContent {
-		padding: 16px;
-	}
-
-	.imgPoseCardPopup {
-		height: 200px;
-	}
-
-	.closeButton {
-		width: 32px;
-		height: 32px;
-		font-size: 18px;
 	}
 }

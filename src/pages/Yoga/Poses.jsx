@@ -21,10 +21,10 @@ export default function Poses() {
 	const loadAllPoses = async () => {
 		setLoading(true);
 		try {
-			const response = await fetch(
+			const res = await fetch(
 				"http://localhost:3001/poses"
 			);
-			const data = await response.json();
+			const data = await res.json();
 			setPoses(data);
 			setFilteredPoses(data);
 		} catch (err) {
@@ -41,12 +41,12 @@ export default function Poses() {
 
 		try {
 			// fetch endpoint by name
-			const response = await fetch(
+			const res = await fetch(
 				`http://localhost:3001/poses/search?name=${encodeURIComponent(
 					searchTerm
 				)}`
 			);
-			const data = await response.json();
+			const data = await res.json();
 			setFilteredPoses(data);
 		} catch (err) {
 			console.error("Error searching poses:", err);
