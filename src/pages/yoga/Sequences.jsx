@@ -4,17 +4,18 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../context/useAuth.js";
 // GLOBAL COMPONENTS
 import Btn from "../../components/globals/Buttons/Btn.jsx";
-// COMPONENTS
-import PoseCard from "../../components/globals/Yoga/PoseCard.jsx";
+import SequencesCard from "../../components/globals/Yoga/SequencesCard.jsx";
 // STYLES
 import styles from "./Sequences.module.css";
+//CUSTOM HOOKS
+import { useToggleSequence } from "../../hooks/useToggleSequence.js";
 
 export default function Sequences() {
 	const [sequences, setSequences] = useState([]); // User sequences empty array as initial state
 	const [loading, setLoading] = useState(false); // Boolean to show if the data is loading
-	const [expandedSequences, setExpandedSequences] =
-		useState(new Set()); // New Set to track expanded sequences
 	const { isLoggedIn } = useAuth(); // Authentication status
+	const { expandedItems, toggleSequence } =
+		useToggleSequence(); // Custom hook for managing expanded sequences
 
 	// USEEFFECT STATE
 	useEffect(() => {
@@ -49,22 +50,6 @@ export default function Sequences() {
 		} finally {
 			setLoading(false);
 		}
-	};
-
-	// TOGGLE SEQUENCE FUNCTION: SHOW & HIDE SEQUENCE DETAILS
-	// Uses a Set data structure which array cannot contain duplicates
-	const toggleSequence = (sequenceId) => {
-		const newExpanded = new Set(expandedSequences); // Create a copy of the current Set
-
-		// If the sequence is already expanded
-		if (newExpanded.has(sequenceId)) {
-			//  ... remove it from Set
-			newExpanded.delete(sequenceId);
-		} else {
-			//  If collapsed, expand it (add to Set)
-			newExpanded.add(sequenceId);
-		}
-		setExpandedSequences(newExpanded); // Update the state with the new expanded sequences
 	};
 
 	// CREATE NEW SEQUENCE FUNCTION
@@ -275,99 +260,16 @@ export default function Sequences() {
 				<div className={styles.sequencesList}>
 					{/* mapping sequences */}
 					{sequences.map((sequence) => (
-						<div
+						<SequencesCard
 							key={sequence.id}
-							className={styles.sequenceCard}
-						>
-							<div className={styles.sequenceHeader}>
-								{/* left side card sequence: INFORMATION */}
-								<div className={styles.sequenceInfo}>
-									{/* sequence name */}
-									<h3 className={styles.sequenceName}>
-										{sequence.name}
-									</h3>
-									{/* sequence description */}
-									<p className={styles.sequenceDescription}>
-										{sequence.description}
-									</p>
-									{/* number of poses in sequence */}
-									<span className={styles.poseCount}>
-										{sequence.poses?.length || 0} poses
-									</span>
-								</div>
-								{/* right side card sequence: BUTTONS*/}
-								<div className={styles.sequenceActions}>
-									{/* BUTTON COMPONENT to toggle sequence details: SHOW & HIDE */}
-									<Btn
-										text={
-											expandedSequences.has(sequence.id)
-												? "Hide Poses"
-												: "Show Poses"
-										}
-										variant="secondary"
-										onClick={() =>
-											toggleSequence(sequence.id)
-										}
-									/>
-									{/* DELETE BUTTON COMPONENT */}
-									<Btn
-										text="Delete"
-										variant="tertiary"
-										onClick={() =>
-											deleteSequence(
-												sequence.id,
-												sequence.name
-											)
-										}
-									/>
-									{/* SHARE/UNSHARE BUTTON COMPONENT */}
-									<Btn
-										text={
-											sequence.isPublic
-												? "Unshare"
-												: "Share"
-										}
-										variant="tertiary"
-										onClick={() =>
-											toggleSequenceVisibility(sequence.id)
-										}
-									/>
-								</div>
-							</div>
-
-							{expandedSequences.has(sequence.id) && (
-								<div className={styles.posesGrid}>
-									{sequence.poses &&
-									sequence.poses.length > 0 ? (
-										//If the user has expanded the sequence the sequence with the toggle button "show poses" and the poses length are greater than 0 mapping the poses
-										sequence.poses.map((pose) => (
-											<div
-												key={pose.id}
-												className={styles.poseContainer}
-											>
-												{/* POSE CARD COMPONENT */}
-												<PoseCard
-													id={pose.id}
-													{...pose}
-													context="sequences"
-													sequenceId={sequence.id}
-													onRemove={removePoseFromSequence}
-												/>
-											</div>
-										))
-									) : (
-										// If the user logged as no sequences, show a message
-										<div className={styles.emptySequence}>
-											<p>No poses in this sequence yet.</p>
-											<p>
-												Go to the Poses page to add some
-												poses!
-											</p>
-										</div>
-									)}
-								</div>
-							)}
-						</div>
+							sequence={sequence}
+							context="sequences"
+							expandedSequences={expandedItems}
+							onToggleSequence={toggleSequence}
+							onDelete={deleteSequence}
+							onToggleVisibility={toggleSequenceVisibility}
+							onRemovePose={removePoseFromSequence}
+						/>
 					))}
 				</div>
 			)}

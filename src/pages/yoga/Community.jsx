@@ -1,8 +1,9 @@
 // REACT HOOKS
 import React, { useEffect, useState } from "react";
 // GLOBAL COMPONENTS
-import Btn from "../../components/globals/Buttons/Btn.jsx";
-import PoseCard from "../../components/globals/Yoga/PoseCard.jsx";
+import SequencesCard from "../../components/globals/Yoga/SequencesCard.jsx";
+// CUSTOM HOOKS
+import { useToggleSequence } from "../../hooks/useToggleSequence.js";
 // STYLES
 import styles from "./Sequences.module.css";
 
@@ -12,8 +13,8 @@ export default function Community() {
 		[]
 	); // Get all public sequences
 	const [loading, setLoading] = useState(false); // Loading state
-	const [expandedSequences, setExpandedSequences] =
-		useState(new Set());
+	const { expandedItems, toggleSequence } =
+		useToggleSequence(); // Custom hook for managing expanded sequences
 
 	useEffect(() => {
 		fetchPublicSequences();
@@ -23,10 +24,10 @@ export default function Community() {
 	const fetchPublicSequences = async () => {
 		setLoading(true);
 		try {
-			const response = await fetch(
+			const res = await fetch(
 				"http://localhost:3001/community/sequences"
 			);
-			const data = await response.json();
+			const data = await res.json();
 			setPublicSequences(data);
 		} catch (error) {
 			console.error(
@@ -36,18 +37,6 @@ export default function Community() {
 		} finally {
 			setLoading(false);
 		}
-	};
-
-	// TOGGLE SEQUENCE FUNCTION: SHOW & HIDE SEQUENCE DETAILS
-	const toggleSequence = (sequenceId) => {
-		const newExpanded = new Set(expandedSequences);
-
-		if (newExpanded.has(sequenceId)) {
-			newExpanded.delete(sequenceId);
-		} else {
-			newExpanded.add(sequenceId);
-		}
-		setExpandedSequences(newExpanded);
 	};
 
 	// RENDERING MESSAGE WITH LOADING STATE
@@ -85,75 +74,16 @@ export default function Community() {
 				//but if there are sequences, they will be rendered
 				<div className={styles.sequencesList}>
 					{publicSequences.map((sequence) => (
-						<div
+						<SequencesCard
 							key={sequence.id}
-							className={styles.sequenceCard}
-						>
-							<div className={styles.sequenceHeader}>
-								{/* Sequence Information */}
-								<div className={styles.sequenceInfo}>
-									<h3 className={styles.sequenceName}>
-										{sequence.name}
-									</h3>
-									<p className={styles.sequenceDescription}>
-										{sequence.description}
-									</p>
-									<span className={styles.poseCount}>
-										{sequence.poses?.length || 0} poses
-									</span>
-									{/* Show creator info */}
-									<p className={styles.creatorInfo}>
-										Created by:{" "}
-										<strong>
-											{sequence.user?.name ||
-												sequence.user?.username ||
-												"Unknown"}
-										</strong>
-									</p>
-								</div>
-								{/* Only Show Poses Button */}
-								<div className={styles.sequenceActions}>
-									<Btn
-										text={
-											expandedSequences.has(sequence.id)
-												? "Hide Poses"
-												: "Show Poses"
-										}
-										variant="secondary"
-										onClick={() =>
-											toggleSequence(sequence.id)
-										}
-									/>
-								</div>
-							</div>
-
-							{/* Show poses if the sequence is expanded */}
-							{expandedSequences.has(sequence.id) && (
-								<div className={styles.posesGrid}>
-									{sequence.poses &&
-									sequence.poses.length > 0 ? (
-										sequence.poses.map((pose) => (
-											<div
-												key={pose.id}
-												className={styles.poseContainer}
-											>
-												<PoseCard
-													id={pose.id}
-													{...pose}
-													context="community"
-													// No onRemove or edit functions for community
-												/>
-											</div>
-										))
-									) : (
-										// No poses message
-										<div className={styles.emptySequence}>
-											<p>No poses in this sequence.</p>
-										</div>
-									)}
-								</div>
-							)}
-						</div>
+							sequence={sequence}
+							context="community"
+							expandedSequences={expandedItems}
+							onToggleSequence={toggleSequence}
+							onDelete={null}
+							onToggleVisibility={null}
+							onRemovePose={null}
+						/>
 					))}
 				</div>
 			)}
