@@ -10,7 +10,7 @@ import PoseCard from "../../components/globals/Yoga/PoseCard.jsx";
 import styles from "./Sequences.module.css";
 
 export default function Sequences() {
-	const [sequences, setSequences] = useState([]); // User sequences
+	const [sequences, setSequences] = useState([]); // User sequences empty array as initial state
 	const [loading, setLoading] = useState(false); // Boolean to show if the data is loading
 	const [expandedSequences, setExpandedSequences] =
 		useState(new Set()); // New Set to track expanded sequences
@@ -253,6 +253,7 @@ export default function Sequences() {
 				/>
 			</div>
 
+			{/** No sequences yet card */}
 			{sequences.length === 0 ? (
 				// If no sequences, show empty state
 				<div className={styles.emptyState}>
@@ -265,7 +266,7 @@ export default function Sequences() {
 					{/* Create New Sequence BUTTON COMPONENT */}
 					<Btn
 						text="Create Your First Sequence"
-						variant="primary"
+						variant="tertiary"
 						onClick={createNewSequence}
 					/>
 				</div>

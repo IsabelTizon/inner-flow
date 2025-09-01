@@ -5,7 +5,7 @@
 	margin: 0 auto;
 }
 
-/* Header */
+/* HEADER: Title + Create New Sequence Button */
 .header {
 	display: flex;
 	justify-content: space-between;
@@ -22,7 +22,7 @@
 	font-weight: 700;
 }
 
-/* States */
+/* STATES */
 .loading {
 	text-align: center;
 	padding: 60px 20px;
@@ -48,6 +48,7 @@
 	color: #718096;
 }
 
+/* NO SEQUENCES YET CARD */
 .emptyState {
 	text-align: center;
 	padding: 60px 20px;
