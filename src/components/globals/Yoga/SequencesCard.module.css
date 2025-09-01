@@ -1,0 +1,126 @@
+/* Sequence Card */
+.sequenceCard {
+	background: white;
+	border-radius: 16px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	border: 1px solid #e2e8f0;
+	overflow: hidden;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sequenceCard:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Sequence Header */
+.sequenceHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 24px;
+	gap: 20px;
+}
+
+/* Left part card */
+.sequenceInfo {
+	flex: 1;
+}
+
+.sequenceName {
+	margin: 0 0 8px 0;
+	color: #2d3748;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.sequenceDescription {
+	margin: 0 0 12px 0;
+	color: #718096;
+	line-height: 1.5;
+}
+
+.poseCount {
+	display: inline-block;
+	background: #667eea;
+	color: white;
+	padding: 4px 12px;
+	border-radius: 20px;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+/* Creator Info just in Community Sequences */
+.creatorInfo {
+	font-size: 0.9rem;
+	color: #4a5568;
+	margin-top: 8px;
+	font-style: italic;
+}
+
+/* Sequence Btns */
+.sequenceBtns {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+/* If the sequences poses are expanded: Poses Flex Container */
+.posesWrapper {
+	padding: 0 24px 24px 24px;
+	border-top: 1px solid #e2e8f0;
+	background: #f8fafc;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding-top: 24px;
+}
+
+.poseContainer {
+	position: relative;
+	flex: 1 1 280px; /* grow shrink basis */
+	min-width: 280px;
+	max-width: calc(
+		50% - 10px
+	); /* Ensures max 2 per row with gap */
+}
+
+/* Empty Sequence, no poses in the sequence */
+.emptySequence {
+	width: 100%;
+	text-align: center;
+	padding: 40px 20px;
+	color: #718096;
+	font-style: italic;
+}
+
+.emptySequence p {
+	margin: 0 0 8px 0;
+}
+
+.emptySequence p:last-child {
+	margin: 0;
+	font-weight: 500;
+	color: #667eea;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+	.sequenceHeader {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 16px;
+	}
+
+	.sequenceBtns {
+		justify-content: center;
+	}
+
+	.posesWrapper {
+		flex-direction: column;
+	}
+
+	.sequenceCard {
+		border-radius: 12px;
+	}
+}
