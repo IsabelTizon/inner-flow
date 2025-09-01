@@ -59,7 +59,7 @@ export default function SequenceSelector({
 
 		try {
 			const token = localStorage.getItem("token");
-			const response = await fetch(
+			const res = await fetch(
 				`http://localhost:3001/sequences/${selectedSequenceId}/poses`,
 				{
 					method: "POST",
@@ -71,7 +71,7 @@ export default function SequenceSelector({
 				}
 			);
 
-			if (response.ok) {
+			if (res.ok) {
 				setMessage(
 					`${poseName} added to sequence successfully!`
 				);
@@ -80,7 +80,7 @@ export default function SequenceSelector({
 					onClose();
 				}, 1500);
 			} else {
-				const errorData = await response.json();
+				const errorData = await res.json();
 				setMessage(
 					errorData.message ||
 						"Error adding pose to sequence"
