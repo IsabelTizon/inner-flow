@@ -1,22 +1,38 @@
+/* INPUT CONTAINER */
 .filterContainer {
 	margin-bottom: 24px;
 }
+
+/* INPUT FORM */
 .searchForm {
 	width: 100%;
 	max-width: 600px;
 	margin: 0 auto;
 }
-
+/* to position child elements: span, input and btn */
 .inputGroup {
 	position: relative;
 	width: 100%;
 }
+.inputGroup:hover .searchInput {
+	border-color: #ffd6c0; /* Change the color of the border and icon when hovering over with the mouse*/
+}
 
+.inputGroup:hover .searchIcon {
+	color: rgba(
+		163,
+		66,
+		39,
+		1
+	); /* Change the text color on hover */
+}
+
+/* SEARCH INPUT */
 .searchInput {
 	width: 100%;
-	padding: 16px 50px 16px 50px; /* Espacio para iconos a ambos lados */
+	padding: 16px 50px 16px 50px;
 	border: 2px solid #f5f5dc;
-	border-radius: 25px; /* Input redondeado */
+	border-radius: 25px;
 	font-size: 16px;
 	background-color: #f5f5dc;
 	color: rgba(163, 66, 39, 0.98);
@@ -24,11 +40,7 @@
 	box-sizing: border-box;
 }
 
-.searchInput::placeholder {
-	color: rgba(163, 66, 39, 0.6);
-	font-style: italic;
-}
-
+/* INPUT FOCUS */
 .searchInput:focus {
 	outline: none;
 	border-color: #ffd6c0;
@@ -37,7 +49,23 @@
 	transform: translateY(-1px);
 }
 
-/* Lupa (icono de búsqueda) - lado izquierdo */
+/* PLACEHOLDER text */
+.searchInput::placeholder {
+	color: rgba(163, 66, 39, 0.6);
+	font-style: italic;
+}
+/* SEARCHING If isSearching apllied searching styles */
+.searching .searchInput {
+	border-color: #ffd6c0;
+	background-color: #fff;
+}
+
+.searching .searchIcon {
+	color: rgba(163, 66, 39, 1);
+	animation: pulse 1.5s infinite;
+}
+
+/*  MAGNIFYING GLASS ICON */
 .searchIcon {
 	position: absolute;
 	left: 18px;
@@ -49,7 +77,7 @@
 	z-index: 10;
 }
 
-/* X (icono de limpiar) - lado derecho */
+/* CLEAR ICON */
 .clearIcon {
 	position: absolute;
 	right: 18px;
@@ -65,10 +93,10 @@
 	border-radius: 50%;
 	transition: all 0.2s ease;
 	opacity: 0;
-	visibility: hidden;
+	visibility: hidden; /* hidden by default */
 }
 
-/* Mostrar X solo cuando hay texto */
+/* Show btn "X" just when there's text */
 .clearIcon.visible {
 	opacity: 1;
 	visibility: visible;
@@ -77,33 +105,15 @@
 .clearIcon:hover {
 	background-color: rgba(205, 11, 11, 0.1);
 	color: rgba(163, 66, 39, 1);
-	transform: translateY(-50%) scale(1.1);
+	transform: translateY(-50%) scale(1.1); /* scale up on hover */
 }
 
 .clearIcon:active {
-	transform: translateY(-50%) scale(0.95);
+	transform: translateY(-50%) scale(0.95); /* scale down on click */
 }
 
-/* Efecto hover en el input */
-.inputGroup:hover .searchInput {
-	border-color: #ffd6c0;
-}
-
-.inputGroup:hover .searchIcon {
-	color: rgba(163, 66, 39, 1);
-}
-
-/* Estados de búsqueda */
-.searching .searchInput {
-	border-color: #ffd6c0;
-	background-color: #fff;
-}
-
-.searching .searchIcon {
-	color: rgba(163, 66, 39, 1);
-	animation: pulse 1.5s infinite;
-}
-
+/* ANIMATIONS */
+/* magnifying glass icon increase lightly */
 @keyframes pulse {
 	0%,
 	100% {
@@ -115,10 +125,13 @@
 	}
 }
 
-/* Responsive design */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+	.searchForm {
+		width: 80%;
+	}
 	.filterContainer {
-		padding: 16px;
+		padding: 5px;
 		margin-bottom: 16px;
 	}
 
@@ -138,24 +151,5 @@
 
 	.clearIcon {
 		right: 15px;
-	}
-}
-
-@media (max-width: 480px) {
-	.filterContainer {
-		padding: 12px;
-	}
-
-	.searchInput {
-		padding: 12px 40px 12px 40px;
-		font-size: 14px;
-	}
-
-	.searchIcon {
-		left: 12px;
-	}
-
-	.clearIcon {
-		right: 12px;
 	}
 }

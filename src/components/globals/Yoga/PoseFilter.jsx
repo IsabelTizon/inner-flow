@@ -8,6 +8,7 @@ export default function PoseFilter({
 }) {
 	const [searchTerm, setSearchTerm] = useState("");
 
+	// Search input
 	const handleInputChange = (e) => {
 		const value = e.target.value;
 		setSearchTerm(value);
@@ -19,11 +20,13 @@ export default function PoseFilter({
 		}
 	};
 
+	// Clear input
 	const handleClear = () => {
 		setSearchTerm("");
 		onClear();
 	};
 
+	// Enter key press
 	const handleKeyPress = (e) => {
 		if (e.key === "Enter") {
 			e.preventDefault();
@@ -49,7 +52,7 @@ export default function PoseFilter({
 						placeholder="Search poses by name..."
 						value={searchTerm}
 						onChange={handleInputChange}
-						onKeyPress={handleKeyPress}
+						onKeyUp={handleKeyPress}
 					/>
 
 					<button
