@@ -2,24 +2,22 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-// STYLES
-import styles from "./adminPoseForm.module.css";
-
-// GLOBAL COMPONENTS
-import Btn from "../../../components/globals/Buttons/Btn.jsx";
+// COMPONENTS
+import PoseForm from "../../../components/globals/Yoga/PoseForm.jsx";
 
 export default function EditPoseForm() {
 	const { id } = useParams();
 	const navigate = useNavigate();
 
-	const [name, setName] = useState("");
-	const [description, setDescription] = useState("");
-	const [useAIDescription, setUseAIDescription] =
-		useState(false);
-	const [image, setImage] = useState("");
+	const [initialData, setInitialData] = useState({
+		name: "",
+		description: "",
+		image: "",
+	});
 	const [message, setMessage] = useState("");
 	const [loading, setLoading] = useState(true);
 
+	// Fetch existing pose data on mount
 	useEffect(() => {
 		const fetchPose = async () => {
 			if (!id) {
@@ -34,9 +32,11 @@ export default function EditPoseForm() {
 				);
 				if (!res.ok) throw new Error("Pose not found");
 				const pose = await res.json();
-				setName(pose.name);
-				setDescription(pose.description || "");
-				setImage(pose.image || "");
+				setInitialData({
+					name: pose.name,
+					description: pose.description || "",
+					image: pose.image || "",
+				});
 			} catch {
 				setMessage("Error loading pose.");
 			} finally {
@@ -46,17 +46,10 @@ export default function EditPoseForm() {
 		fetchPose();
 	}, [id]);
 
-	const handleUpdate = async (e) => {
-		e.preventDefault();
+	// FUNCTION TO UPDATE POSTURE
+	const handleUpdate = async (formData) => {
 		try {
-			const token = localStorage.getItem("token");
-			const requestData = {
-				name,
-				image,
-			};
-			if (!useAIDescription && description.trim()) {
-				requestData.description = description;
-			}
+			const token = localStorage.getItem("token"); // Retrieve the authentication token to authorize the request.
 
 			const res = await fetch(
 				`http://localhost:3001/poses/${id}`,
@@ -66,7 +59,7 @@ export default function EditPoseForm() {
 						"Content-Type": "application/json",
 						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(requestData),
+					body: JSON.stringify(formData),
 				}
 			);
 
@@ -81,68 +74,15 @@ export default function EditPoseForm() {
 		}
 	};
 
-	if (loading) {
-		return (
-			<div className={styles.form}>
-				<p>Loading pose data...</p>
-			</div>
-		);
-	}
-
 	return (
-		<form className={styles.form} onSubmit={handleUpdate}>
-			<h2 className={styles.title}>{`Edit Pose: ${
-				name || id
-			}`}</h2>
-			<label className={styles.label}>
-				Name:
-				<input
-					className={styles.input}
-					type="text"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					required
-				/>
-			</label>
-			<label className={styles.label}>
-				<input
-					type="checkbox"
-					checked={useAIDescription}
-					onChange={(e) =>
-						setUseAIDescription(e.target.checked)
-					}
-				/>
-				Generate description with AI
-			</label>
-			{!useAIDescription && (
-				<label className={styles.label}>
-					Description:
-					<textarea
-						className={styles.textarea}
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						placeholder="Leave empty to generate with AI"
-					/>
-				</label>
-			)}
-			<label className={styles.label}>
-				Image URL:
-				<input
-					className={styles.input}
-					type="text"
-					value={image}
-					onChange={(e) => setImage(e.target.value)}
-				/>
-			</label>
-
-			<Btn
-				type="submit"
-				text="Update Pose"
-				variant="primary"
-			/>
-			{message && (
-				<p className={styles.message}>{message}</p>
-			)}
-		</form>
+		<PoseForm
+			mode="edit"
+			initialData={initialData}
+			title={`Edit Pose: ${initialData.name || id}`}
+			submitButtonText="Update Pose"
+			onSubmit={handleUpdate}
+			loading={loading}
+			message={message}
+		/>
 	);
 }

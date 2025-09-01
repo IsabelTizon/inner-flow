@@ -1,33 +1,17 @@
 // REACT HOOKS
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-// STYLES
-import styles from "./adminPoseForm.module.css";
-
-// GLOBAL COMPONENTS
-import Btn from "../../../components/globals/Buttons/Btn.jsx";
+// COMPONENTS
+import PoseForm from "../../../components/globals/Yoga/PoseForm.jsx";
 
 export default function CreatePoseForm() {
-	const [name, setName] = useState("");
-	const [description, setDescription] = useState("");
-	const [useAIDescription, setUseAIDescription] =
-		useState(false);
-	const [image, setImage] = useState("");
 	const [message, setMessage] = useState("");
+	const navigate = useNavigate();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+	const handleSubmit = async (formData) => {
 		try {
-			const token = localStorage.getItem("token");
-
-			const requestData = {
-				name,
-				image: image,
-			};
-
-			if (!useAIDescription && description.trim()) {
-				requestData.description = description;
-			}
+			const token = localStorage.getItem("token"); // Retrieve the authentication token to authorize the request.
 
 			const res = await fetch(
 				"http://localhost:3001/poses",
@@ -37,15 +21,13 @@ export default function CreatePoseForm() {
 						"Content-Type": "application/json",
 						Authorization: `Bearer ${token}`,
 					},
-					body: JSON.stringify(requestData),
+					body: JSON.stringify(formData),
 				}
 			);
+
 			if (res.ok) {
 				setMessage("Pose created successfully!");
-				setName("");
-				setDescription("");
-				setImage("");
-				setUseAIDescription(false);
+				setTimeout(() => navigate("/admin"), 1500);
 			} else {
 				setMessage("Error creating pose.");
 			}
@@ -55,59 +37,12 @@ export default function CreatePoseForm() {
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			<h2 className={styles.title}>Create a New Pose</h2>
-			<label className={styles.label}>
-				Name:
-				<input
-					className={styles.input}
-					type="text"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					required
-				/>
-			</label>
-
-			<label className={styles.label}>
-				<input
-					type="checkbox"
-					checked={useAIDescription}
-					onChange={(e) =>
-						setUseAIDescription(e.target.checked)
-					}
-				/>
-				Generate description with AI
-			</label>
-
-			{!useAIDescription && (
-				<label className={styles.label}>
-					Description:
-					<textarea
-						className={styles.textarea}
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						placeholder="Leave empty to generate with AI"
-					/>
-				</label>
-			)}
-
-			<label className={styles.label}>
-				Image URL:
-				<input
-					className={styles.input}
-					type="text"
-					value={image}
-					onChange={(e) => setImage(e.target.value)}
-				/>
-			</label>
-			<Btn
-				type="submit"
-				text="Create Pose"
-				variant="primary"
-			/>
-			{message && (
-				<p className={styles.message}>{message}</p>
-			)}
-		</form>
+		<PoseForm
+			mode="create"
+			title="Create a New Pose"
+			submitButtonText="Create Pose"
+			onSubmit={handleSubmit}
+			message={message}
+		/>
 	);
 }
