@@ -17,17 +17,20 @@ export function useRegister() {
 		setError(null);
 
 		try {
-			const response = await fetch("http://auth/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ name, email, password }),
-			});
+			const res = await fetch(
+				"http://localhost:3001/auth/register",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ name, email, password }),
+				}
+			);
 
-			if (!response.ok) {
-				// If the response is not ok (status code outside 200-299)
-				const errorData = await response.json();
+			if (!res.ok) {
+				// If the res is not ok (status code outside 200-299)
+				const errorData = await res.json();
 				throw new Error(
 					errorData.message || "Error registering user"
 				);
