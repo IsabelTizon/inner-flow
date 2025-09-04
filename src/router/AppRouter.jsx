@@ -4,16 +4,16 @@ import {
 	Route,
 } from "react-router-dom";
 // HOME
-import Home from "../pages/home/Home";
+import Home from "../pages/Home/Home";
 // PAGES
 import DailyMenu from "../pages/dailyMenu/DailyMenu";
-import RecipeMeal from "../pages/dailyMenu/recipeMeal";
+import RecipeMeal from "../pages/dailyMenu/RecipeMeal";
 import Contact from "../pages/contact/Contact";
 // GLOBAL
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 // YOGA
-import Poses from "../pages/yoga/Poses";
+import Poses from "../pages/Yoga/Poses";
 import Sequences from "../pages/yoga/Sequences";
 import Community from "../pages/yoga/Community";
 // AUTH
