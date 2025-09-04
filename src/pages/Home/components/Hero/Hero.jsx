@@ -1,5 +1,5 @@
 // STYLES
-import styles from "./hero.module.css";
+import styles from "./Hero.module.css";
 
 // ASSETS
 import heroHome from "../../assets/heroHome.mp4";
