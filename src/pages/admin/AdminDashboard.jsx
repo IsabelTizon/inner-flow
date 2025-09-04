@@ -1,5 +1,5 @@
 // STYLES
-import styles from "./AdminDashboard.module.css";
+import styles from "./adminDashboard.module.css";
 
 // GLOBAL COMPONENTS
 import ClickCard from "../../components/globals/ClickCard/ClickCard";
