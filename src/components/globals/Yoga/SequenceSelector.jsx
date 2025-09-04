@@ -62,7 +62,7 @@ export default function SequenceSelector({
 		try {
 			const token = localStorage.getItem("token");
 			const res = await fetch(
-				`${apiUrl}/${selectedSequenceId}/poses`,
+				`${apiUrl}/sequences/${selectedSequenceId}/poses`,
 				{
 					method: "POST",
 					headers: {
