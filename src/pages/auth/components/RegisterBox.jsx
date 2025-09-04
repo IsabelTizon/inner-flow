@@ -11,14 +11,23 @@ import Btn from "../../../components/globals/Buttons/Btn.jsx";
 import styles from "../auth.module.css";
 
 export default function RegisterBox() {
-	const { handleRegister, error, loading } = useRegister(); // Custom hook for login, send the data to the backend
+	const { handleRegister, error, loading } = useRegister(); // Custom hook for registration
 
-	const [name, setName] = useState(""); // store name
-	const [email, setEmail] = useState(""); // store email
-	const [password, setPassword] = useState(""); // store password
+	const [name, setName] = useState(""); // Full name
+	const [email, setEmail] = useState(""); // Email
+	const [password, setPassword] = useState(""); // Password
+	const [agreed, setAgreed] = useState(false); // Checkbox for terms
 
 	const onSubmit = (e) => {
-		e.preventDefault(); // prevent page reload to handle custom validation and submission
+		e.preventDefault();
+
+		if (!agreed) {
+			alert(
+				"You must accept the Terms & Conditions to register"
+			);
+			return;
+		}
+
 		handleRegister({ name, email, password });
 	};
 
@@ -35,6 +44,7 @@ export default function RegisterBox() {
 				value={name}
 				onChange={(e) => setName(e.target.value)}
 			/>
+
 			<label className={styles.label}>Password</label>
 			<input
 				type="password"
@@ -43,6 +53,7 @@ export default function RegisterBox() {
 				value={password}
 				onChange={(e) => setPassword(e.target.value)}
 			/>
+
 			<label className={styles.label}>E-mail</label>
 			<input
 				type="email"
@@ -51,10 +62,13 @@ export default function RegisterBox() {
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
 			/>
+
 			<div className={styles.checkboxWrapper}>
 				<input
 					type="checkbox"
 					className={styles.checkbox}
+					checked={agreed}
+					onChange={(e) => setAgreed(e.target.checked)}
 				/>
 				<span className={styles.checkboxLabel}>
 					By signing up you agree{" "}
@@ -63,6 +77,7 @@ export default function RegisterBox() {
 					</a>
 				</span>
 			</div>
+
 			<div>
 				<Btn
 					text={loading ? "Registering..." : "Sign Up"}
@@ -70,6 +85,7 @@ export default function RegisterBox() {
 					variant="primary"
 				/>
 			</div>
+
 			{error && <p style={{ color: "red" }}>{error}</p>}
 		</form>
 	);
