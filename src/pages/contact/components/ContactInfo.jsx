@@ -1,5 +1,5 @@
 // STYLES
-import styles from "./ContactInfo.module.css";
+import styles from "./contactInfo.module.css";
 
 export default function ContactInfo() {
 	return (

@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // STYLES
-import styles from "./ContactForm.module.css";
+import styles from "./contactForm.module.css";
 
 // .env DEVELOPMENT/DEPLOYMENT
 const apiUrl = import.meta.env.VITE_API_URL;

@@ -4,7 +4,7 @@ import ContactInfo from "./components/ContactInfo";
 import ContactForm from "./components/ContactForm";
 
 // STYLES
-import styles from "./Contact.module.css";
+import styles from "./contact.module.css";
 
 export default function Contact() {
 	return (

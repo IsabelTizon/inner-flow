@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./PoseFilter.module.css";
+import styles from "./poseFilter.module.css";
 
 export default function PoseFilter({
 	onFilter,

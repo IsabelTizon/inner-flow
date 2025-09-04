@@ -3,7 +3,7 @@ import LegalLinks from "./components/LegalLinks";
 import QuickLinks from "./components/QuickLinks";
 import LogoBox from "./components/LogoBox";
 // Styles
-import styles from "./Footer.module.css";
+import styles from "./footer.module.css";
 
 export default function Footer() {
 	return (
