@@ -6,7 +6,7 @@ import {
 // HOME
 import Home from "../pages/Home/Home";
 // PAGES
-import DailyMenu from "../pages/dailyMenu/DailyMenu";
+import DailyMenu from "../pages/dailyMenu/dailyMenu";
 import RecipeMeal from "../pages/dailyMenu/RecipeMeal";
 import Contact from "../pages/contact/Contact";
 // GLOBAL
