@@ -1,7 +1,7 @@
 // src/pages/auth/Login.jsx
 // COMPONENTS
 import LoginBox from "./components/LoginBox";
-import GreetingBox from "./components/GreetingBox";
+import GreetingBox from "./components/greetingBox";
 
 // ASSETS
 import logo from "../../assets/logo.png";

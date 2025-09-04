@@ -1,7 +1,7 @@
 // src/pages/auth/register.jsx
 // COMPONENTS
 import RegisterBox from "./components/RegisterBox";
-import GreetingBox from "./components/GreetingBox";
+import GreetingBox from "./components/greetingBox";
 
 // ASSETS
 import logo from "../../assets/logo.png";
