@@ -13,7 +13,7 @@ import Contact from "../pages/contact/Contact";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 // YOGA
-import Poses from "../pages/yoga/Poses";
+import Poses from "../pages/Yoga/Poses";
 import Sequences from "../pages/yoga/Sequences";
 import Community from "../pages/yoga/Community";
 // AUTH
