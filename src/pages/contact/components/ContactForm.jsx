@@ -4,6 +4,9 @@ import { useState } from "react";
 // STYLES
 import styles from "./ContactForm.module.css";
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function ContactForm() {
 	const [formData, setFormData] = useState({
 		name: "",
@@ -26,19 +29,16 @@ export default function ContactForm() {
 		setIsSubmitting(true);
 
 		try {
-			const res = await fetch(
-				"http://localhost:3001/contact",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						...formData,
-						to: "tizonarranz@gmail.com",
-					}),
-				}
-			);
+			const res = await fetch(`${apiUrl}/contact`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					...formData,
+					to: "tizonarranz@gmail.com",
+				}),
+			});
 			if (res.ok) {
 				setSubmitMessage("Message sent successfully!");
 				setFormData({

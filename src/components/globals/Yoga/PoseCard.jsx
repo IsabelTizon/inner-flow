@@ -9,6 +9,9 @@ import SequenceSelector from "./SequenceSelector.jsx";
 import { useAuth } from "../../../context/useAuth.js"; // Context to access authentication state and methods
 import useToggle from "../../../hooks/useToggle.js"; //
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function PoseCard({
 	id,
 	name,
@@ -33,7 +36,7 @@ export default function PoseCard({
 			{/*********** CARD ***********/}
 			{/* CARD IMAGE */}
 			<img
-				src={`http://localhost:3001/img/poses/${image}`}
+				src={`${apiUrl}/img/poses/${image}`}
 				alt={name}
 				className={styles.imgPoseCard}
 			/>
@@ -99,7 +102,7 @@ export default function PoseCard({
 					<div className={styles.popup}>
 						{/* image pop up pose card */}
 						<img
-							src={`http://localhost:3001/img/poses/${image}`}
+							src={`${apiUrl}/img/poses/${image}`}
 							alt={name}
 							className={styles.imgPoseCardPopup}
 						/>

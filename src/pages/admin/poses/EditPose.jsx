@@ -9,6 +9,9 @@ import styles from "../../yoga/Poses.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function EditPose() {
 	const [poses, setPoses] = useState([]); // All yoga poses
 	const [filteredPoses, setFilteredPoses] = useState([]); // Filtered yoga poses
@@ -26,9 +29,7 @@ export default function EditPose() {
 	const loadAllPoses = async () => {
 		setLoading(true);
 		try {
-			const response = await fetch(
-				"http://localhost:3001/poses"
-			);
+			const response = await fetch(`${apiUrl}/poses`);
 			const data = await response.json();
 			setPoses(data);
 			setFilteredPoses(data);
@@ -47,7 +48,7 @@ export default function EditPose() {
 		try {
 			// fetch endpoint by name
 			const response = await fetch(
-				`http://localhost:3001/poses/search?name=${encodeURIComponent(
+				`${apiUrl}/poses/search?name=${encodeURIComponent(
 					searchTerm
 				)}`
 			);
@@ -97,16 +98,13 @@ export default function EditPose() {
 		try {
 			const token = localStorage.getItem("token");
 
-			const res = await fetch(
-				`http://localhost:3001/poses/${poseId}`,
-				{
-					method: "DELETE",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${token}`,
-					},
-				}
-			);
+			const res = await fetch(`${apiUrl}/poses/${poseId}`, {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+			});
 
 			if (res.ok) {
 				setMessage("Pose deleted successfully!");

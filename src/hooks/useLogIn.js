@@ -6,6 +6,9 @@ import { useState } from "react"; // for creating states
 // CONTEXT
 import { useAuth } from "../context/useAuth";
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export function useLogIn() {
 	const navigate = useNavigate();
 	const { refreshAuth } = useAuth(); // Custom hook to access AuthContext
@@ -17,16 +20,13 @@ export function useLogIn() {
 		setError(null);
 
 		try {
-			const response = await fetch(
-				"http://localhost:3001/auth/login",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ email, password }),
-				}
-			);
+			const response = await fetch(`${apiUrl}/auth/login`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email, password }),
+			});
 
 			if (response.ok) {
 				const data = await response.json();

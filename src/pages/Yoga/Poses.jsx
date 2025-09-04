@@ -5,6 +5,8 @@ import PoseFilter from "../../components/globals/Yoga/PoseFilter";
 import styles from "./Poses.module.css";
 // STATES
 import { useEffect, useState } from "react";
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Poses() {
 	const [poses, setPoses] = useState([]); // All yoga poses
@@ -21,9 +23,7 @@ export default function Poses() {
 	const loadAllPoses = async () => {
 		setLoading(true);
 		try {
-			const res = await fetch(
-				"http://localhost:3001/poses"
-			);
+			const res = await fetch(`${apiUrl}/poses`);
 			const data = await res.json();
 			setPoses(data);
 			setFilteredPoses(data);
@@ -42,7 +42,7 @@ export default function Poses() {
 		try {
 			// fetch endpoint by name
 			const res = await fetch(
-				`http://localhost:3001/poses/search?name=${encodeURIComponent(
+				`${apiUrl}/poses/search?name=${encodeURIComponent(
 					searchTerm
 				)}`
 			);

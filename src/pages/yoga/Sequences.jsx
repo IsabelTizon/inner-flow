@@ -9,6 +9,8 @@ import SequencesCard from "../../components/globals/Yoga/SequencesCard.jsx";
 import styles from "./Sequences.module.css";
 //CUSTOM HOOKS
 import { useToggleSequence } from "../../hooks/useToggleSequence.js";
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Sequences() {
 	const [sequences, setSequences] = useState([]); // User sequences empty array as initial state
@@ -31,7 +33,7 @@ export default function Sequences() {
 			const token = localStorage.getItem("token"); // JWT token to authorize user
 			const response = await fetch(
 				// await pauses the function till the request completes
-				"http://localhost:3001/sequences/my-sequences",
+				`${apiUrl}/sequences/my-sequences`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`, // send the token as Bearer
@@ -63,7 +65,7 @@ export default function Sequences() {
 
 			const response = await fetch(
 				// await pauses the function till the request completes
-				"http://localhost:3001/sequences",
+				`${apiUrl}/sequences`,
 				{
 					method: "POST",
 					headers: {
@@ -105,11 +107,13 @@ export default function Sequences() {
 
 		// Proceed with deletion in the backend
 		try {
-			const token = localStorage.getItem("token"); // Get the JWT token to authorize user
+			// const token = localStorage.getItem("token"); // Get the JWT token to authorize user
+			const token =
+				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRjY2YzNGIzLTJhMmYtNGE0YS1iMzFjLTVhNDljODQ3MzE2OSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU2ODEyNzk3LCJleHAiOjE3NTY4OTkxOTd9.gJLP3nKOZKzw8U4dXxE2_a5z7Vdji835zf-y1SVy0Wo";
 
 			const response = await fetch(
 				// await pauses the function till the request completes
-				`http://localhost:3001/sequences/${sequenceId}`,
+				`${apiUrl}/sequences/${sequenceId}`,
 				{
 					method: "DELETE",
 					headers: {
@@ -137,7 +141,7 @@ export default function Sequences() {
 			const token = localStorage.getItem("token"); // Get the JWT token to authorize user
 
 			const response = await fetch(
-				`http://localhost:3001/sequences/${sequenceId}/toggle-visibility`,
+				`${apiUrl}/sequences/${sequenceId}/toggle-visibility`,
 				{
 					method: "PATCH",
 					headers: {
@@ -177,7 +181,7 @@ export default function Sequences() {
 			const response = await fetch(
 				// await pauses the function till the request completes
 				// Get the pose from the sequence
-				`http://localhost:3001/sequences/${sequenceId}/poses/${poseId}`,
+				`${apiUrl}/sequences/${sequenceId}/poses/${poseId}`,
 				{
 					method: "DELETE",
 					headers: {

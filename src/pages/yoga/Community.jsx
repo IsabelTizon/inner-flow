@@ -7,6 +7,9 @@ import { useToggleSequence } from "../../hooks/useToggleSequence.js";
 // STYLES
 import styles from "./Sequences.module.css";
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function Community() {
 	// COMPONENT STATES
 	const [publicSequences, setPublicSequences] = useState(
@@ -25,7 +28,7 @@ export default function Community() {
 		setLoading(true);
 		try {
 			const res = await fetch(
-				"http://localhost:3001/community/sequences"
+				`${apiUrl}/community/sequences`
 			);
 			const data = await res.json();
 			setPublicSequences(data);

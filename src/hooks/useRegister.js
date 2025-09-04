@@ -3,6 +3,9 @@
 import { useNavigate } from "react-router-dom"; // to navigate
 import { useState } from "react"; // for creating states
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export function useRegister() {
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);
@@ -17,16 +20,13 @@ export function useRegister() {
 		setError(null);
 
 		try {
-			const res = await fetch(
-				"http://localhost:3001/auth/register",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ name, email, password }),
-				}
-			);
+			const res = await fetch(`${apiUrl}/auth/register`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ name, email, password }),
+			});
 
 			if (!res.ok) {
 				// If the res is not ok (status code outside 200-299)

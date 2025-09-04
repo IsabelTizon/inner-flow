@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 // COMPONENTS
 import PoseForm from "../../../components/globals/Yoga/PoseForm.jsx";
 
@@ -13,17 +16,14 @@ export default function CreatePoseForm() {
 		try {
 			const token = localStorage.getItem("token"); // Retrieve the authentication token to authorize the request.
 
-			const res = await fetch(
-				"http://localhost:3001/poses",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${token}`,
-					},
-					body: JSON.stringify(formData),
-				}
-			);
+			const res = await fetch(`${apiUrl}/poses`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify(formData),
+			});
 
 			if (res.ok) {
 				setMessage("Pose created successfully!");

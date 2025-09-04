@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from "./SequenceSelector.module.css";
 // COMPONENTS
 import Btn from "../Buttons/Btn.jsx";
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
 
 // 4 components: SequenceSelector, fetchUserSequences, CreateNewSequenceBtn,
 export default function SequenceSelector({
@@ -28,7 +30,7 @@ export default function SequenceSelector({
 		try {
 			const token = localStorage.getItem("token");
 			const response = await fetch(
-				"http://localhost:3001/sequences/my-sequences",
+				`${apiUrl}/sequences/my-sequences`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -60,7 +62,7 @@ export default function SequenceSelector({
 		try {
 			const token = localStorage.getItem("token");
 			const res = await fetch(
-				`http://localhost:3001/sequences/${selectedSequenceId}/poses`,
+				`${apiUrl}/${selectedSequenceId}/poses`,
 				{
 					method: "POST",
 					headers: {
@@ -105,20 +107,17 @@ export default function SequenceSelector({
 		setLoading(true);
 		try {
 			const token = localStorage.getItem("token");
-			const response = await fetch(
-				"http://localhost:3001/sequences",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${token}`,
-					},
-					body: JSON.stringify({
-						name: sequenceName,
-						description: `Custom sequence created for ${sequenceName}`,
-					}),
-				}
-			);
+			const response = await fetch(`${apiUrl}/sequences`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					name: sequenceName,
+					description: `Custom sequence created for ${sequenceName}`,
+				}),
+			});
 
 			if (response.ok) {
 				const newSequence = await response.json();

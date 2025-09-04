@@ -5,6 +5,9 @@ import { useParams, useNavigate } from "react-router-dom";
 // COMPONENTS
 import PoseForm from "../../../components/globals/Yoga/PoseForm.jsx";
 
+// .env DEVELOPMENT/DEPLOYMENT
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function EditPoseForm() {
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -27,9 +30,7 @@ export default function EditPoseForm() {
 			}
 
 			try {
-				const res = await fetch(
-					`http://localhost:3001/poses/${id}`
-				);
+				const res = await fetch(`${apiUrl}/poses/${id}`);
 				if (!res.ok) throw new Error("Pose not found");
 				const pose = await res.json();
 				setInitialData({
@@ -51,17 +52,14 @@ export default function EditPoseForm() {
 		try {
 			const token = localStorage.getItem("token"); // Retrieve the authentication token to authorize the request.
 
-			const res = await fetch(
-				`http://localhost:3001/poses/${id}`,
-				{
-					method: "PATCH",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${token}`,
-					},
-					body: JSON.stringify(formData),
-				}
-			);
+			const res = await fetch(`${apiUrl}/poses/${id}`, {
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify(formData),
+			});
 
 			if (res.ok) {
 				setMessage("Pose updated successfully!");
