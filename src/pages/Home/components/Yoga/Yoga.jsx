@@ -1,5 +1,5 @@
 // GLOBAL COMPONENTS
-import TextBlock from "../../../../components/globals/textBlock/TextBlock";
+import TextBlock from "../../../../components/globals/TextBlock/TextBlock";
 import ClickCard from "../../../../components/globals/ClickCard/ClickCard";
 
 // STYLES
