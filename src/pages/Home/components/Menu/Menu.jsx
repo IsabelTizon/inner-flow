@@ -1,6 +1,6 @@
 // GLOBAL COMPONENTS
 import imgBlockMenu from "../../assets/menu.jpg";
-import TextBlock from "../../../../components/globals/textBlock/textBlock";
+import TextBlock from "../../../../components/globals/textBlock/TextBlock";
 import Btn from "../../../../components/globals/Buttons/Btn";
 
 export default function Menu() {

@@ -1,5 +1,5 @@
 // GLOBAL COMPONENTS
-import TextBlock from "../../../../components/globals/textBlock/textBlock";
+import TextBlock from "../../../../components/globals/textBlock/TextBlock";
 import Btn from "../../../../components/globals/Buttons/Btn";
 
 // ASSETS
