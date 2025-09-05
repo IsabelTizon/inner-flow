@@ -68,18 +68,30 @@ export default function Navbar() {
 					</span>
 					{isDropdownOpen(DROPDOWN_IDS.YOGA) && (
 						<div className={styles.dropdownMenu}>
-							<Link to="/poses" onClick={closeAllDropdowns}>
+							<Link
+								to="/poses"
+								onClick={() => {
+									closeAllDropdowns();
+									toggle();
+								}}
+							>
 								Poses
 							</Link>
 							<Link
 								to="/sequences"
-								onClick={closeAllDropdowns}
+								onClick={() => {
+									closeAllDropdowns();
+									toggle();
+								}}
 							>
 								Sequences
 							</Link>
 							<Link
 								to="/community"
-								onClick={closeAllDropdowns}
+								onClick={() => {
+									closeAllDropdowns();
+									toggle();
+								}}
 							>
 								Community Sequences
 							</Link>
@@ -130,13 +142,19 @@ export default function Navbar() {
 								<>
 									<Link
 										to="/login"
-										onClick={closeAllDropdowns} // Redirects to login page and closes the dropdown
+										onClick={() => {
+											closeAllDropdowns();
+											toggle();
+										}} // Redirects to login page and closes the dropdown
 									>
 										Login
 									</Link>
 									<Link
 										to="/register"
-										onClick={closeAllDropdowns} // Redirects to register page and closes the dropdown
+										onClick={() => {
+											closeAllDropdowns();
+											toggle();
+										}} // Redirects to register page and closes the dropdown
 									>
 										Register
 									</Link>
