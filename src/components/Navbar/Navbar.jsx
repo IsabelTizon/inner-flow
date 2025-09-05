@@ -88,13 +88,21 @@ export default function Navbar() {
 				</li>
 				{/* Daily Menu */}
 				<li className={styles.navItem}>
-					<Link className={styles.navLink} to="/dailyMenu">
+					<Link
+						className={styles.navLink}
+						to="/dailyMenu"
+						onClick={toggle}
+					>
 						Daily Menu
 					</Link>
 				</li>
 				{/* Contact */}
 				<li className={styles.navItem}>
-					<Link className={styles.navLink} to="/contact">
+					<Link
+						className={styles.navLink}
+						to="/contact"
+						onClick={toggle}
+					>
 						Contact
 					</Link>
 				</li>
@@ -158,7 +166,11 @@ export default function Navbar() {
 				{/* Admin panel (just for admins) */}
 				{isLoggedIn && isAdmin && (
 					<li className={styles.navItem}>
-						<Link className={styles.navLink} to="/admin">
+						<Link
+							className={styles.navLink}
+							to="/admin"
+							onClick={toggle}
+						>
 							Admin
 						</Link>
 					</li>
