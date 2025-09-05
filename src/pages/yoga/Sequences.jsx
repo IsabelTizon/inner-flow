@@ -107,9 +107,9 @@ export default function Sequences() {
 
 		// Proceed with deletion in the backend
 		try {
-			// const token = localStorage.getItem("token"); // Get the JWT token to authorize user
-			const token =
-				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRjY2YzNGIzLTJhMmYtNGE0YS1iMzFjLTVhNDljODQ3MzE2OSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU2ODEyNzk3LCJleHAiOjE3NTY4OTkxOTd9.gJLP3nKOZKzw8U4dXxE2_a5z7Vdji835zf-y1SVy0Wo";
+			const token = localStorage.getItem("token"); // Get the JWT token to authorize user
+			// const token =
+			// 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRjY2YzNGIzLTJhMmYtNGE0YS1iMzFjLTVhNDljODQ3MzE2OSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU2ODEyNzk3LCJleHAiOjE3NTY4OTkxOTd9.gJLP3nKOZKzw8U4dXxE2_a5z7Vdji835zf-y1SVy0Wo";
 
 			const response = await fetch(
 				// await pauses the function till the request completes
