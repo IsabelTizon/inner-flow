@@ -72,7 +72,9 @@ export default function Navbar() {
 								to="/poses"
 								onClick={() => {
 									closeAllDropdowns();
-									toggle();
+									setTimeout(() => {
+										toggle();
+									}, 100); // Small delay to ensure first function completes
 								}}
 							>
 								Poses
@@ -81,7 +83,9 @@ export default function Navbar() {
 								to="/sequences"
 								onClick={() => {
 									closeAllDropdowns();
-									toggle();
+									setTimeout(() => {
+										toggle();
+									}, 100); // Small delay to ensure first function completes
 								}}
 							>
 								Sequences
@@ -90,7 +94,9 @@ export default function Navbar() {
 								to="/community"
 								onClick={() => {
 									closeAllDropdowns();
-									toggle();
+									setTimeout(() => {
+										toggle();
+									}, 100); // Small delay to ensure first function completes
 								}}
 							>
 								Community Sequences
@@ -144,8 +150,10 @@ export default function Navbar() {
 										to="/login"
 										onClick={() => {
 											closeAllDropdowns();
-											toggle();
-										}} // Redirects to login page and closes the dropdown
+											setTimeout(() => {
+												toggle();
+											}, 100); // Small delay to ensure first function completes
+										}}
 									>
 										Login
 									</Link>
@@ -153,8 +161,10 @@ export default function Navbar() {
 										to="/register"
 										onClick={() => {
 											closeAllDropdowns();
-											toggle();
-										}} // Redirects to register page and closes the dropdown
+											setTimeout(() => {
+												toggle();
+											}, 100); // Small delay to ensure first function completes
+										}}
 									>
 										Register
 									</Link>
