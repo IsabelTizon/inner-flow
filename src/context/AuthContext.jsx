@@ -54,6 +54,18 @@ export function AuthProvider({ children }) {
 			const tokenPayload = decodeToken(token);
 
 			if (tokenPayload) {
+				const now = Math.floor(Date.now() / 1000);
+				// Check if the token has an expiration time and if it is expired
+				if (tokenPayload.exp && tokenPayload.exp < now) {
+					console.warn("Token expired");
+					localStorage.removeItem("token"); // Remove the expired token from localStorage
+					localStorage.removeItem("userData"); // Remove user data from localStorage
+					setUser(null); // Clear user state
+					setIsLoggedIn(false); // There is no token in localStorage → clear the status and set isLoggedIn = false.
+					setLoading(false); // Stop the loading state
+					return;
+				}
+
 				const parsedUser = userData
 					? JSON.parse(userData)
 					: null;
