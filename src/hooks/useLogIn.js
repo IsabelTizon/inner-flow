@@ -1,7 +1,6 @@
-// src/hooks/useLogIn.js
 // REACT HOOKS
-import { useNavigate } from "react-router-dom"; // to navigate
-import { useState } from "react"; // for creating states
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 // CONTEXT
 import { useAuth } from "../context/useAuth";
@@ -11,9 +10,9 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 export function useLogIn() {
 	const navigate = useNavigate();
-	const { refreshAuth } = useAuth(); // Custom hook to access AuthContext
+	const { refreshAuth } = useAuth();
 	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false); // Boolean indicating whether the login request is in progress (initially false).
+	const [loading, setLoading] = useState(false);
 
 	const handleLogIn = async ({ email, password }) => {
 		setLoading(true);
@@ -30,18 +29,15 @@ export function useLogIn() {
 
 			if (response.ok) {
 				const data = await response.json();
-				console.log("Login response:", data);
+				"Login response:", data;
 
-				// Store the token and user data in localStorage to maintain the session.
 				localStorage.setItem("token", data.token);
 				localStorage.setItem(
 					"userData",
 					JSON.stringify(data.user)
 				);
 
-				// Refresh auth
 				await refreshAuth();
-				console.log("User role:", data.user.role); // Debug
 
 				//
 				if (data.user.role === "ADMIN") {
@@ -49,7 +45,6 @@ export function useLogIn() {
 				} else {
 					navigate("/");
 				}
-				console.log("Login successful");
 			} else {
 				const errorData = await response.json();
 				setError(errorData.message || "Login failed");

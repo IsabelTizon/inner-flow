@@ -21,18 +21,16 @@
 body {
 	margin: 0;
 	padding: 0;
-	/* Account for fixed navbar */
+
 	padding-top: 60px;
 }
 
-/* Responsive body adjustments */
 @media (max-width: 768px) {
 	body {
 		padding-top: 60px;
 	}
 }
 
-/* Smooth scrolling for better UX */
 html {
 	scroll-behavior: smooth;
 }

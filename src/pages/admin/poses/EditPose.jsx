@@ -77,7 +77,6 @@ export default function EditPose() {
 
 	// Handle edit pose navigate to editPoseForm
 	const handleEditPose = async (poseId) => {
-		console.log("Edit pose with ID:", poseId);
 		navigate(
 			`/admin/poses/editPose/editPoseForm/${poseId}`
 		);
@@ -85,8 +84,6 @@ export default function EditPose() {
 
 	// Handle delete pose
 	const handleEditDelete = async (poseId) => {
-		console.log("Delete pose with ID:", poseId);
-
 		const isConfirmed = window.confirm(
 			`Are you sure you want to delete this pose? This action cannot be undone.`
 		);

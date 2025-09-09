@@ -8,24 +8,24 @@ import logo from "../../assets/logo.png";
 // hooks
 import useToggle from "../../hooks/useToggle";
 import useDropdownManager from "../../hooks/useDropdownManager";
-import { useAuth } from "../../context/useAuth"; // Custom hook to access authentication state and methods
+import { useAuth } from "../../context/useAuth";
 // Icons
 import { FaUser } from "react-icons/fa";
 
 export default function Navbar() {
-	const [isOpen, toggle] = useToggle(); // isOpen State toggle to false or true
+	const [isOpen, toggle] = useToggle();
 	const {
 		toggleDropdown,
 		closeAllDropdowns,
 		isDropdownOpen,
-	} = useDropdownManager(); // Custom hook to manage dropdown states: 1)Dropdown trigger button opened/closed, 2) close all clicking outside dropdown, 3) checks whether a specific dropdown is currently open
-	const navigate = useNavigate(); // state to navigate to different routes
+	} = useDropdownManager();
+	const navigate = useNavigate();
 	const DROPDOWN_IDS = {
 		YOGA: "yoga",
 		USER: "user",
-	}; // Object to define dropdown IDs
+	};
 	const { isLoggedIn, isAdmin, user, logout, loading } =
-		useAuth(); // Accessing authentication states
+		useAuth();
 
 	if (loading) {
 		return <nav className={styles.navbar}>Loading...</nav>;
@@ -43,17 +43,14 @@ export default function Navbar() {
 					/>
 				</Link>
 			</div>
-			{/* Burger */}
 			<button className={styles.burger} onClick={toggle}>
 				☰
 			</button>
-			{/* Menu */}
 			<ul
 				className={`${styles.navItems} ${
 					isOpen ? styles.showMenu : ""
 				}`}
 			>
-				{/* Yoga dropdown */}
 				<li
 					className={styles.navItemWithDropdown}
 					data-dropdown
@@ -74,7 +71,7 @@ export default function Navbar() {
 									closeAllDropdowns();
 									setTimeout(() => {
 										toggle();
-									}, 100); // Small delay to ensure first function completes
+									}, 100);
 								}}
 							>
 								Poses
@@ -85,7 +82,7 @@ export default function Navbar() {
 									closeAllDropdowns();
 									setTimeout(() => {
 										toggle();
-									}, 100); // Small delay to ensure first function completes
+									}, 100);
 								}}
 							>
 								Sequences
@@ -96,7 +93,7 @@ export default function Navbar() {
 									closeAllDropdowns();
 									setTimeout(() => {
 										toggle();
-									}, 100); // Small delay to ensure first function completes
+									}, 100);
 								}}
 							>
 								Community Sequences
@@ -104,7 +101,6 @@ export default function Navbar() {
 						</div>
 					)}
 				</li>
-				{/* Daily Menu */}
 				<li className={styles.navItem}>
 					<Link
 						className={styles.navLink}
@@ -114,7 +110,6 @@ export default function Navbar() {
 						Daily Menu
 					</Link>
 				</li>
-				{/* Contact */}
 				<li className={styles.navItem}>
 					<Link
 						className={styles.navLink}
@@ -124,7 +119,6 @@ export default function Navbar() {
 						Contact
 					</Link>
 				</li>
-				{/* user register/login */}
 				<li
 					className={styles.navItemWithDropdown}
 					data-dropdown
@@ -134,10 +128,10 @@ export default function Navbar() {
 						onClick={() =>
 							toggleDropdown(DROPDOWN_IDS.USER)
 						}
-						role="button" // Indicates behavior of the span element is a button
+						role="button"
 						aria-expanded={isDropdownOpen(
 							DROPDOWN_IDS.USER
-						)} // Indicates whether the dropdown is open or closed
+						)}
 					>
 						<FaUser />
 					</span>
@@ -152,7 +146,7 @@ export default function Navbar() {
 											closeAllDropdowns();
 											setTimeout(() => {
 												toggle();
-											}, 100); // Small delay to ensure first function completes
+											}, 100);
 										}}
 									>
 										Login
@@ -163,7 +157,7 @@ export default function Navbar() {
 											closeAllDropdowns();
 											setTimeout(() => {
 												toggle();
-											}, 100); // Small delay to ensure first function completes
+											}, 100);
 										}}
 									>
 										Register
@@ -191,7 +185,6 @@ export default function Navbar() {
 						</div>
 					)}
 				</li>
-				{/* Admin panel (just for admins) */}
 				{isLoggedIn && isAdmin && (
 					<li className={styles.navItem}>
 						<Link
