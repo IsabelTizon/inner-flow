@@ -1,24 +1,17 @@
-// HOOKS
 import { useState } from "react";
-
-// CUSTOM HOOKS
 import { useLogIn } from "../../../hooks/useLogIn";
-
-// GLOBAL COMPONENTS
 import Btn from "../../../components/globals/Buttons/Btn.jsx";
-
-// STYLES
 import styles from "../auth.module.css";
 
 export default function Login() {
-	const { handleLogIn, error, loading } = useLogIn(); // Custom hook for login, send the data to the backend
+	const { handleLogIn, error, loading } = useLogIn();
 
-	const [email, setEmail] = useState(""); // store email
-	const [password, setPassword] = useState(""); // store password
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	const onSubmit = (e) => {
-		e.preventDefault(); // prevent page reload to handle custom validation and submission
-		console.log("Login input:", email, password);
+		e.preventDefault();
+
 		handleLogIn({ email, password });
 	};
 
