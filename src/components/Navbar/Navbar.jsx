@@ -105,7 +105,9 @@ export default function Navbar() {
 					<Link
 						className={styles.navLink}
 						to="/dailyMenu"
-						onClick={toggle}
+						onClick={() => {
+							if (window.innerWidth <= 768) toggle();
+						}}
 					>
 						Daily Menu
 					</Link>
@@ -114,7 +116,9 @@ export default function Navbar() {
 					<Link
 						className={styles.navLink}
 						to="/contact"
-						onClick={toggle}
+						onClick={() => {
+							if (window.innerWidth <= 768) toggle();
+						}}
 					>
 						Contact
 					</Link>
@@ -190,7 +194,9 @@ export default function Navbar() {
 						<Link
 							className={styles.navLink}
 							to="/admin"
-							onClick={toggle}
+							onClick={() => {
+								if (window.innerWidth <= 768) toggle();
+							}}
 						>
 							Admin
 						</Link>
